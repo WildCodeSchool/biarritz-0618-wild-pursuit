@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha \"./src/**/*.test.js\"",
-    "test:watch" : "mocha -w \"./src/**/*.test.js\""
+    "test:watch": "mocha -w \"./src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,16 @@
   "homepage": "https://github.com/WildCodeSchool/biarritz-0618-wild-pursuit#readme",
   "devDependencies": {
     "code": "^5.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "prettier": "^1.13.7"
   },
   "dependencies": {
     "hapi": "^17.5.2",
     "mongoose": "^5.2.4"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": true,
+    "arrowParens": "always"
   }
 }
