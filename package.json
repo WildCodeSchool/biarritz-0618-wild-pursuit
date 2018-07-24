@@ -1,22 +1,24 @@
 {
   "name": "biarritz-0618-wild-pursuit",
   "version": "0.0.1",
-  "description": "WIld pursuit",
+  "description": "Wild pursuit",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha \"./src/**/*.test.js\"",
+    "test": "NODE_ENV=test mocha -w \"./src/**/*.test.js\"",
     "test:watch": "NODE_ENV=test mocha -w \"./src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WildCodeSchool/biarritz-0618-wild-pursuit.git"
+    "url":
+      "git+https://github.com/WildCodeSchool/biarritz-0618-wild-pursuit.git"
   },
   "author": "wcs-biarritz-0618",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/WildCodeSchool/biarritz-0618-wild-pursuit/issues"
   },
-  "homepage": "https://github.com/WildCodeSchool/biarritz-0618-wild-pursuit#readme",
+  "homepage":
+    "https://github.com/WildCodeSchool/biarritz-0618-wild-pursuit#readme",
   "devDependencies": {
     "code": "^5.2.0",
     "mocha": "^5.2.0",
@@ -24,7 +26,9 @@
   },
   "dependencies": {
     "hapi": "^17.5.2",
-    "mongoose": "^5.2.4"
+    "mysql": "^2.16.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.38.0"
   },
   "prettier": {
     "singleQuote": true,

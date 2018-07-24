@@ -1,15 +1,10 @@
-const mongoose = require('mongoose');
+// const mysql = require('mysql');
 
-if (process.env.NODE_ENV === 'test') {
-  mongoose.connect('mongodb://localhost/api-test');
-} else {
-  mongoose.connect('mongodb://localhost/api');
-}
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('wildpursuit-test', 'root', null, {
+  host: 'localhost',
+  dialect: 'mysql',
+  operatorsAliases: false,
 });
 
-module.exports.db = db;
+module.exports = sequelize;

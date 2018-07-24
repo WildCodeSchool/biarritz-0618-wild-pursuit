@@ -2,12 +2,16 @@ const Code = require('code');
 const expect = Code.expect;
 const server = require('../app.js');
 const Question = require('./question.model');
+const sequelize = require('./../db.js');
 
 beforeEach((done) => {
   console.info('deleting questions ...');
-  Question.deleteMany()
+  Question.destroy({
+    where: {},
+    truncate: true,
+  })
     .then(() => {
-      console.info('deleted questions');
+      console.info('questions deleted');
       done();
     })
     .catch(done);
