@@ -11,4 +11,19 @@ module.exports = [
     path: '/questions/{questionId}',
     handler: questionsCtrl.readQuestion,
   },
+  {
+    method: 'GET',
+    path: '/questions',
+    handler: questionsCtrl.readQuestions,
+  },
+  {
+    method: 'PUT',
+    path: '/questions/{questionId}',
+    handler: questionsCtrl.updateQuestion,
+  },
+  {
+    method: 'DELETE',
+    path: '/questions/{questionId}',
+    handler: questionsCtrl.deleteQuestion,
+  },
 ];

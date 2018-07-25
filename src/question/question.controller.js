@@ -30,7 +30,7 @@ module.exports = {
   createQuestion(request, h) {
     return new Promise((resolve, reject) => {
       const values = {
-        id: request.payload.id, 
+        id: request.payload.id,
         theme: request.payload.theme,
         question: request.payload.question,
         response: request.payload.response,
@@ -63,6 +63,19 @@ module.exports = {
       });
   },
   readQuestion(request, h) {
+    //A FAIRE
     return h.response({}).code(178);
+  },
+  readQuestions(request, h) {
+    //A FAIRE
+    return h.response({}).code(243);
+  },
+  updateQuestion(request, h) {
+    //A FAIRE
+    return h.response({}).code(458);
+  },
+  deleteQuestion(request, h) {
+    //A FAIRE
+    return h.response({}).code(418);
   },
 };
