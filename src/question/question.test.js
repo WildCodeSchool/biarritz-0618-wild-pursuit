@@ -54,40 +54,6 @@ describe('CRUD /questions', () => {
         .catch(done);
     });
   });
-});
-
-describe.skip('CRUD /questions', () => {
-  describe('Create', () => {
-    it('Should create a question and respond 201', (done) => {
-      const request = {
-        method: 'POST',
-        url: '/questions',
-        payload: {
-          theme: 'geographie',
-          question: 'Quelle est la capitale de la France',
-          responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
-          response: 'Paris',
-        },
-      };
-
-      const expectedResponseBody = {
-        theme: 'geographie',
-        question: 'Quelle est la capitale de la France',
-        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
-        response: 'Paris',
-      };
-      server
-        .inject(request)
-        .then((response) => {
-          expect(response.statusCode).to.be.equal(201);
-          expect(response.result).to.include('id');
-          console.log(response.result);
-          expect(response.result).to.include(expectedResponseBody);
-          done();
-        })
-        .catch(done);
-    });
-  });
 
   describe.skip('Read', () => {
     // read one
