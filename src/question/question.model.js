@@ -1,12 +1,11 @@
 const Sequelize = require('Sequelize');
 const sequelize = require('./../db.js');
+
 const Question = sequelize.define('question', {
   id: {
-    // allowNull: false,
+    type: Sequelize.UUID,
     primaryKey: true,
-    // type: Sequelize.UUID,
-    // defaultValue: Sequelize.UUIDV4,
-    type: Sequelize.INTEGER,
+    defaultValue: Sequelize.UUIDV4
   },
   theme: {
     type: Sequelize.STRING,

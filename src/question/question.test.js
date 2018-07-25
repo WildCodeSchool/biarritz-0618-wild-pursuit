@@ -3,6 +3,8 @@ const expect = Code.expect;
 const server = require('../app.js');
 const Question = require('./question.model');
 const sequelize = require('./../db.js');
+const uuidv4 = require('uuid/v4');
+
 
 beforeEach((done) => {
   console.info('deleting questions ...');
@@ -17,7 +19,45 @@ beforeEach((done) => {
     .catch(done);
 });
 
+// un test pour voir si lorsqu'on crée une question on a bien un uuid qui lui est affecté
+// en verifiant directement dans la base sql
+
 describe('CRUD /questions', () => {
+  describe('Create', () => {
+    it('Should create a question and respond 201', (done) => {
+      const request = {
+        method: 'POST',
+        url: '/questions',
+        payload: {
+          id: uuidv4(),
+          theme: 'geographie',
+          question: 'Quelle est la capitale de la France',
+          responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
+          response: 'Paris',
+        },
+      };
+
+      const expectedResponseBody = {
+        theme: 'geographie',
+        question: 'Quelle est la capitale de la France',
+        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
+        response: 'Paris',
+      };
+
+      server
+        .inject(request)
+        .then((response) => {
+          expect(response.statusCode).to.be.equal(201);
+          expect(response.result).to.include('id');
+          expect(response.result).to.include(expectedResponseBody);
+          done();
+        })
+        .catch(done);
+    });
+  });
+});
+
+describe.skip('CRUD /questions', () => {
   describe('Create', () => {
     it('Should create a question and respond 201', (done) => {
       const request = {
@@ -50,7 +90,7 @@ describe('CRUD /questions', () => {
     });
   });
 
-  describe('Read', () => { // read one
+  describe.skip('Read', () => { // read one
     it('Should get a question and respond 200', (done) => {
       const question = {
         theme: 'geographie',
@@ -123,7 +163,7 @@ describe('CRUD /questions', () => {
           response: 'Paris',
         },
       };
-          const request = { // on la modifie
+        /*  const request = { // on la modifie
             method: 'PUT',
             url: `/questions/${createdQuestion.id}`, // on sait pas trop quelle cela modifie
             payload: {
@@ -132,7 +172,7 @@ describe('CRUD /questions', () => {
               responses: ['Tokyo', 'Toulouse', 'Bordeaux', 'Londres'],
               response: 'Paris',
             },
-          };
+          }; */
     
           const expectedResponseBody = { // on attend que la modif soie prise en compte
             theme: 'geographie',

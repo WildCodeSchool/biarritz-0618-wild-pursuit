@@ -4,7 +4,7 @@ module.exports = {
   createQuestion(request, h) {
     return new Promise((resolve, reject) => {
       const values = {
-        id: null,
+        id: request.payload.id, 
         theme: request.payload.theme,
         question: request.payload.question,
         response: request.payload.response,
