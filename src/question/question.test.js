@@ -5,7 +5,6 @@ const Question = require('./question.model');
 const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 
-
 beforeEach((done) => {
   console.info('deleting questions ...');
   Question.destroy({
@@ -90,12 +89,8 @@ describe.skip('CRUD /questions', () => {
     });
   });
 
-<<<<<<< HEAD
   describe.skip('Read', () => {
     // read one
-=======
-  describe.skip('Read', () => { // read one
->>>>>>> c38a38b2d63ef04aa4c8d099e4272f37450164bb
     it('Should get a question and respond 200', (done) => {
       const question = {
         theme: 'geographie',
@@ -169,7 +164,6 @@ describe.skip('CRUD /questions', () => {
           response: 'Paris',
         },
       };
-<<<<<<< HEAD
       // const request = {
       //   // on la modifie
       //   method: 'PUT',
@@ -181,38 +175,6 @@ describe.skip('CRUD /questions', () => {
       //     response: 'Paris',
       //   },
       // };
-=======
-        /*  const request = { // on la modifie
-            method: 'PUT',
-            url: `/questions/${createdQuestion.id}`, // on sait pas trop quelle cela modifie
-            payload: {
-              theme: 'geographie',
-              question: 'Quelle est la capitale de la France',
-              responses: ['Tokyo', 'Toulouse', 'Bordeaux', 'Londres'],
-              response: 'Paris',
-            },
-          }; */
-    
-          const expectedResponseBody = { // on attend que la modif soie prise en compte
-            theme: 'geographie',
-            question: 'Quelle est la capitale de la France',
-            responses: ['Tokyo', 'Toulouse', 'Bordeaux', 'Londres'],
-            response: 'Paris',
-          };
-    
-          server
-            .inject(request)
-            .then((response) => {
-              expect(response.statusCode).to.be.equal(200);
-              expect(response.result).to.include('id');
-              expect(response.result).to.include(expectedResponseBody);
-              done();
-            })
-            .catch(done);
-        });
-      });
-    });
->>>>>>> c38a38b2d63ef04aa4c8d099e4272f37450164bb
 
       const expectedResponseBody = {
         // on attend que la modif soie prise en compte
