@@ -1,4 +1,4 @@
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const sequelize = require('./../db.js');
 const Question = sequelize.define('question', {
   id: {
@@ -18,7 +18,7 @@ const Question = sequelize.define('question', {
     type: Sequelize.STRING,
   },
   responses: {
-    type: Sequelize.STRING,
+    type: Sequelize.JSON,
   },
 });
 

@@ -4,7 +4,7 @@
   "description": "Wild pursuit",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha -w \"./src/**/*.test.js\"",
+    "test": "NODE_ENV=test mocha \"./src/**/*.test.js\"",
     "test:watch": "NODE_ENV=test mocha -w \"./src/**/*.test.js\""
   },
   "repository": {
