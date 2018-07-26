@@ -26,6 +26,7 @@ function sqlToQuestion({ id, theme, question, response, responses }) {
     responses: result,
   };
 }
+
 module.exports = {
   createQuestion(request, h) {
     return new Promise((resolve, reject) => {
@@ -75,7 +76,13 @@ module.exports = {
     return h.response({}).code(458);
   },
   deleteQuestion(request, h) {
-    //A FAIRE
+    return new Promise((resolve, reject) => {
+      const id = request.payload.id;
+      console.log(id);
+      // Question.destroy({
+      //   where: { id: createdQuestion.id },
+      // })
+    });
     return h.response({}).code(418);
   },
 };

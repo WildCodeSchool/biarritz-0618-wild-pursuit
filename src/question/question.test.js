@@ -85,14 +85,12 @@ describe('CRUD /questions', () => {
 
     it('Should get all questions and respond 200', (done) => {
       const questionA = {
-        id: uuidv4(),
         theme: 'maman',
         question: 'manger?',
         responses: ['riz', 'pates', 'pizza', 'patate'],
         response: 'sushi',
       };
       const questionB = {
-        id: uuidv4(),
         theme: 'blalbla',
         question: 'blobloblo ?',
         responses: ['aa', 'bb', 'jj', 'aaz'],
@@ -183,21 +181,15 @@ describe('CRUD /questions', () => {
       };
       Question.create(question)
         .then((createdQuestion) => {
-          Question.destroy({
-            where: { id: createdQuestion.id },
-          })
-            .then((destroyQuestion) => {
-              const request = {
-                method: 'DELETE',
-                url: `/questions/${destroyQuestion.id}`,
-              };
-              return server.inject(request).then((response) => {
-                expect(response.statusCode).to.be.equal(200); // on attend que la reponse et 200
-                expect(response.result).to.be.equal(null || undefined); // on attend que l'objet que l'on a detruit soit null ou undefined
-                done();
-              });
-            })
-            .catch(done);
+          const request = {
+            method: 'DELETE',
+            url: `/questions/${createdQuestion.id}`,
+          };
+          return server.inject(request).then((response) => {
+            expect(response.statusCode).to.be.equal(200); // on attend que la reponse et 200
+            expect(response.result).to.be.equal(null || undefined); // on attend que l'objet que l'on a detruit soit null ou undefined
+            done();
+          });
         })
         .catch(done);
     });

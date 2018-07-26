@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "hapi": "^17.5.2",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.5.3",
+    "pg": "^7.4.3",
+    "postgresql": "0.0.1",
     "sequelize": "^4.38.0",
     "uuid": "^3.3.2",
     "win-node-env": "^0.1.0"
