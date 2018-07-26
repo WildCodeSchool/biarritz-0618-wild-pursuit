@@ -77,12 +77,19 @@ module.exports = {
   },
   deleteQuestion(request, h) {
     return new Promise((resolve, reject) => {
-      const id = request.payload.id;
-      console.log(id);
-      // Question.destroy({
-      //   where: { id: createdQuestion.id },
-      // })
-    });
-    return h.response({}).code(418);
+      // const id = request.payload.id;
+      // console.log(id);
+      Question.destroy({
+        where: { id: request.params.questionId },
+      })
+        .then(() => resolve())
+        .catch((err) => {
+          reject(err);
+        });
+    })
+      .then(() => h.response(null).code(200))
+      .catch((err) => {
+        return h.response(err).code(400);
+      });
   },
 };

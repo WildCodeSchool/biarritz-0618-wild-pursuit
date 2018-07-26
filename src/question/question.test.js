@@ -185,11 +185,14 @@ describe('CRUD /questions', () => {
             method: 'DELETE',
             url: `/questions/${createdQuestion.id}`,
           };
-          return server.inject(request).then((response) => {
-            expect(response.statusCode).to.be.equal(200); // on attend que la reponse et 200
-            expect(response.result).to.be.equal(null || undefined); // on attend que l'objet que l'on a detruit soit null ou undefined
-            done();
-          });
+          return server
+            .inject(request)
+            .then((response) => {
+              expect(response.statusCode).to.be.equal(200); // on attend que la reponse et 200
+              expect(response.result).to.be.equal(null); // on attend que l'objet que l'on a detruit soit null ou undefined
+              done();
+            })
+            .catch(done);
         })
         .catch(done);
     });
