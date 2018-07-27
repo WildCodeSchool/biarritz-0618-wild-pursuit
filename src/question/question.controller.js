@@ -68,43 +68,61 @@ module.exports = {
       .findOne({
         where: {
           id: request.params.questionId
-          //theme : 'geographie',
         }
       })
       .then((question) => {
-        //console.log('yolo', question);
         return h.response({}).code(200);
-        
+
       })
       .catch();
-    //A FAIRE
-    //sequelize.query("SELECT * FROM 'questions' WHERE id=??")
-
-    //db.questions.find({
-    //  where : {
-    //    id : req.params.id
-    //  }
-    //}).then((questions) => questions ? res.json(questions) : res.status(404).json({error : "Loose"}))
-
-    //db.questions.findAll({}).then((questions) => res.json(questions))
-    
   },
   readQuestions(request, h) {
-    Question
-      .findAll({})
-      .then((question) => {
-        console.log('LOL', question);
-        return h.response(question).code(200);
+    return new Promise((resolve, reject) => {
+      Question
+        .findAll({})
+        .then(resolve)
+        .catch((err) => {
+          reject(err);
+        });
+    }).then((questions) => {
+      let lesQuestions = {};
+      let i = 0;
+      questions.forEach((question) => {
+        lesQuestions[i] = {
+            id: question.dataValues.id,
+            theme: question.dataValues.theme,
+            question: question.dataValues.question,
+            response: question.dataValues.response,
+            responses: question.dataValues.responses,
+          };
+        i++;
       })
-      .catch();
-    
+
+      return h.response(lesQuestions).code(200)
+    })
+      .catch((err) => {
+        return h.response(err).code(418)
+      });
   },
+
+
   updateQuestion(request, h) {
     //A FAIRE
     return h.response({}).code(458);
   },
   deleteQuestion(request, h) {
-    //A FAIRE
-    return h.response({}).code(418);
+    return new Promise((resolve, reject) => {
+      Question.destroy({
+        where: { id: request.params.questionId },
+      })
+        .then(() => resolve())
+        .catch((err) => {
+          reject(err);
+        });
+    })
+      .then(() => h.response(null).code(200))
+      .catch((err) => {
+        return h.response(err).code(400);
+      });
   },
 };

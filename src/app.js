@@ -10,6 +10,8 @@ if (!module.parent) {
   });
 }
 
+require('./syncModels.js');
+
 server.route(require('./question/question.routes'));
 
 module.exports = server;
