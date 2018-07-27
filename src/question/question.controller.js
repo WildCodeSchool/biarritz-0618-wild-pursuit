@@ -1,31 +1,5 @@
 const Question = require('./question.model');
-
-// Fonction qui formatte les données pour povoir les rentrer dans la BDD (Converti le tableau de réponses fausses, en objet JSON)
-function questionToSql({ id, theme, question, response, responses }) {
-  return {
-    id,
-    theme,
-    question,
-    response,
-    responses: { ...responses },
-  };
-}
-
-// Fonction qui formatte les données récupérés dans la BBS pour utilisation dans l'App (Converti le JSON de mauvaises réponses en tableau)
-function sqlToQuestion({ id, theme, question, response, responses }) {
-  let result = [];
-  var keys = Object.keys(responses);
-  keys.forEach(function(key) {
-    result.push(responses[key]);
-  });
-  return {
-    id,
-    theme,
-    question,
-    response,
-    responses: result,
-  };
-}
+const helper = require('./question.helper');
 
 module.exports = {
   createQuestion(request, h) {
@@ -37,8 +11,7 @@ module.exports = {
         response: request.payload.response,
         responses: request.payload.responses,
       };
-
-      Question.create(questionToSql(values))
+      Question.create(helper.questionToSql(values))
         .then((createdQuestion) => {
           resolve(createdQuestion);
         })
@@ -49,7 +22,7 @@ module.exports = {
       .then((createdQuestion) => {
         return h
           .response(
-            sqlToQuestion({
+            helper.sqlToQuestion({
               id: createdQuestion.id,
               theme: createdQuestion.theme,
               response: createdQuestion.response,
