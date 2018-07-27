@@ -5,6 +5,10 @@ const Question = require('./question.model');
 const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 
+
+
+
+//Avant ébut des test on suppr toutes les données
 beforeEach((done) => {
   console.info('deleting questions ...');
   Question.destroy({
@@ -18,9 +22,14 @@ beforeEach((done) => {
     .catch(done);
 });
 
+
+
+
+
 // un test pour voir si lorsqu'on crée une question on a bien un uuid qui lui est affecté
 // en verifiant directement dans la base sql
 
+//Test la création de la question
 describe('CRUD /questions', () => {
   describe('Create', () => {
     it('Should create a question and respond 201', (done) => {
@@ -55,14 +64,19 @@ describe('CRUD /questions', () => {
     });
   });
 
-  describe.skip('Read', () => {
+
+
+
+
+  //Test la lecture des questions
+  describe('Read', () => {
     // read one
     it('Should get a question and respond 200', (done) => {
       const question = {
         theme: 'geographie',
         question: 'Quelle est la capitale de la France',
-        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Paris',
+        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
       };
       Question.create(question)
         .then((createdQuestion) => {
@@ -83,24 +97,31 @@ describe('CRUD /questions', () => {
         .catch(done);
     });
 
+
+
+
+
+    //Read all
     it('Should get all questions and respond 200', (done) => {
       const questionA = {
+        id: uuidv4(),
         theme: 'maman',
         question: 'manger?',
-        responses: ['riz', 'pates', 'pizza', 'patate'],
         response: 'sushi',
+        responses: ['riz', 'pates', 'pizza', 'patate'],
       };
       const questionB = {
+        id: uuidv4(),
         theme: 'blalbla',
         question: 'blobloblo ?',
-        responses: ['aa', 'bb', 'jj', 'aaz'],
         response: 'oui',
+        responses: ['aa', 'bb', 'jj', 'aaz'],
       };
 
       Question.create(questionA)
-        .then(() =>
+        .then(() => {
           Question.create(questionB) //creation de la question A et B
-            .then((createdQuestion) => {
+            .then(() => {
               const request = {
                 method: 'GET',
                 url: `/questions`, // plus de id pour ne pas cibler une seule question
@@ -113,14 +134,20 @@ describe('CRUD /questions', () => {
                 expect(response.statusCode).to.be.equal(200); // quand l'on arrive à lire toutes les questions
                 expect(response.result).to.include(expectedResponseBody); // les questions apparaissent
                 done();
-              });
+              }).catch(done);
             })
-            .catch(done)
-        )
+            .catch(done);
+        })
         .catch(done);
     });
   });
 
+
+
+
+
+
+  //Test de la mise à jour d'une question
   describe('Update', () => {
     it('Should update a question and respond 200', (done) => {
       const requestCreate = {
@@ -173,6 +200,11 @@ describe('CRUD /questions', () => {
     });
   });
 
+
+
+
+  
+  //Test de la suppression d'une question
   describe('Destroy', () => {
     it('Should destroy a question and respond 200', (done) => {
       const question = {
