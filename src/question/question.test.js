@@ -55,7 +55,7 @@ describe('CRUD /questions', () => {
     });
   });
 
-  describe('Read', () => {
+  describe.skip('Read', () => {
     // read one
     it('Should get a question and respond 200', (done) => {
       const question = {
@@ -145,11 +145,12 @@ describe('CRUD /questions', () => {
 
       server
         .inject(requestCreate)
-        .then((createdQuestion) => {
+        .then((res) => {
+          
           const requestUpdate = {
             // on la modifie
             method: 'PUT',
-            url: `/questions/${createdQuestion.id}`, // on sait pas trop quelle cela modifie
+            url: `/questions/${res.result.id}`, // on sait pas trop quelle cela modifie
             payload: {
               theme: 'geographie',
               question: 'Quelle est la capitale de la France ?',
@@ -160,6 +161,7 @@ describe('CRUD /questions', () => {
           server
             .inject(requestUpdate)
             .then((response) => {
+              
               expect(response.statusCode).to.be.equal(200);
               expect(response.result).to.include('id');
               expect(response.result).to.include(expectedResponseBody);

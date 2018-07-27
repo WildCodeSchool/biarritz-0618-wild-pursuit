@@ -72,8 +72,42 @@ module.exports = {
     return h.response({}).code(243);
   },
   updateQuestion(request, h) {
-    //A FAIRE
-    return h.response({}).code(458);
+    return new Promise((resolve, reject) => {
+      /* const values = {
+        id = request.payload.id,
+        question = request.payload.question,
+        response = request.payload.response,
+        responses = request.payload.responses,
+    }
+     */
+
+      Question.update(
+        (values = {
+          id: request.payload.id,
+          question: request.payload.question,
+          response: request.payload.response,
+          responses: request.payload.responses,
+        }),
+        {
+          where: {
+            id: request.params.questionId,
+          },
+          returning: true
+        }
+      )
+
+        .then((reponseSQL) => resolve(reponseSQL[1][0].dataValues))
+        .catch((err) => {
+          reject(err);
+        });
+    })
+      .then((questionUpdated) => {
+        
+        return h.response(questionUpdated).code(200);
+      })
+      .catch((err) => {
+        return h.response(err).code(458);
+      });
   },
   deleteQuestion(request, h) {
     return new Promise((resolve, reject) => {
