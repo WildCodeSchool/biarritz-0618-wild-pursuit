@@ -15,7 +15,7 @@ function questionToSql({ id, theme, question, response, responses }) {
 function sqlToQuestion({ id, theme, question, response, responses }) {
   let result = [];
   var keys = Object.keys(responses);
-  keys.forEach(function(key) {
+  keys.forEach(function (key) {
     result.push(responses[key]);
   });
   return {
@@ -63,12 +63,41 @@ module.exports = {
       });
   },
   readQuestion(request, h) {
+    //let maQuest = sequelize.query("SELECT * FROM `questions` WHERE id=req.params.id");
+    Question
+      .findOne({
+        where: {
+          id: request.params.questionId
+          //theme : 'geographie',
+        }
+      })
+      .then((question) => {
+        //console.log('yolo', question);
+        return h.response({}).code(200);
+        
+      })
+      .catch();
     //A FAIRE
-    return h.response({}).code(178);
+    //sequelize.query("SELECT * FROM 'questions' WHERE id=??")
+
+    //db.questions.find({
+    //  where : {
+    //    id : req.params.id
+    //  }
+    //}).then((questions) => questions ? res.json(questions) : res.status(404).json({error : "Loose"}))
+
+    //db.questions.findAll({}).then((questions) => res.json(questions))
+    
   },
   readQuestions(request, h) {
-    //A FAIRE
-    return h.response({}).code(243);
+    Question
+      .findAll({})
+      .then((question) => {
+        console.log('LOL', question);
+        return h.response(question).code(200);
+      })
+      .catch();
+    
   },
   updateQuestion(request, h) {
     //A FAIRE

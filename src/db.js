@@ -1,9 +1,9 @@
 // const mysql = require('mysql');
 
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('wildpursuit-test', 'root', 'root', {
+const sequelize = new Sequelize('wildpursuit-test', 'postgres', 'root', {
   host: 'localhost',
-  dialect: 'mysql',
+  dialect: 'postgresql',
   operatorsAliases: false,
 });
 

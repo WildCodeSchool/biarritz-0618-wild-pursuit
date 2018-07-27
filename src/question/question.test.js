@@ -52,7 +52,7 @@ describe('CRUD /questions', () => {
           done();
         })
         .catch(done);
-    });
+    }); 
   });
 
   describe('Read', () => {
@@ -112,6 +112,7 @@ describe('CRUD /questions', () => {
                 1: { ...questionB },
               };
               return server.inject(request).then((response) => {
+                console.log(response.result);
                 expect(response.statusCode).to.be.equal(200); // quand l'on arrive à lire toutes les questions
                 expect(response.result).to.include(expectedResponseBody); // les questions apparaissent
                 done();
@@ -123,7 +124,7 @@ describe('CRUD /questions', () => {
     });
   });
 
-  describe('Update', () => {
+  describe.skip('Update', () => {
     it('Should update a question and respond 200', (done) => {
       const requestCreate = {
         // on post une question
@@ -173,7 +174,7 @@ describe('CRUD /questions', () => {
     });
   });
 
-  describe('Destroy', () => {
+  describe.skip('Destroy', () => {
     it('Should destroy a question and respond 200', (done) => {
       const question = {
         theme: 'geographie',
