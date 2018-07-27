@@ -102,14 +102,15 @@ describe('CRUD /questions', () => {
     });
   });
 
-  describe.skip('Read', () => {
+  //Test la lecture des questions
+  describe('Read', () => {
     // read one
     it('Should get a question and respond 200', (done) => {
       const question = {
         theme: 'geographie',
         question: 'Quelle est la capitale de la France',
-        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Paris',
+        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
       };
       Question.create(question)
         .then((createdQuestion) => {
@@ -130,24 +131,27 @@ describe('CRUD /questions', () => {
         .catch(done);
     });
 
+    //Read all
     it('Should get all questions and respond 200', (done) => {
       const questionA = {
+        id: uuidv4(),
         theme: 'maman',
         question: 'manger?',
-        responses: ['riz', 'pates', 'pizza', 'patate'],
         response: 'sushi',
+        responses: ['riz', 'pates', 'pizza', 'patate'],
       };
       const questionB = {
+        id: uuidv4(),
         theme: 'blalbla',
         question: 'blobloblo ?',
-        responses: ['aa', 'bb', 'jj', 'aaz'],
         response: 'oui',
+        responses: ['aa', 'bb', 'jj', 'aaz'],
       };
 
       Question.create(questionA)
-        .then(() =>
+        .then(() => {
           Question.create(questionB) //creation de la question A et B
-            .then((createdQuestion) => {
+            .then(() => {
               const request = {
                 method: 'GET',
                 url: `/questions`, // plus de id pour ne pas cibler une seule question
@@ -156,19 +160,23 @@ describe('CRUD /questions', () => {
                 0: { ...questionA },
                 1: { ...questionB },
               };
-              return server.inject(request).then((response) => {
-                expect(response.statusCode).to.be.equal(200); // quand l'on arrive à lire toutes les questions
-                expect(response.result).to.include(expectedResponseBody); // les questions apparaissent
-                done();
-              });
+              return server
+                .inject(request)
+                .then((response) => {
+                  expect(response.statusCode).to.be.equal(200); // quand l'on arrive à lire toutes les questions
+                  expect(response.result).to.include(expectedResponseBody); // les questions apparaissent
+                  done();
+                })
+                .catch(done);
             })
-            .catch(done)
-        )
+            .catch(done);
+        })
         .catch(done);
     });
   });
 
-  describe.skip('Update', () => {
+  //Test de la mise à jour d'une question
+  describe('Update', () => {
     it('Should update a question and respond 200', (done) => {
       const requestCreate = {
         // on post une question
@@ -192,11 +200,11 @@ describe('CRUD /questions', () => {
 
       server
         .inject(requestCreate)
-        .then((createdQuestion) => {
+        .then((res) => {
           const requestUpdate = {
             // on la modifie
             method: 'PUT',
-            url: `/questions/${createdQuestion.id}`, // on sait pas trop quelle cela modifie
+            url: `/questions/${res.result.id}`, // on sait pas trop quelle cela modifie
             payload: {
               theme: 'geographie',
               question: 'Quelle est la capitale de la France ?',
