@@ -1,5 +1,4 @@
 const Question = require('./question.model');
-const helper = require('./question.helper');
 
 module.exports = {
   createQuestion(request, h) {
@@ -11,7 +10,7 @@ module.exports = {
         response: request.payload.response,
         responses: request.payload.responses,
       };
-      Question.create(helper.questionToSql(values))
+      Question.create(values)
         .then((createdQuestion) => {
           resolve(createdQuestion);
         })
@@ -21,15 +20,13 @@ module.exports = {
     })
       .then((createdQuestion) => {
         return h
-          .response(
-            helper.sqlToQuestion({
-              id: createdQuestion.id,
-              theme: createdQuestion.theme,
-              response: createdQuestion.response,
-              responses: createdQuestion.responses,
-              question: createdQuestion.question,
-            })
-          )
+          .response({
+            id: createdQuestion.id,
+            theme: createdQuestion.theme,
+            response: createdQuestion.response,
+            responses: createdQuestion.responses,
+            question: createdQuestion.question,
+          })
           .code(201);
       })
       .catch((err) => {
@@ -58,6 +55,7 @@ module.exports = {
           response: question.dataValues.response,
           responses: question.dataValues.responses,
         };
+        console.log(laQuestion);
         return h.response(laQuestion).code(200);
       })
       .catch();

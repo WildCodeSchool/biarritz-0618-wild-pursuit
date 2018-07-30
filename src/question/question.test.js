@@ -5,7 +5,6 @@ const Question = require('./question.model');
 const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 const questionsCtrl = require('./question.controller');
-const helper = require('./question.helper');
 
 beforeEach((done) => {
   console.info('deleting questions ...');
@@ -20,54 +19,6 @@ beforeEach((done) => {
     .catch(done);
 });
 
-// un test pour voir si lorsqu'on crée une question on a bien un uuid qui lui est affecté
-// en verifiant directement dans la base sql
-
-describe('Formatage', () => {
-  describe('To SQL', () => {
-    it('Should  convert the Array of false responses to a JSON object', (done) => {
-      const questionApp = {
-        id: uuidv4(),
-        theme: 'geographie',
-        question: 'Quelle est la capitale de la France',
-        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
-        response: 'Paris',
-      };
-      const questionSQL = {
-        id: questionApp.id,
-        theme: 'geographie',
-        question: 'Quelle est la capitale de la France',
-        responses: { 0: 'Bayonne', 1: 'Toulouse', 2: 'Bordeaux', 3: 'Londres' },
-        response: 'Paris',
-      };
-      const reponseSQL = helper.questionToSql(questionApp);
-      expect(reponseSQL).to.be.equal(questionSQL);
-      done();
-    });
-  });
-
-  describe('From SQL', () => {
-    it('Should convert the JSON object of false responses stored on the SQL Database to an Array', (done) => {
-      const questionSQL = {
-        id: uuidv4(),
-        theme: 'geographie',
-        question: 'Quelle est la capitale de la France',
-        responses: { 0: 'Bayonne', 1: 'Toulouse', 2: 'Bordeaux', 3: 'Londres' },
-        response: 'Paris',
-      };
-      const questionApp = {
-        id: questionSQL.id,
-        theme: 'geographie',
-        question: 'Quelle est la capitale de la France',
-        responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
-        response: 'Paris',
-      };
-      const reponseApp = helper.sqlToQuestion(questionSQL);
-      expect(reponseApp).to.be.equal(questionApp);
-      done();
-    });
-  });
-});
 describe('CRUD /questions', () => {
   describe('Create', () => {
     it('Should create a question and respond 201', (done) => {
