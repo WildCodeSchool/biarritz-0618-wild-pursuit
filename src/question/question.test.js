@@ -6,20 +6,21 @@ const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 const questionsCtrl = require('./question.controller');
 
-beforeEach((done) => {
-  console.info('deleting questions ...');
-  Question.destroy({
-    where: {},
-    truncate: true,
-  })
-    .then(() => {
-      console.info('questions deleted');
-      done();
-    })
-    .catch(done);
-});
+
 
 describe('CRUD /questions', () => {
+  beforeEach((done) => {
+    console.info('deleting questions ...');
+    Question.destroy({
+      where: {},
+      truncate: true,
+    })
+      .then(() => {
+        console.info('questions deleted');
+        done();
+      })
+      .catch(done);
+  });
   describe('Create', () => {
     it('Should create a question and respond 201', (done) => {
       const request = {
