@@ -4,7 +4,7 @@ const sequelize = require('./../db.js');
 const Question = require('./../question/question.model');
 const getNewQuestions = require('./tour.helper.js').getNewQuestions;
 const getQuestion = require('./tour.controller.js').getQuestion;
-//const tourCtrl = require('./tour.controller');
+
 
 describe('Afficher et répondre à une question', () => {
   beforeEach((done) => {
