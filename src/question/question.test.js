@@ -6,8 +6,6 @@ const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 const questionsCtrl = require('./question.controller');
 
-
-
 describe('CRUD /questions', () => {
   beforeEach((done) => {
     console.info('deleting questions ...');
