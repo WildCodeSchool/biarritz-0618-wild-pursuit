@@ -6,6 +6,7 @@ import Ranking from './ranking/Ranking.jsx';
 import Social from './social/Social.jsx';
 import Die from './Die.js';
 import CountDown from './countDown/CountDown.jsx';
+import Plateau from './Plateau.jsx';
 
 class App extends Component {
 	render() {
@@ -17,6 +18,7 @@ class App extends Component {
 				<Ranking />
 				<Social />
 				<CountDown seconds="65" />
+				<Plateau />
 			</div>
 		);
 	}
