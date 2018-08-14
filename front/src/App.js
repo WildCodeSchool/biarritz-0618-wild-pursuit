@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import List from "./List";
-import Plateau from "./Plateau";
 import Ranking from "./ranking/Ranking.jsx";
+import Social from "./social/Social.jsx";
+import Die from "./Die.js";
 
 class App extends Component {
   render() {
@@ -21,6 +21,8 @@ class App extends Component {
         </div>
 
         <Ranking />
+        <Social />
+        <Die />
       </div>
     );
   }
