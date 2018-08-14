@@ -19,8 +19,11 @@ class App extends Component {
         <div>
           <Plateau />
         </div>
+
         <Ranking />
       </div>
     );
   }
 }
+
+export default App;
