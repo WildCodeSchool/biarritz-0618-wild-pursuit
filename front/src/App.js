@@ -4,6 +4,7 @@ import "./App.css";
 
 import List from "./List";
 import Plateau from "./Plateau";
+import Ranking from "./ranking/Ranking.jsx";
 
 class App extends Component {
   render() {
@@ -18,9 +19,8 @@ class App extends Component {
         <div>
           <Plateau />
         </div>
+        <Ranking />
       </div>
     );
   }
 }
-
-export default App;
