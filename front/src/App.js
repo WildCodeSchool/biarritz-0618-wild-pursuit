@@ -4,6 +4,7 @@ import './App.css';
 
 import Ranking from './ranking/Ranking.jsx';
 import Social from './social/Social.jsx';
+import Die from './Die.js';
 
 class App extends Component {
 	render() {
@@ -13,6 +14,7 @@ class App extends Component {
 				<h2>A la recherche de la quête perdue</h2>
 				<Ranking />
 				<Social />
+				<Die />
 			</div>
 		);
 	}
