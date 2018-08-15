@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CountDown extends Component {
 	constructor(props) {
 		super();
-		this.state = { ...props, time: { m: 0, s: 0 } };
+		this.state = { ...props, time: this.secondsToTime(props.seconds) };
 		this._timer = 0;
 		this.startTimer = this.startTimer.bind(this);
 		this.countDown = this.countDown.bind(this);
@@ -49,7 +49,7 @@ class CountDown extends Component {
 	display() {
 		let displayTime = '';
 		if (this.state.time.m != 0) {
-			displayTime = displayTime + this.state.time.m + ' Min';
+			displayTime = displayTime + this.state.time.m + ' Min ';
 		}
 		displayTime = displayTime + this.state.time.s + ' Sec';
 		return displayTime;
