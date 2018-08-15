@@ -3,10 +3,6 @@ import Button from './button/Button.jsx';
 import List from './list/List.jsx';
 
 class Lobby extends Component {
-	constructor() {
-		super();
-	}
-
 	nbrJoueurs() {
 		let x = Math.floor(Math.random() * (10 - 2)) + 2;
 		let y = Math.floor(Math.random() * (x - 1 - 0)) + 0;

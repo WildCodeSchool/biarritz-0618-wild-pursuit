@@ -14,7 +14,7 @@ class CountDown extends Component {
 		this.startTimer();
 	}
 	startTimer() {
-		if (this._timer == 0) {
+		if (this._timer === 0) {
 			this._timer = setInterval(this.countDown, 1000);
 		}
 	}
@@ -41,7 +41,7 @@ class CountDown extends Component {
 		});
 
 		// Check if we're at zero.
-		if (seconds == 0) {
+		if (seconds === 0) {
 			clearInterval(this._timer);
 			alert('Le compte à rebours est fini !');
 		}
