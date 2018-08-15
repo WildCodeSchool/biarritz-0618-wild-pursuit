@@ -7,6 +7,7 @@ import Social from './social/Social.jsx';
 import CountDown from './countDown/CountDown.jsx';
 import Plateau from './Plateau.jsx';
 import CreateGame from './createGame/CreateGame.jsx';
+import Lobby from './Lobby.jsx';
 
 class App extends Component {
 	render() {
@@ -14,6 +15,7 @@ class App extends Component {
 			<div className="App">
 				<h1>Wild Pursuit</h1>
 				<h2>A la recherche de la quête perdue</h2>
+				<Lobby />
 				<Ranking />
 				<Social />
 				<CountDown seconds="120" />
