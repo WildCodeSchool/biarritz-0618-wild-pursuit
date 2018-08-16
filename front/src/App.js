@@ -7,6 +7,7 @@ import CountDown from './countDown/CountDown.jsx';
 import Plateau from './Plateau.jsx';
 import CreateGame from './createGame/CreateGame.jsx';
 import Lobby from './Lobby.jsx';
+import CountDownToGame from './countDownToGame/CountDownToGame.jsx';
 
 class App extends Component {
 	render() {
@@ -17,9 +18,9 @@ class App extends Component {
 				<Lobby />
 				<Ranking />
 				<Social />
-				<CountDown seconds="120" />
 				<Plateau />
 				<CreateGame />
+				<CountDownToGame countDown={10} />
 			</div>
 		);
 	}
