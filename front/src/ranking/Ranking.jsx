@@ -21,17 +21,19 @@ class Ranking extends Component {
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2">Classement</td>
+						<td colSpan="2">Classement</td>
 					</tr>
 				</thead>
-				{this._players.map(player => {
-					return (
-						<tr>
-							<td>{player.cheeseCount}</td>
-							<td>{player.nickname}</td>
-						</tr>
-					);
-				})}
+				<tbody>
+					{this._players.map(player => {
+						return (
+							<tr>
+								<td>{player.cheeseCount}</td>
+								<td>{player.nickname}</td>
+							</tr>
+						);
+					})}
+				</tbody>
 			</table>
 		);
 	}
