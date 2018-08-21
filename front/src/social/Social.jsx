@@ -1,34 +1,34 @@
-import React, { Component } from "react";
-import Button from "./../button/Button.jsx";
-import List from "./../list/List.jsx";
+import React, { Component } from 'react';
+import Button from './../button/Button.jsx';
+import List from './../list/List.jsx';
 
 class Social extends Component {
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    this._TxtInteractions = [
-      <Button name="Bravo !" />,
-      <Button name="Dommage..." />,
-      <Button name="Bien joué !" />,
-      <Button name="AHAH" />
-    ];
-    this._emoInteractions = [
-      <Button name="🙂" />,
-      <Button name="❤️" />,
-      <Button name="😉" />,
-      <Button name="😀" />,
-      <Button name="☹️" />
-    ];
-  }
+		this._TxtInteractions = [
+			<Button name="Bravo !" />,
+			<Button name="Dommage..." />,
+			<Button name="Bien joué !" />,
+			<Button name="AHAH" />,
+		];
+		this._emoInteractions = [
+			<Button name="🙂" variant="fab" />,
+			<Button name="❤️" variant="fab" />,
+			<Button name="😉" variant="fab" />,
+			<Button name="😀" variant="fab" />,
+			<Button name="☹️" variant="fab" />,
+		];
+	}
 
-  render() {
-    return (
-      <div>
-        <List items={this._TxtInteractions} />
-        <List items={this._emoInteractions} />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<List items={this._TxtInteractions} />
+				<List items={this._emoInteractions} />
+			</div>
+		);
+	}
 }
 
 export default Social;
