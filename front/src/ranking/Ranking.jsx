@@ -25,9 +25,9 @@ class Ranking extends Component {
 					</tr>
 				</thead>
 				<tbody>
-					{this._players.map(player => {
+					{this._players.map((player, i) => {
 						return (
-							<tr>
+							<tr key={i}>
 								<td>{player.cheeseCount}</td>
 								<td>{player.nickname}</td>
 							</tr>
