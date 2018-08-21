@@ -8,6 +8,8 @@ import CreateGame from './createGame/CreateGame.jsx';
 import Lobby from './Lobby.jsx';
 import CountDownToGame from './countDownToGame/CountDownToGame.jsx';
 import WaitingForPlayers from './waitingForPlayers/WaitingForPlayers.jsx';
+import Question from './question/Question.jsx';
+import Popup from './popup/Popup.jsx';
 
 class App extends Component {
 	render() {
@@ -19,9 +21,10 @@ class App extends Component {
 				<Ranking />
 				<Social />
 				<Plateau />
-				<CreateGame />
-				<CountDownToGame countDown={10} />
-				<WaitingForPlayers maxPLayers={8} />
+				<Popup comp={<CreateGame />} />
+				<Popup comp={<CountDownToGame countDown={10} />} />
+				<Popup comp={<WaitingForPlayers maxPLayers={8} />} />
+				<Popup comp={<Question />} />
 			</div>
 		);
 	}
