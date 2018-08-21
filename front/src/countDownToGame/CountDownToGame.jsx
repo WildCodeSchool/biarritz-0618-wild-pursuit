@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import CountDown from './../countDown/CountDown.jsx';
 
 export default class CountDownToGame extends Component {
@@ -11,3 +13,7 @@ export default class CountDownToGame extends Component {
 		);
 	}
 }
+
+CountDownToGame.propTypes = {
+	countDown: PropTypes.number.isRequired,
+};

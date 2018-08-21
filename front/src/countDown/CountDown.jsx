@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { decomposeToMinutesAndSecs } from './CountDown.helper.js';
 import DisplayTime from './DisplayTime.jsx';
 
@@ -17,6 +19,7 @@ class CountDown extends Component {
 	componentDidMount() {
 		this.startTimer();
 	}
+
 	startTimer() {
 		if (this._timer === 0) {
 			this._timer = setInterval(this.countDown, 1000);
@@ -46,5 +49,9 @@ class CountDown extends Component {
 		);
 	}
 }
+
+CountDown.propTypes = {
+	seconds: PropTypes.number.isRequired,
+};
 
 export default CountDown;

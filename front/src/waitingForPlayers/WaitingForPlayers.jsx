@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Button from './../button/Button.jsx';
 
 export default class WaitingForPlayers extends Component {
@@ -45,3 +47,7 @@ export default class WaitingForPlayers extends Component {
 		);
 	}
 }
+
+WaitingForPlayers.propTypes = {
+	comp: PropTypes.number.isRequired,
+};

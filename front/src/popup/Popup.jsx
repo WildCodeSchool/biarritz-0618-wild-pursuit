@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Popup extends Component {
-	render() {
-		return <div>{this.props.comp}</div>;
-	}
-}
+const Popup = ({ comp }) => <div>{comp}</div>;
+
+Popup.propTypes = {
+	comp: PropTypes.element.isRequired,
+};
 
 export default Popup;

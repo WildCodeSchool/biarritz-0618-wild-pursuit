@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 class DisplayTime extends Component {
 	render() {
 		let displayTime = '';
@@ -11,5 +13,12 @@ class DisplayTime extends Component {
 		return <span>{displayTime}</span>;
 	}
 }
+
+DisplayTime.propTypes = {
+	time: PropTypes.shape({
+		seconds: PropTypes.number.isRequired,
+		minutes: PropTypes.number.isRequired,
+	}).isRequired,
+};
 
 export default DisplayTime;

@@ -4,9 +4,9 @@ export function decomposeToMinutesAndSecs(secs) {
 
 	let seconds = Math.ceil(divisor_for_minutes % 60);
 
-	let obj = {
+	let time = {
 		minutes,
 		seconds,
 	};
-	return obj;
+	return time;
 }

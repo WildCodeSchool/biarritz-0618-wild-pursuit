@@ -27,7 +27,7 @@ class Lobby extends Component {
 	render() {
 		return (
 			<div>
-				<List items={this.generateTab(20)} />
+				<List items={this.generateTab(6)} />
 			</div>
 		);
 	}
