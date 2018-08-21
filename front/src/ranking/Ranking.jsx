@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
+import { players } from './../App.dummyDatas.js';
 
 class Ranking extends Component {
 	constructor() {
 		super();
-		//on génère des dummy participants pour les afficher, il faudra definir la récupération des joueurs
-		this._players = [
-			{ nickname: 'Marmotte', cheeseCount: 3 },
-			{ nickname: 'Ratatas', cheeseCount: 0 },
-			{ nickname: 'Alpaga', cheeseCount: 2 },
-			{ nickname: 'Chameau des Alpes', cheeseCount: 5 },
-		];
+		this._players = players; //TODO récupérer les jouurs de la partie et le nombre de camemberts
 
 		this._players.sort((a, b) => {
 			return a.cheeseCount < b.cheeseCount ? 1 : -1;

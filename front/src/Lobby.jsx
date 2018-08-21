@@ -2,32 +2,39 @@ import React, { Component } from 'react';
 import Button from './button/Button.jsx';
 import List from './list/List.jsx';
 
-class Lobby extends Component {
-	nbrJoueurs() {
-		let x = Math.floor(Math.random() * (10 - 2)) + 2;
-		let y = Math.floor(Math.random() * (x - 1 - 0)) + 0;
-		let count = y + '/' + x;
-		return count;
-	}
+import { generateDummyGames } from './App.dummyDatas.js';
 
-	generateTab(nbParties) {
-		let rejoindre = [];
-		if (nbParties > 0) {
-			for (let i = 0; i < nbParties; i++) {
-				let nomPartie = 'Partie ' + (i + 1) + ' - ' + this.nbrJoueurs();
-				rejoindre.push(<Button name={nomPartie} />);
-			}
-		} else {
-			rejoindre = ['Pas de partie en cours'];
+class Lobby extends Component {
+	constructor() {
+		super();
+		this.rejoindre = generateDummyGames(6);
+
+		this.rejoindre.sort((a, b) => {
+			return a.id > b.id ? 1 : -1;
+		});
+
+		this.rejoindre.map((partie, i) => {
+			let name =
+				'Partie #' +
+				partie.id +
+				' - ' +
+				partie.connectedPlayers +
+				'/' +
+				partie.maxPlayers;
+			return (this.rejoindre[i] = <Button name={name} />);
+		});
+
+		if (this.rejoindre.length === 0) {
+			this.rejoindre = ['Pas de partie en cours'];
 		}
-		rejoindre.push(<Button name="Créer une partie" />);
-		return rejoindre;
+
+		this.rejoindre.push(<Button name="Créer une partie" />);
 	}
 
 	render() {
 		return (
 			<div>
-				<List items={this.generateTab(6)} />
+				<List items={this.rejoindre} />
 			</div>
 		);
 	}
