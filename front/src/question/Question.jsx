@@ -19,7 +19,7 @@ export default class Question extends Component {
 		};
 		this.answers = [];
 		this.question.answers.map(answer => {
-			this.answers.push(<Button name={answer} />);
+			return this.answers.push(<Button name={answer} />);
 		});
 	}
 
