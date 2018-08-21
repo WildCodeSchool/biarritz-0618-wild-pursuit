@@ -49,5 +49,5 @@ export default class WaitingForPlayers extends Component {
 }
 
 WaitingForPlayers.propTypes = {
-	comp: PropTypes.number.isRequired,
+	maxPLayers: PropTypes.number.isRequired,
 };
