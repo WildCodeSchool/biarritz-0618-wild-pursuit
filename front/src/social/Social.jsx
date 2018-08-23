@@ -13,11 +13,11 @@ class Social extends Component {
 			<Button name="AHAH" />,
 		];
 		this._emoInteractions = [
-			<Button name="🙂" />,
-			<Button name="❤️" />,
-			<Button name="😉" />,
-			<Button name="😀" />,
-			<Button name="☹️" />,
+			<Button name="🙂" variant="fab" />,
+			<Button name="❤️" variant="fab" />,
+			<Button name="😉" variant="fab" />,
+			<Button name="😀" variant="fab" />,
+			<Button name="☹️" variant="fab" />,
 		];
 	}
 

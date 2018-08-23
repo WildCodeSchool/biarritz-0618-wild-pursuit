@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class List extends Component {
-	constructor() {
-		super();
-	}
+const List = ({ items }) => items.map((item, i) => <div key={i}>{item}</div>);
 
-	render() {
-		return this.props.items.map(item => {
-			return <div key={item}>{item}</div>;
-		});
-	}
-}
+List.propTypes = {
+	items: PropTypes.arrayOf(PropTypes.element).isRequired,
+};
+
+export default List;

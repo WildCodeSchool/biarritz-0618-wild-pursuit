@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import ButtonMUI from '@material-ui/core/Button';
 
-export default class Button extends Component {
-	constructor() {
-		super();
-	}
+const Button = ({ variant = 'contained', action, disabled, name }) => (
+	<ButtonMUI variant={variant} onClick={action} disabled={disabled}>
+		{name}
+	</ButtonMUI>
+);
 
-	render() {
-		return <button onClick={this.props.action}>{this.props.name}</button>;
-	}
-}
+Button.propTypes = {
+	variant: PropTypes.string,
+	action: PropTypes.string.isRequired,
+	disabled: PropTypes.bool,
+	name: PropTypes.string.isRequired,
+};
+
+export default Button;

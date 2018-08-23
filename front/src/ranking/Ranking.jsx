@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
+import { players } from './../App.dummyDatas.js';
 
 class Ranking extends Component {
 	constructor() {
 		super();
-		//on génère des dummy participants pour les afficher, il faudra definir la récupération des joueurs
-		this._players = [
-			{ nickname: 'Marmotte', cheeseCount: 3 },
-			{ nickname: 'Ratatas', cheeseCount: 0 },
-			{ nickname: 'Alpaga', cheeseCount: 2 },
-			{ nickname: 'Chameau des Alpes', cheeseCount: 5 },
-		];
+		this._players = players; //TODO récupérer les jouurs de la partie et le nombre de camemberts
 
 		this._players.sort((a, b) => {
 			return a.cheeseCount < b.cheeseCount ? 1 : -1;
@@ -21,17 +16,19 @@ class Ranking extends Component {
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2">Classement</td>
+						<td colSpan="2">Classement</td>
 					</tr>
 				</thead>
-				{this._players.map(player => {
-					return (
-						<tr>
-							<td>{player.cheeseCount}</td>
-							<td>{player.nickname}</td>
-						</tr>
-					);
-				})}
+				<tbody>
+					{this._players.map((player, i) => {
+						return (
+							<tr key={i}>
+								<td>{player.cheeseCount}</td>
+								<td>{player.nickname}</td>
+							</tr>
+						);
+					})}
+				</tbody>
 			</table>
 		);
 	}
