@@ -2,12 +2,13 @@ const Code = require('code');
 const expect = Code.expect;
 
 const {
-  normalBox,
-  cheeseBox,
-  replayBox,
-  centerBox,
+  NormalBox,
+  CheeseBox,
+  ReplayBox,
+  CenterBox,
 } = require('./box.class.js');
 const { createBoxes, createPaths } = require('./board.helpers.js');
+const { NormalBoard } = require('./board.class.js');
 
 describe('Generate a board', () => {
   it('should generate an array of boxes with a pattern', (done) => {
@@ -15,9 +16,9 @@ describe('Generate a board', () => {
     const boxes = createBoxes(nbCat);
     expect(boxes).to.be.an.array();
     expect(boxes).to.have.length(nbCat * nbCat * 2 + 1);
-    expect(boxes[0], 'Objet').to.be.an.instanceOf(centerBox);
-    expect(boxes[nbCat], 'Objet').to.be.an.instanceOf(cheeseBox);
-    expect(boxes[nbCat * nbCat + 2], 'Objet').to.be.an.instanceOf(replayBox);
+    expect(boxes[0], 'Objet').to.be.an.instanceOf(CenterBox);
+    expect(boxes[nbCat], 'Objet').to.be.an.instanceOf(CheeseBox);
+    expect(boxes[nbCat * nbCat + 2], 'Objet').to.be.an.instanceOf(ReplayBox);
     done();
   });
   it('should generate an array of paths (arrays) with a pattern', (done) => {
@@ -31,20 +32,20 @@ describe('Generate a board', () => {
     expect(paths[0], '#4').to.have.length(nbCat + 1);
     expect(paths[nbCat * 2], '#5').to.have.length(nbCat + 2);
 
-    expect(paths[0][0], '#6').to.be.an.instanceOf(centerBox);
-    expect(paths[0][nbCat], '#7').to.be.an.instanceOf(cheeseBox);
-    expect(paths[1][0], '#8').to.be.an.instanceOf(cheeseBox);
-    expect(paths[1][nbCat], '#9').to.be.an.instanceOf(centerBox);
+    expect(paths[0][0], '#6').to.be.an.instanceOf(CenterBox);
+    expect(paths[0][nbCat], '#7').to.be.an.instanceOf(CheeseBox);
+    expect(paths[1][0], '#8').to.be.an.instanceOf(CheeseBox);
+    expect(paths[1][nbCat], '#9').to.be.an.instanceOf(CenterBox);
 
-    expect(paths[2][0], '#10').to.be.an.instanceOf(centerBox);
-    expect(paths[2][nbCat], '#11').to.be.an.instanceOf(cheeseBox);
-    expect(paths[3][0], '#12').to.be.an.instanceOf(cheeseBox);
-    expect(paths[3][nbCat], '#13').to.be.an.instanceOf(centerBox);
+    expect(paths[2][0], '#10').to.be.an.instanceOf(CenterBox);
+    expect(paths[2][nbCat], '#11').to.be.an.instanceOf(CheeseBox);
+    expect(paths[3][0], '#12').to.be.an.instanceOf(CheeseBox);
+    expect(paths[3][nbCat], '#13').to.be.an.instanceOf(CenterBox);
 
-    expect(paths[nbCat * 2][0], '#14').to.be.an.instanceOf(cheeseBox);
-    expect(paths[nbCat * 2][2], '#15').to.be.an.instanceOf(replayBox);
-    expect(paths[nbCat * 2 + 1][0], '#16').to.be.an.instanceOf(cheeseBox);
-    expect(paths[nbCat * 2 + 1][2], '#17').to.be.an.instanceOf(replayBox);
+    expect(paths[nbCat * 2][0], '#14').to.be.an.instanceOf(CheeseBox);
+    expect(paths[nbCat * 2][2], '#15').to.be.an.instanceOf(ReplayBox);
+    expect(paths[nbCat * 2 + 1][0], '#16').to.be.an.instanceOf(CheeseBox);
+    expect(paths[nbCat * 2 + 1][2], '#17').to.be.an.instanceOf(ReplayBox);
 
     expect(paths[0][0], '#18').to.be.equal(paths[1][nbCat]);
     expect(paths[0][0], '#19').to.be.equal(paths[2][0]);

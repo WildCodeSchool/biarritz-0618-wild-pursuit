@@ -22,7 +22,7 @@ class IBox extends Noeud {
   play() {}
 }
 
-class normalBox extends IBox {
+class NormalBox extends IBox {
   constructor(id, x, y) {
     super(id, x, y);
   }
@@ -31,24 +31,24 @@ class normalBox extends IBox {
   }
 }
 
-class cheeseBox extends IBox {
+class CheeseBox extends IBox {
   constructor(id, x, y) {
     super(id, x, y);
   }
   play() {}
 }
 
-class centerBox extends IBox {
+class CenterBox extends IBox {
   constructor(id, x, y) {
     super(id, x, y);
   }
   play() {}
 }
 
-class replayBox extends IBox {
+class ReplayBox extends IBox {
   constructor(id, x, y) {
     super(id, x, y);
   }
   play() {}
 }
-module.exports = { normalBox, cheeseBox, centerBox, replayBox };
+module.exports = { NormalBox, CheeseBox, CenterBox, ReplayBox };

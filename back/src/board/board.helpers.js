@@ -1,24 +1,24 @@
 const {
-  centerBox,
-  cheeseBox,
-  replayBox,
-  normalBox,
+  CenterBox,
+  CheeseBox,
+  ReplayBox,
+  NormalBox,
 } = require('./box.class.js');
 
 function createBox(id, posX, posY, type) {
   let aBox;
   switch (type) {
     case 'center':
-      aBox = new centerBox(id, posX, posY);
+      aBox = new CenterBox(id, posX, posY);
       break;
     case 'cheese':
-      aBox = new cheeseBox(id, posX, posY);
+      aBox = new CheeseBox(id, posX, posY);
       break;
     case 'replay':
-      aBox = new replayBox(id, posX, posY);
+      aBox = new ReplayBox(id, posX, posY);
       break;
     default:
-      aBox = new normalBox(id, posX, posY);
+      aBox = new NormalBox(id, posX, posY);
       break;
   }
   return aBox;
