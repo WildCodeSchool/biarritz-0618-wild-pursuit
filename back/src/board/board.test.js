@@ -57,4 +57,27 @@ describe('Generate a board', () => {
 
     done();
   });
+  it('should create an instance of NormalBoard', (done) => {
+    const nbCat = 6;
+    const theBoard = new NormalBoard(nbCat);
+    expect(theBoard).to.be.an.instanceOf(NormalBoard);
+    expect(theBoard.getNeighbors(4, 6)).to.be.an.array();
+    expect(theBoard.getNeighbors(4, 6)).to.be.equal([
+      40,
+      69,
+      8,
+      14,
+      20,
+      26,
+      32,
+    ]);
+    expect(theBoard.getNeighbors(6, 3)).to.be.equal([3, 39, 70]);
+
+    /*.to.be.an.array();
+    expect(boxes).to.have.length(nbCat * nbCat * 2 + 1);
+    expect(boxes[0], 'Objet')
+    expect(boxes[nbCat], 'Objet').to.be.an.instanceOf(CheeseBox);
+    expect(boxes[nbCat * nbCat + 2], 'Objet').to.be.an.instanceOf(ReplayBox);*/
+    done();
+  });
 });
