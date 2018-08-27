@@ -80,4 +80,17 @@ function createPaths(nbCat, theBoxes) {
   return _theIntPaths.concat(_theExtPaths);
 }
 
-module.exports = { createBox, createBoxes, createPaths };
+function areSameArrays(tab1, tab2) {
+  if (tab1.length === tab2.length) {
+    let i = 0;
+    while (i < tab1.length && tab1[i] === tab2[i]) {
+      i++;
+    }
+    if (i === tab1.length) {
+      return true;
+    }
+  }
+  return false;
+}
+
+module.exports = { createBox, createBoxes, createPaths, areSameArrays };
