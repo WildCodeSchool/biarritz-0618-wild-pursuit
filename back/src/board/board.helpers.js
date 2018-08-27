@@ -48,4 +48,36 @@ function createBoxes(nbCat) {
   return theBoxes;
 }
 
-module.exports = { createBox, createBoxes };
+function createPaths(nbCat, theBoxes) {
+  let _theExtPaths = [];
+  let _theIntPaths = [];
+
+  let k = nbCat * nbCat + 1;
+  for (let i = 0; i < nbCat * nbCat; i = i + nbCat) {
+    let _anIntPath = [];
+    _anIntPath.push(theBoxes[0]);
+
+    let _anExtPath = [];
+    _anExtPath.push(theBoxes[i + nbCat]);
+
+    for (let j = 0; j < nbCat; j++) {
+      _anIntPath.push(theBoxes[i + j + 1]);
+      _anExtPath.push(theBoxes[j + k]);
+    }
+
+    if (i === nbCat * nbCat - nbCat) {
+      _anExtPath.push(theBoxes[nbCat]);
+    } else {
+      _anExtPath.push(theBoxes[i + nbCat * 2]);
+    }
+
+    _theIntPaths.push([..._anIntPath], [..._anIntPath].reverse());
+
+    _theExtPaths.push([..._anExtPath], [..._anExtPath].reverse());
+
+    k = k + nbCat;
+  }
+  return _theIntPaths.concat(_theExtPaths);
+}
+
+module.exports = { createBox, createBoxes, createPaths };
