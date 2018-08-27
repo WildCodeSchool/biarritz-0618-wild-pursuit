@@ -60,24 +60,57 @@ describe('Generate a board', () => {
   it('should create an instance of NormalBoard', (done) => {
     const nbCat = 6;
     const theBoard = new NormalBoard(nbCat);
-    expect(theBoard).to.be.an.instanceOf(NormalBoard);
-    expect(theBoard.getNeighbors(4, 6)).to.be.an.array();
-    expect(theBoard.getNeighbors(4, 6)).to.be.equal([
-      40,
-      69,
-      8,
-      14,
-      20,
-      26,
-      32,
-    ]);
-    expect(theBoard.getNeighbors(6, 3)).to.be.equal([3, 39, 70]);
 
-    /*.to.be.an.array();
-    expect(boxes).to.have.length(nbCat * nbCat * 2 + 1);
-    expect(boxes[0], 'Objet')
-    expect(boxes[nbCat], 'Objet').to.be.an.instanceOf(CheeseBox);
-    expect(boxes[nbCat * nbCat + 2], 'Objet').to.be.an.instanceOf(ReplayBox);*/
+    expect(theBoard).to.be.an.instanceOf(NormalBoard);
+    expect(theBoard.getNeighbors(theBoard.theBoxes[4], 6)).to.be.an.array();
+
+    let result = [
+      theBoard.theBoxes[40],
+      theBoard.theBoxes[69],
+      theBoard.theBoxes[8],
+      theBoard.theBoxes[14],
+      theBoard.theBoxes[20],
+      theBoard.theBoxes[26],
+      theBoard.theBoxes[32],
+    ];
+    expect(theBoard.getNeighbors(theBoard.theBoxes[4], 6)).to.be.equal(result);
+
+    result = [
+      theBoard.theBoxes[3],
+      theBoard.theBoxes[39],
+      theBoard.theBoxes[70],
+    ];
+    expect(theBoard.getNeighbors(theBoard.theBoxes[6], 3)).to.be.equal(result);
+
+    result = [
+      theBoard.theBoxes[38],
+      theBoard.theBoxes[71],
+      theBoard.theBoxes[47],
+      theBoard.theBoxes[50],
+      theBoard.theBoxes[53],
+      theBoard.theBoxes[56],
+      theBoard.theBoxes[59],
+      theBoard.theBoxes[62],
+      theBoard.theBoxes[65],
+      theBoard.theBoxes[68],
+      theBoard.theBoxes[1],
+      theBoard.theBoxes[7],
+      theBoard.theBoxes[19],
+      theBoard.theBoxes[25],
+      theBoard.theBoxes[31],
+      theBoard.theBoxes[24],
+      theBoard.theBoxes[9],
+      theBoard.theBoxes[15],
+      theBoard.theBoxes[21],
+      theBoard.theBoxes[27],
+      theBoard.theBoxes[33],
+      theBoard.theBoxes[34],
+      theBoard.theBoxes[65],
+    ];
+    expect(theBoard.getNeighbors(theBoard.theBoxes[42], 15)).to.be.equal(
+      result
+    );
+
     done();
   });
 });
