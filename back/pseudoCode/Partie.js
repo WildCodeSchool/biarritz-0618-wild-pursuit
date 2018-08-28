@@ -10,6 +10,12 @@ Tant que (FinDePartie == False) {
         }
         joueurCourant = joueurCourant
     } Sinon {
-        joueurCourant = tabJoueurs[joueurCourant.index + 1]
+        joueurCourant = selectionnerNouveauJoueur(joueurCourant, tabJoueur)
     }
 }
+
+####
+
+fonction selectionnerJoueurRandom(tabJoueur)
+fonction selectionnerNouveauJoueur(joueurCourant, tabJoueur)
+Fonction tour(joueurCourant) => voir ./Tours.js
