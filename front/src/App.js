@@ -14,6 +14,7 @@ import Question from "./question/Question.jsx";
 import Popup from "./popup/Popup.jsx";
 import StopGame from "./stopGame/StopGame.jsx";
 import NameWinner from './nameWinner/NameWinner.jsx';
+import NormalBox from './normalBox/NormalBox.jsx';
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
         <Popup comp={<Question />} />
         <Popup comp={<StopGame />} />
 		<Popup comp={<NameWinner />} />
+		<NormalBox objet={ {id: 27, coord : [78,67], categorie : {nom :'Géographie',couleur : {nom : 'Rouge', code :'#FF0000'}}}}/>
       </div>
     );
   }
