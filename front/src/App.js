@@ -12,6 +12,8 @@ import CountDownToGame from './countDownToGame/CountDownToGame.jsx';
 import WaitingForPlayers from './waitingForPlayers/WaitingForPlayers.jsx';
 import Question from './question/Question.jsx';
 import Popup from './popup/Popup.jsx';
+import NameWinner from './nameWinner/NameWinner.jsx';
+
 
 class App extends Component {
 	render() {
@@ -30,6 +32,7 @@ class App extends Component {
 				<Popup comp={<CountDownToGame countDown={10} />} />
 				<Popup comp={<WaitingForPlayers maxPLayers={8} />} />
 				<Popup comp={<Question />} />
+				<NameWinner/>
 			</div>
 		);
 	}
