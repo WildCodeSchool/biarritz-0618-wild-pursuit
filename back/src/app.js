@@ -6,7 +6,7 @@ const getQuestion = require('./tour/tour.controller.js').getQuestion;
 const afficherQuestion = require('./tour/tour.controller.js').afficherQuestion;
 const repondreQuestion = require('./tour/tour.controller.js').repondreQuestion;
 
-let readline = require('readline-sync');
+//let readline = require('readline-sync');
 
 // -------------------------------
 // Avoiding error when watch reload
