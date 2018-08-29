@@ -12,7 +12,7 @@ import CountDownToGame from "./countDownToGame/CountDownToGame.jsx";
 import WaitingForPlayers from "./waitingForPlayers/WaitingForPlayers.jsx";
 import Question from "./question/Question.jsx";
 import Popup from "./popup/Popup.jsx";
-import StopGame from "./stopgame/StopGame.jsx";
+import StopGame from "./stopGame/StopGame.jsx";
 
 class App extends Component {
   render() {
