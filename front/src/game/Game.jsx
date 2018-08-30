@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Paper } from "@material-ui/core";
 
 import Button from "./../button/Button.jsx";
 import Dice from "./../dice/Dice.jsx";
@@ -28,12 +29,24 @@ class Game extends Component {
         <Ranking />
         <Social />
         <Board />
-        <Popup comp={<CreateGame />} />
-        <Popup comp={<CountDownToGame countDown={10} />} />
-        <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
-        <Popup comp={<Question />} />
-        <Popup comp={<StopGame />} />
-        <Popup comp={<NameWinner />} />
+        <Paper elevation={14} style={{ margin: 32 }}>
+          <Popup comp={<CreateGame />} />
+        </Paper>
+        <Paper elevation={14} style={{ margin: 32 }}>
+          <Popup comp={<CountDownToGame countDown={10} />} />
+        </Paper>
+        <Paper elevation={14} style={{ margin: 32 }}>
+          <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
+        </Paper>
+        <Paper elevation={14} style={{ margin: 32 }}>
+          <Popup comp={<Question />} />
+        </Paper>
+        <Paper elevation={14} style={{ margin: 32 }}>
+          <Popup comp={<StopGame />} />
+        </Paper>
+        <Paper elevation={14} style={{ margin: 32 }}>
+          <Popup comp={<NameWinner />} />
+        </Paper>
       </div>
     );
   }
