@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import Lobby from "./Lobby.jsx";
+import Lobby from "./lobby/Lobby.jsx";
 import Game from "./game/Game.jsx";
 
 class App extends Component {
