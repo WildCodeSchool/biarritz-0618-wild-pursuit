@@ -4,6 +4,24 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Lobby from "./lobby/Lobby.jsx";
 import Game from "./organismes/game/Game.jsx";
+import Popup from "./organismes/popup/Popup.jsx";
+import CreateGame from "./molecules/createGame/CreateGame.jsx";
+import CountDownToGame from "./atomes/countDownToGame/CountDownToGame.jsx";
+import WaitingForPlayers from "./molecules/waitingForPlayers/WaitingForPlayers.jsx";
+import Question from "./molecules/question/Question.jsx";
+import StopGame from "./molecules/stopGame/StopGame.jsx";
+import NameWinner from "./molecules/nameWinner/NameWinner.jsx";
+
+const CreateGamePopup = () => <Popup comp={<CreateGame />} />;
+const WaitingForGamePopup = () => (
+  <Popup comp={<CountDownToGame countDown={10} />} />
+);
+const WaitingPlayersPopup = () => (
+  <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
+);
+const QuestionPopup = () => <Popup comp={<Question />} />;
+const StopGamePopup = () => <Popup comp={<StopGame />} />;
+const WinnerPopup = () => <Popup comp={<NameWinner />} />;
 
 class App extends Component {
   render() {
@@ -12,7 +30,15 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Lobby} />
-            <Route path="/game" component={Game} />
+            <Game>
+              <Route path="/game" component={() => <div> OUPS</div>} />
+              <Route path="/game/end-game" component={StopGamePopup} />
+              <Route path="/game/create" component={CreateGamePopup} />
+              <Route path="/game/wait" component={WaitingForGamePopup} />
+              <Route path="/game/waitPlayers" component={WaitingPlayersPopup} />
+              <Route path="/game/Question" component={QuestionPopup} />
+              <Route path="/game/winner" component={WinnerPopup} />
+            </Game>
           </Switch>
         </BrowserRouter>
         {/*  <Router>
