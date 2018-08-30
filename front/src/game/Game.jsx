@@ -4,7 +4,7 @@ import Button from "./../button/Button.jsx";
 import Dice from "./../dice/Dice.jsx";
 import Ranking from "./../ranking/Ranking.jsx";
 import Social from "./../social/Social.jsx";
-import Plateau from "./../Plateau.jsx";
+import Board from "./../board/Board.jsx";
 import Popup from "./../popup/Popup.jsx";
 import CreateGame from "./../createGame/CreateGame.jsx";
 import CountDownToGame from "./../countDownToGame/CountDownToGame.jsx";
@@ -27,7 +27,7 @@ class Game extends Component {
         <Dice result={25} />
         <Ranking />
         <Social />
-        <Plateau />
+        <Board />
         <Popup comp={<CreateGame />} />
         <Popup comp={<CountDownToGame countDown={10} />} />
         <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
