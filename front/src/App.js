@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Dice result={3} />
+        <Dice result={25} />
         <h1>Wild Pursuit</h1>
         <h2>A la recherche de la quête perdue</h2>
         <Lobby />
