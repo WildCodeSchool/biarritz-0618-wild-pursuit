@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 import Button from "./../../atomes/button/Button.jsx";
 
@@ -66,12 +67,14 @@ export default class CreateGame extends Component {
               value="checkedA"
             />
           </div>
-          <Button
-            onClick={() => {
-              alert("#todo : route vers attente de la connexion des joueurs");
-            }}
-            name="Créer la partie"
-          />
+          <Link to="/game/waitPlayers">
+            <Button
+              onClick={() => {
+                alert("#todo : route vers attente de la connexion des joueurs");
+              }}
+              name="Créer la partie"
+            />
+          </Link>
         </div>
       </div>
     );

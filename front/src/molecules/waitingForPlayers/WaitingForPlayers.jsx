@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Button from "./../../atomes/button/Button.jsx";
 
@@ -35,13 +36,15 @@ export default class WaitingForPlayers extends Component {
         <button onClick={this.playerJoined}>(Un joueur se connecte)</button>
         <button onClick={this.playerLeft}>(Un joueur se deconnecte)</button>
         <br />
-        <Button
-          onClick={() => {
-            alert("#todo : route vers countDownGame");
-          }}
-          name="Commencer la partie quand même"
-          disabled={this.state.playersConnected < 2}
-        />
+        <Link to="/game/wait">
+          <Button
+            onClick={() => {
+              alert("#todo : route vers countDownGame");
+            }}
+            name="Commencer la partie quand même"
+            disabled={this.state.playersConnected < 2}
+          />
+        </Link>
       </div>
     );
   }
