@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Paper } from "@material-ui/core";
+import "./game.css";
 
 import Button from "./../button/Button.jsx";
 import Dice from "./../dice/Dice.jsx";
@@ -29,7 +30,7 @@ class Game extends Component {
         <Ranking />
         <Social />
         <Board />
-        <Paper elevation={14} style={{ margin: 32 }}>
+        <Paper id="createGame" elevation={14} style={{ margin: 32 }}>
           <Popup comp={<CreateGame />} />
         </Paper>
         <Paper elevation={14} style={{ margin: 32 }}>
