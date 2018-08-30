@@ -8,25 +8,25 @@ class Social extends Component {
 
     this._TxtInteractions = [
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="Bravo !"
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="Dommage..."
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="Bien joué !"
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="AHAH"
@@ -34,35 +34,35 @@ class Social extends Component {
     ];
     this._emoInteractions = [
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="🙂"
         variant="fab"
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="❤️"
         variant="fab"
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😉"
         variant="fab"
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😀"
         variant="fab"
       />,
       <Button
-        action={() => {
+        onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="☹️"

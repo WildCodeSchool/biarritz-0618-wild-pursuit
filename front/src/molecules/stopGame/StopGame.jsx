@@ -11,8 +11,18 @@ export default class StopGame extends Component {
           voulez faire ?<br /> Attention, cette action est irréversible !
         </span>
 
-        <Button name="Confirmer" />
-        <Button name="Annuler" />
+        <Button
+          onClick={() => {
+            alert("#todo : route vers lobby");
+          }}
+          name="Confirmer"
+        />
+        <Button
+          onClick={() => {
+            alert("#todo : fermeture popup, retour partie");
+          }}
+          name="Annuler"
+        />
       </div>
     );
   }

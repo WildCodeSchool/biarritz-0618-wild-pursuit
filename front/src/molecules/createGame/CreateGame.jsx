@@ -67,7 +67,7 @@ export default class CreateGame extends Component {
             />
           </div>
           <Button
-            action={() => {
+            onClick={() => {
               alert("#todo : route vers attente de la connexion des joueurs");
             }}
             name="Créer la partie"

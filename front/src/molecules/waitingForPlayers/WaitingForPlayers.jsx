@@ -36,7 +36,7 @@ export default class WaitingForPlayers extends Component {
         <button onClick={this.playerLeft}>(Un joueur se deconnecte)</button>
         <br />
         <Button
-          action={() => {
+          onClick={() => {
             alert("#todo : route vers countDownGame");
           }}
           name="Commencer la partie quand même"

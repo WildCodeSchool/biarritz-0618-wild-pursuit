@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Paper } from "@material-ui/core";
-import "./game.css";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Button from "./../../atomes/button/Button.jsx";
 import Dice from "./../../atomes/dice/Dice.jsx";
@@ -26,7 +25,7 @@ class Game extends Component {
         Partie #{this.props.id}
         <br />
         <Button
-          action={() => {
+          onClick={() => {
             alert("#todo : route vers confirmation arrêt partie");
           }}
           name="Arrêter la partie"
@@ -35,24 +34,20 @@ class Game extends Component {
         <Ranking />
         <Social />
         <Board />
-        <Paper id="createGame" elevation={14} style={{ margin: 32 }}>
-          <Popup comp={<CreateGame />} />
-        </Paper>
-        <Paper elevation={14} style={{ margin: 32 }}>
-          <Popup comp={<CountDownToGame countDown={10} />} />
-        </Paper>
-        <Paper elevation={14} style={{ margin: 32 }}>
-          <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
-        </Paper>
-        <Paper elevation={14} style={{ margin: 32 }}>
-          <Popup comp={<Question />} />
-        </Paper>
-        <Paper elevation={14} style={{ margin: 32 }}>
-          <Popup comp={<StopGame />} />
-        </Paper>
-        <Paper elevation={14} style={{ margin: 32 }}>
-          <Popup comp={<NameWinner />} />
-        </Paper>
+        <BrowserRouter>
+          <Switch>
+            <Route
+              path="/game/createGame"
+              component={<Popup comp={<CreateGame />} />}
+            />
+          </Switch>
+        </BrowserRouter>
+        {/* <Popup comp={<CreateGame />} /> */}
+        <Popup comp={<CountDownToGame countDown={10} />} />
+        <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
+        <Popup comp={<Question />} />
+        <Popup comp={<StopGame />} />
+        <Popup comp={<NameWinner />} />
       </div>
     );
   }

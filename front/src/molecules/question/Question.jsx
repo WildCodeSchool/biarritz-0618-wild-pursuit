@@ -14,7 +14,7 @@ export default class Question extends Component {
     this.question.answers.map(answer => {
       return this.answers.push(
         <Button
-          action={() => {
+          onClick={() => {
             alert("#todo : route vers bonne ou mauvaise réponse");
           }}
           name={answer}

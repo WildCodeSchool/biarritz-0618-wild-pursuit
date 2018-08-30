@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "./../atomes/button/Button.jsx";
 import List from "./../atomes/list/List.jsx";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import { generateDummyGames } from "./../App.dummyDatas.js";
 
@@ -22,12 +23,14 @@ class Lobby extends Component {
         "/" +
         partie.maxPlayers;
       return (this.rejoindre[i] = (
-        <Button
-          action={() => {
-            alert("#todo : route vers attente de la connexion des joueurs");
-          }}
-          name={name}
-        />
+        <Link to="/game">
+          <Button
+            onClick={() => {
+              alert("#todo : route vers attente de la connexion des joueurs");
+            }}
+            name={name}
+          />
+        </Link>
       ));
     });
 
@@ -36,18 +39,22 @@ class Lobby extends Component {
     }
 
     this.rejoindre.push(
-      <Button
-        action={() => {
-          alert("#todo : route vers créer partie");
-        }}
-        name="Créer une partie"
-      />
+      <Link to="/game">
+        <Button
+          onClick={() => {
+            alert("#todo : route vers créer partie");
+          }}
+          name="Créer une partie"
+        />
+      </Link>
     );
   }
 
   render() {
     return (
       <div>
+        <h1>Wild Pursuit</h1>
+        <h2>A la recherche de la quête perdue</h2>
         <List items={this.rejoindre} />
       </div>
     );
