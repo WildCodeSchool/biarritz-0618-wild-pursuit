@@ -8,7 +8,11 @@ export default class NameWinner extends Component {
         <h1>La partie est terminée</h1>
         <p>Le vainqueur de la partie est "NOM DU GAGNANT"</p>
         <div>
-          <ButtonMUI onClick='afficher les stats'>
+          <ButtonMUI
+            onClick={() => {
+              alert("#todo : affichage des statistiques");
+            }}
+          >
             Afficher les statistiques
           </ButtonMUI>
         </div>

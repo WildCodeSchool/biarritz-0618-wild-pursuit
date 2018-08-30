@@ -66,7 +66,12 @@ export default class CreateGame extends Component {
               value="checkedA"
             />
           </div>
-          <Button name="Créer la partie" />
+          <Button
+            action={() => {
+              alert("#todo : route vers attente de la connexion des joueurs");
+            }}
+            name="Créer la partie"
+          />
         </div>
       </div>
     );

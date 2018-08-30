@@ -12,7 +12,7 @@ import CreateGame from "./../createGame/CreateGame.jsx";
 import CountDownToGame from "./../countDownToGame/CountDownToGame.jsx";
 import WaitingForPlayers from "./../waitingForPlayers/WaitingForPlayers.jsx";
 import Question from "./../question/Question.jsx";
-import StopGame from "./../stopGame/StopGame.jsx";
+import StopGame from "./../stopgame/StopGame.jsx";
 import NameWinner from "./../nameWinner/NameWinner.jsx";
 
 class Game extends Component {
@@ -25,7 +25,12 @@ class Game extends Component {
       <div className="game">
         Partie #{this.props.id}
         <br />
-        <Button name="Arrêter la partie" />
+        <Button
+          action={() => {
+            alert("#todo : route vers confirmation arrêt partie");
+          }}
+          name="Arrêter la partie"
+        />
         <Dice result={25} />
         <Ranking />
         <Social />

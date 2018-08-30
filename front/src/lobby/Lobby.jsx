@@ -21,14 +21,28 @@ class Lobby extends Component {
         partie.connectedPlayers +
         "/" +
         partie.maxPlayers;
-      return (this.rejoindre[i] = <Button name={name} />);
+      return (this.rejoindre[i] = (
+        <Button
+          action={() => {
+            alert("#todo : route vers attente de la connexion des joueurs");
+          }}
+          name={name}
+        />
+      ));
     });
 
     if (this.rejoindre.length === 0) {
       this.rejoindre = ["Pas de partie en cours"];
     }
 
-    this.rejoindre.push(<Button name="Créer une partie" />);
+    this.rejoindre.push(
+      <Button
+        action={() => {
+          alert("#todo : route vers créer partie");
+        }}
+        name="Créer une partie"
+      />
+    );
   }
 
   render() {
