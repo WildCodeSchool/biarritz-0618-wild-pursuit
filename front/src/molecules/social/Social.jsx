@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Button from './../button/Button.jsx';
-import List from './../list/List.jsx';
+import Button from './../../atomes/button/Button.jsx';
+import List from './../../atomes/list/List.jsx';
 
 class Social extends Component {
 	constructor() {

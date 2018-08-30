@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
 
-import Button from "./../button/Button.jsx";
+import Button from "./../../atomes/button/Button.jsx";
 
 export default class CreateGame extends Component {
   constructor() {

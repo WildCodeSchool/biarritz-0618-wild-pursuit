@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Paper } from "@material-ui/core";
 
-import Button from "./../button/Button.jsx";
-import Dice from "./../dice/Dice.jsx";
-import Ranking from "./../ranking/Ranking.jsx";
-import Social from "./../social/Social.jsx";
-import Board from "./../board/Board.jsx";
+import Button from "./../../atomes/button/Button.jsx";
+import Dice from "./../../atomes/dice/Dice.jsx";
+import Ranking from "./../../molecules/ranking/Ranking.jsx";
+import Social from "./../../molecules/social/Social.jsx";
+import Board from "./../../molecules/board/Board.jsx";
 import Popup from "./../popup/Popup.jsx";
-import CreateGame from "./../createGame/CreateGame.jsx";
-import CountDownToGame from "./../countDownToGame/CountDownToGame.jsx";
-import WaitingForPlayers from "./../waitingForPlayers/WaitingForPlayers.jsx";
-import Question from "./../question/Question.jsx";
-import StopGame from "./../stopGame/StopGame.jsx";
-import NameWinner from "./../nameWinner/NameWinner.jsx";
+import CreateGame from "./../../molecules/createGame/CreateGame.jsx";
+import CountDownToGame from "./../../atomes/countDownToGame/CountDownToGame.jsx";
+import WaitingForPlayers from "./../../molecules/waitingForPlayers/WaitingForPlayers.jsx";
+import Question from "./../../molecules/question/Question.jsx";
+import StopGame from "./../../molecules/stopGame/StopGame.jsx";
+import NameWinner from "./../../molecules/nameWinner/NameWinner.jsx";
 
 class Game extends Component {
   constructor() {
