@@ -1,23 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ButtonMUI from "@material-ui/core/Button";
+import { Paper } from "@material-ui/core";
 //import "./popup.css";
 
 const Popup = ({ comp }) => (
   <div>
-    <div class="popup">
-      <ButtonMUI onClick="fermer le popup">X</ButtonMUI>
-    </div>
-    {comp}
-    <div>
-      <ButtonMUI
-        onClick={() => {
-          alert("#todo : fermeture de la popup");
-        }}
-      >
-        X
-      </ButtonMUI>
-    </div>
+    <Paper elevation={14} style={{ margin: 32 }}>
+      <div>
+        <ButtonMUI
+          onClick={() => {
+            alert("#todo : fermeture de la popup");
+          }}
+        >
+          X
+        </ButtonMUI>
+      </div>
+      {comp}
+    </Paper>
   </div>
 );
 

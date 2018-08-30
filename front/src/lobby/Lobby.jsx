@@ -23,7 +23,7 @@ class Lobby extends Component {
         "/" +
         partie.maxPlayers;
       return (this.rejoindre[i] = (
-        <Link to="/game">
+        <Link to="/game/wait">
           <Button
             onClick={() => {
               alert("#todo : route vers attente de la connexion des joueurs");
@@ -39,7 +39,7 @@ class Lobby extends Component {
     }
 
     this.rejoindre.push(
-      <Link to="/game">
+      <Link to="/game/create">
         <Button
           onClick={() => {
             alert("#todo : route vers créer partie");

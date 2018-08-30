@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Button from "./../../atomes/button/Button.jsx";
 import Dice from "./../../atomes/dice/Dice.jsx";
@@ -14,43 +15,46 @@ import Question from "./../../molecules/question/Question.jsx";
 import StopGame from "./../../molecules/stopGame/StopGame.jsx";
 import NameWinner from "./../../molecules/nameWinner/NameWinner.jsx";
 
-class Game extends Component {
-  constructor() {
-    super();
-  }
+const CreateGamePopup = () => <Popup comp={<CreateGame />} />;
+const WaitingForGamePopup = () => (
+  <Popup comp={<CountDownToGame countDown={10} />} />
+);
+const WaitingPlayersPopup = () => (
+  <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
+);
+const QuestionPopup = () => <Popup comp={<Question />} />;
+const StopGamePopup = () => <Popup comp={<StopGame />} />;
+const WinnerPopup = () => <Popup comp={<NameWinner />} />;
 
-  render() {
-    return (
-      <div className="game">
-        Partie #{this.props.id}
-        <br />
-        <Button
-          onClick={() => {
-            alert("#todo : route vers confirmation arrêt partie");
-          }}
-          name="Arrêter la partie"
-        />
-        <Dice result={25} />
-        <Ranking />
-        <Social />
-        <Board />
-        <BrowserRouter>
-          <Switch>
-            <Route
-              path="/game/createGame"
-              component={<Popup comp={<CreateGame />} />}
-            />
-          </Switch>
-        </BrowserRouter>
-        {/* <Popup comp={<CreateGame />} /> */}
-        <Popup comp={<CountDownToGame countDown={10} />} />
-        <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
-        <Popup comp={<Question />} />
-        <Popup comp={<StopGame />} />
-        <Popup comp={<NameWinner />} />
-      </div>
-    );
-  }
-}
+const Game = ({ id }) => (
+  <div className="game">
+    Partie #{id}
+    <br />
+    <Button
+      onClick={() => {
+        alert("#todo : route vers confirmation arrêt partie");
+      }}
+      name="Arrêter la partie"
+    />
+    <Dice result={25} />
+    <Ranking />
+    <Social />
+    <Board />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/game/create" component={CreateGamePopup} />
+        <Route path="/game/wait" component={WaitingForGamePopup} />
+        <Route path="/game/waitPlayers" component={WaitingPlayersPopup} />
+        <Route path="/game/Question" component={QuestionPopup} />
+        <Route path="/game/endGame" component={StopGamePopup} />
+        <Route path="/game/winner" component={WinnerPopup} />
+      </Switch>
+    </BrowserRouter>
+  </div>
+);
+
+Game.propTypes = {
+  id: PropTypes.number.isRequired
+};
 
 export default Game;
