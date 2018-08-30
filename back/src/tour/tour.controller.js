@@ -2,12 +2,14 @@ const Question = require('./../question/question.model.js');
 const laQuestion = require('./../question/question.controller.js');
 
 module.exports = {
+  startTimer,
   getQuestion,
   displayQuestion,
   resolveQuestion,
   getQuestions,
   pickQuestion,
 };
+function startTimer() {}
 function getQuestion() {
   return new Promise((resolve, reject) => {
     Question.findOne({}).then((question) => {

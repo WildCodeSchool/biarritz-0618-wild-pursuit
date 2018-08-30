@@ -2,14 +2,63 @@ const Code = require('code');
 const expect = Code.expect;
 const sequelize = require('./../db.js');
 const Question = require('./../question/question.model');
-const getNewQuestions = require('./tour.helper.js').getNewQuestions;
-const getQuestion = require('./tour.controller.js').getQuestion;
-const displayQuestion = require('./tour.controller.js').displayQuestion;
-const resolveQuestion = require('./tour.controller.js').resolveQuestion;
-const getQuestions = require('./tour.controller.js').getQuestions;
-const pickQuestion = require('./tour.controller.js').pickQuestion;
+const { getNewQuestions } = require('./tour.helper.js');
+const {
+  startTimer,
+  getQuestion,
+  displayQuestion,
+  resolveQuestion,
+  getQuestions,
+  pickQuestion,
+} = require('./tour.controller.js');
 
-let readline = require('readline');
+//let readline = require('readline');
+
+describe('Lancer le timer', () => {
+  it('Should decrement a number each seconds', (done) => {
+    let coutDown = 10;
+    expect(coutDown).to.be.equal(10);
+    startTime(coutDown);
+
+    setTimeout((res) => {
+      expect(coutDown).to.be.equal(5);
+      res();
+    }, 5000).then(() => {
+      setTimeout((res) => {
+        expect(coutDown).to.be.equal(0);
+        res();
+      }, 6000).then(done);
+    });
+  });
+});
+
+// A DEPLACER DANS LES TESTS DE LA CLASSE Player
+describe('Positioner le joueur', () => {
+  it('Should set the position of a player to a given box', (done) => {
+    let aBox = new NormalBox(12);
+    let aPlayer = new Player();
+    let thePosition = aPlayer.setPosition(aBox.id);
+    expect(thePosition).to.be.equal(aBox.id);
+    done();
+  });
+  it('Should get the id of the case where the player is positionned at', (done) => {
+    let aBox = new NormalBox(25);
+    let aPlayer = new Player();
+    aPlayer.setPosition(aBox.id);
+    let thePosition = aPlayer.position;
+    expect(thePosition).to.be.equal(aBox.id);
+    done();
+  });
+});
+
+// A DEPLACER DANS LES TESTS DE LA CLASS *Box
+describe('Récupérer les infos de la case', () => {
+  it('Should get the theme associated to the box', (done) => {
+    let aBox = new NormalBox(25, 'Géographie');
+    let theTheme = aBox.category;
+    expect(theTheme).to.be.equal('Géographie');
+  });
+});
 
 describe('Afficher et répondre à une question', () => {
   beforeEach((done) => {
@@ -40,6 +89,48 @@ describe('Afficher et répondre à une question', () => {
       .catch(done);
   });
 
+  it('Should get all the questions of the database and put it on an array', (done) => {
+    getQuestions()
+      .then((listQuestions) => {
+        expect(listQuestions).to.be.an.array();
+        expect(listQuestions.length).to.be.at.least(2);
+
+        expect(listQuestions[0].id).to.exist();
+        expect(listQuestions[0].id).to.be.a.string();
+
+        expect(listQuestions[0].theme).to.exist();
+        expect(listQuestions[0].theme).to.be.a.string();
+
+        expect(listQuestions[0].isAlreadyUsed).to.exist();
+        expect(listQuestions[0].isAlreadyUsed).to.be.a.boolean();
+
+        done();
+      })
+      .catch(done);
+  });
+  it('Sould pick one question', (done) => {
+    getQuestions()
+      .then((listQuestions) => {
+        pickQuestion(listQuestions, 'MON THEME') // MON THEME sera modifié ulterieurement en fonction du tour
+          .then((chosenQuestion) => {
+            expect(chosenQuestion).to.be.a.string();
+            let i = 0;
+            while (
+              i < listQuestions.length &&
+              listQuestions[i].id != chosenQuestion
+            ) {
+              i++;
+            }
+            if (i != listQuestions.length - 1) {
+              expect(listQuestions[i].isAlreadyUsed).to.be.false();
+              expect(listQuestions[i].theme).to.be.equal('MON THEME');
+              done();
+            }
+          })
+          .catch(done);
+      })
+      .catch(done);
+  });
   it('Should display a question', (done) => {
     getQuestion()
       .then((theQuestion) => {
@@ -84,47 +175,4 @@ describe('Afficher et répondre à une question', () => {
       })
       .catch(done);
   });
-});
-it('Should get all the questions of the database and put it on an array', (done) => {
-  getQuestions()
-    .then((listQuestions) => {
-      expect(listQuestions).to.be.an.array();
-      expect(listQuestions.length).to.be.at.least(2);
-
-      expect(listQuestions[0].id).to.exist();
-      expect(listQuestions[0].id).to.be.a.string();
-
-      expect(listQuestions[0].theme).to.exist();
-      expect(listQuestions[0].theme).to.be.a.string();
-
-      expect(listQuestions[0].isAlreadyUsed).to.exist();
-      expect(listQuestions[0].isAlreadyUsed).to.be.a.boolean();
-
-      done();
-    })
-    .catch(done);
-});
-
-it('Sould pick one question', (done) => {
-  getQuestions()
-    .then((listQuestions) => {
-      pickQuestion(listQuestions, 'MON THEME') // MON THEME sera modifié ulterieurement en fonction du tour
-        .then((chosenQuestion) => {
-          expect(chosenQuestion).to.be.a.string();
-          let i = 0;
-          while ( i < listQuestions.length && listQuestions[i].id != chosenQuestion) {
-            i++;
-          }
-          if(i != listQuestions.length -1)
-          {
-            expect(listQuestions[i].isAlreadyUsed).to.be.false();
-            expect(listQuestions[i].theme).to.be.equal('MON THEME');
-            done();
-          }
-            
-          
-        })
-        .catch(done);
-    })
-    .catch(done);
 });
