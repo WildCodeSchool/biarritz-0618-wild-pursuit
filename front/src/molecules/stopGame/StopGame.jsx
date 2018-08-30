@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Button from "./../button/Button.jsx";
+import Button from "./../../atomes/button/Button.jsx";
 
 export default class StopGame extends Component {
   render() {

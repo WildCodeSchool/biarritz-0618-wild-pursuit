@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Lobby from "./lobby/Lobby.jsx";
-import Game from "./game/Game.jsx";
+import Game from "./organismes/game/Game.jsx";
 
 class App extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { players } from './../App.dummyDatas.js';
+import { players } from './../../App.dummyDatas.js';
 
 class Ranking extends Component {
 	constructor() {

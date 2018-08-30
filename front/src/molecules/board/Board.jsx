@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import NormalBox from "./../normalBox/NormalBox.jsx";
-import CheeseBox from "./../cheeseBox/CheeseBox.jsx";
-import ReplayBox from "./../replayBox/ReplayBox.jsx";
-import CenterBox from "./../centerBox/CenterBox.jsx";
+import NormalBox from "./../../atomes/normalBox/NormalBox.jsx";
+import CheeseBox from "./../../atomes/cheeseBox/CheeseBox.jsx";
+import ReplayBox from "./../../atomes/replayBox/ReplayBox.jsx";
+import CenterBox from "./../../atomes/centerBox/CenterBox.jsx";
 
 export default class Board extends Component {
   render() {
