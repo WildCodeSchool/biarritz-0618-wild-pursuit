@@ -14,6 +14,7 @@ import WaitingForPlayers from "./../../molecules/waitingForPlayers/WaitingForPla
 import Question from "./../../molecules/question/Question.jsx";
 import StopGame from "./../../molecules/stopGame/StopGame.jsx";
 import NameWinner from "./../../molecules/nameWinner/NameWinner.jsx";
+import Logo from "./../../atomes/logo/Logo.jsx";
 
 const CreateGamePopup = () => <Popup comp={<CreateGame />} />;
 const WaitingForGamePopup = () => (
@@ -36,6 +37,7 @@ const Game = ({ id }) => (
       }}
       name="Arrêter la partie"
     />
+    <Logo />
     <Dice result={25} />
     <Ranking />
     <Social />
