@@ -9,7 +9,16 @@ module.exports = {
   getQuestions,
   pickQuestion,
 };
-function startTimer() {}
+function startTimer(timer) {
+  if (timer.countDown <= 0) {
+    return;
+  }
+  setTimeout(() => {
+    timer.countDown = timer.countDown - 1;
+    startTimer(timer);
+  }, 1000);
+}
+
 function getQuestion() {
   return new Promise((resolve, reject) => {
     Question.findOne({}).then((question) => {

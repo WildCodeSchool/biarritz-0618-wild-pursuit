@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/app.js",
-    "test": "NODE_ENV=test mocha \"./src/**/*.test.js\"",
-    "test:watch": "NODE_ENV=test mocha -w \"./src/**/*.test.js\""
+    "test": "NODE_ENV=test mocha --no-timeouts \"./src/**/*.test.js\"",
+    "test:watch": "NODE_ENV=test mocha -w --no-timeouts \"./src/**/*.test.js\""
   },
   "repository": {
     "type": "git",

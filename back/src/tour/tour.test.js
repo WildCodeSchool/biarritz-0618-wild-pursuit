@@ -16,19 +16,15 @@ const {
 
 describe('Lancer le timer', () => {
   it('Should decrement a number each seconds', (done) => {
-    let coutDown = 10;
-    expect(coutDown).to.be.equal(10);
-    startTime(coutDown);
-
-    setTimeout((res) => {
-      expect(coutDown).to.be.equal(5);
-      res();
-    }, 5000).then(() => {
-      setTimeout((res) => {
-        expect(coutDown).to.be.equal(0);
-        res();
-      }, 6000).then(done);
-    });
+    let timer = { countDown: 2 };
+    startTimer(timer);
+    let wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    wait(1000)
+      .then(() => expect(timer.countDown).to.be.equal(1))
+      .then(() => wait(2000))
+      .then(() => expect(timer.countDown).to.be.equal(0))
+      .then(() => done())
+      .catch(done);
   });
 });
 
