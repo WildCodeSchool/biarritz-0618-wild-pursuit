@@ -7,11 +7,27 @@ import Dice from "./../../atomes/dice/Dice.jsx";
 import Ranking from "./../../molecules/ranking/Ranking.jsx";
 import Social from "./../../molecules/social/Social.jsx";
 import Board from "./../../molecules/board/Board.jsx";
+import Logo from "./../../atomes/logo/Logo.jsx";
 
 const Game = ({ id, children }) => (
   <div className="game">
     Partie #{id}
     <br />
+    <Button
+      onClick={() => {
+        alert("#todo : route vers confirmation arrêt partie");
+      }}
+      name="Arrêter la partie"
+    />
+    <Logo />
+    <Link to="/game/endGame">
+      <Button
+        onClick={() => {
+          alert("#todo : route vers confirmation arrêt partie");
+        }}
+        name="Arrêter la partie"
+      />
+    </Link>
     <Dice result={25} />
     <Ranking />
     <Social />

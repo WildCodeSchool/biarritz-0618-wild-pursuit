@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { players } from './../../App.dummyDatas.js';
+import "./ranking.css";
 
 class Ranking extends Component {
 	constructor() {
@@ -13,12 +14,13 @@ class Ranking extends Component {
 
 	render() {
 		return (
-			<table>
+			<table id="containerRank">
 				<thead>
-					<tr>
-						<td colSpan="2">Classement</td>
+					<tr id="title">
+						<td colSpan="2">Classement <img src={require('./../../atomes/images/trophy.png')}  width = "30" height = "25" /></td>
 					</tr>
 				</thead>
+				<br/>
 				<tbody>
 					{this._players.map((player, i) => {
 						return (
