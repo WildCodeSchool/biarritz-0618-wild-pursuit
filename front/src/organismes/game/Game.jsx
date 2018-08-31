@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 import Button from "./../../atomes/button/Button.jsx";
 import Dice from "./../../atomes/dice/Dice.jsx";
@@ -13,20 +15,20 @@ const Game = ({ id, children }) => (
   <div className="game">
     Partie #{id}
     <br />
-    <Link to="/game/endGame">
-      <Button
-        onClick={() => {
-          alert("#todo : route vers confirmation arrêt partie");
-        }}
-        name="Arrêter la partie"
-      />
-    </Link>
     <Logo />
-    <Dice result={25} />
+    <Grid contenair item xs={2}>
+    <Paper>
     <Ranking />
+    </Paper>
+    </Grid>
+    <Grid contenair item xs={3}>
+    <Paper>
     <Social />
+    </Paper>
+    </Grid>
     <Board />
-    {/* <BrowserRouter> */}
+    <Dice result={25} />
+   
     <div>
       {children}
       <Link to="/game/end-game">
