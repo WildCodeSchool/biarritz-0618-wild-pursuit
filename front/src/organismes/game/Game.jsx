@@ -31,6 +31,7 @@ const Game = ({ id }) => (
   <div className="game">
     Partie #{id}
     <br />
+<<<<<<< HEAD
     <Button
       onClick={() => {
         alert("#todo : route vers confirmation arrêt partie");
@@ -38,6 +39,16 @@ const Game = ({ id }) => (
       name="Arrêter la partie"
     />
     <Logo />
+=======
+    <Link to="/game/endGame">
+      <Button
+        onClick={() => {
+          alert("#todo : route vers confirmation arrêt partie");
+        }}
+        name="Arrêter la partie"
+      />
+    </Link>
+>>>>>>> 11984da5b220585385ff183c8d18d98e289ff615
     <Dice result={25} />
     <Ranking />
     <Social />
@@ -57,6 +68,10 @@ const Game = ({ id }) => (
 
 Game.propTypes = {
   id: PropTypes.number.isRequired
+};
+
+Game.defaultProps = {
+  id: 1
 };
 
 export default Game;
