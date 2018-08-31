@@ -29,7 +29,7 @@ describe('Lancer le timer', () => {
 });
 
 // A DEPLACER DANS LES TESTS DE LA CLASSE Player
-describe('Positioner le joueur', () => {
+describe.skip('Positioner le joueur', () => {
   it('Should set the position of a player to a given box', (done) => {
     let aBox = new NormalBox(12);
     let aPlayer = new Player();
@@ -48,7 +48,7 @@ describe('Positioner le joueur', () => {
 });
 
 // A DEPLACER DANS LES TESTS DE LA CLASS *Box
-describe('Récupérer les infos de la case', () => {
+describe.skip('Récupérer les infos de la case', () => {
   it('Should get the theme associated to the box', (done) => {
     let aBox = new NormalBox(25, 'Géographie');
     let theTheme = aBox.category;
