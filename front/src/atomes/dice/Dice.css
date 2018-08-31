@@ -1,15 +1,15 @@
 .dice {
     border: 2px black solid;
-    margin-left: 48.2%;
-    margin-right: 48.2%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 30px;
-    /* transition: -webkit-transform .2s ease;
+    transition: -webkit-transform .2s ease;
     transition: transform .2s ease;
     transition: transform .2s ease, -webkit-transform .2s ease;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden */
+    backface-visibility: hidden
 }
 
 .dice.roll1 {

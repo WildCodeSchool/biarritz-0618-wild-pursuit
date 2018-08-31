@@ -31,7 +31,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Lobby} />
             <Game>
-              <Route path="/game" component={() => <div> OUPS</div>} />
+              <Route path="/game" component={() => <div> </div>} />
               <Route path="/game/end-game" component={StopGamePopup} />
               <Route path="/game/create" component={CreateGamePopup} />
               <Route path="/game/wait" component={WaitingForGamePopup} />

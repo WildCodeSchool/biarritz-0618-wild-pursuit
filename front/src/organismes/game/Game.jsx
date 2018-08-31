@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 import Button from "./../../atomes/button/Button.jsx";
 import Dice from "./../../atomes/dice/Dice.jsx";
@@ -10,27 +10,15 @@ import Ranking from "./../../molecules/ranking/Ranking.jsx";
 import Social from "./../../molecules/social/Social.jsx";
 import Board from "./../../molecules/board/Board.jsx";
 import Logo from "./../../atomes/logo/Logo.jsx";
+import "./Game.css";
 
 const Game = ({ id, children }) => (
-  <div className="game">
-    Partie #{id}
-    <br />
-    <Logo />
-    <Grid contenair item xs={2}>
-    <Paper>
-    <Ranking />
-    </Paper>
-    </Grid>
-    <Grid contenair item xs={3}>
-    <Paper>
-    <Social />
-    </Paper>
-    </Grid>
-    <Board />
-    <Dice result={25} />
-   
-    <div>
-      {children}
+  <Grid container spacing={40} justify="center">
+    <Grid item style={{
+      //border: '1px solid blue'
+    }}>
+      <h1>Partie #{id}</h1>
+      <Logo />
       <Link to="/game/end-game">
         <Button
           onClick={() => {
@@ -39,17 +27,31 @@ const Game = ({ id, children }) => (
           name="Arrêter la partie"
         />
       </Link>
-      {/*  <Switch>
-          <Route path="/game/end-game" component={StopGamePopup} />
-          <Route path="/game/create" component={CreateGamePopup} />
-          <Route path="/game/wait" component={WaitingForGamePopup} />
-          <Route path="/game/waitPlayers" component={WaitingPlayersPopup} />
-          <Route path="/game/Question" component={QuestionPopup} />
-          <Route path="/game/winner" component={WinnerPopup} />
-        </Switch> */}
-    </div>
-    {/* </BrowserRouter> */}
-  </div>
+      <Dice result={6} 
+       alignItems="flex-end"
+       style={{
+      margin:'2px 5px 2em 0'
+    }} />
+    </Grid>
+    <Grid item style={{
+      //border: '1px solid red'
+    }}>
+      <Board />
+      <div>
+        {children}  
+      </div>
+    </Grid>
+    <Grid item>
+      <Ranking />
+      <Grid
+  container
+  direction="row"
+  justify="center"
+  alignItems="center"
+> <Social />
+</Grid>
+    </Grid>
+  </Grid>
 );
 
 Game.propTypes = {

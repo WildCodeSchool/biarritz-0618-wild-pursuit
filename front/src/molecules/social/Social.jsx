@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "./../../atomes/button/Button.jsx";
 import List from "./../../atomes/list/List.jsx";
-import "./social.css";
+//import "./social.css";
 
 class Social extends Component {
   constructor() {
