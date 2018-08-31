@@ -6,7 +6,7 @@ describe('Choisir les joueurs', () => {
     const players = ['Sandra', 'Karo', 'Yann', 'Maxime', 'Sami', "Anne-So'"];
     let pickedPlayers = [];
     for (let i = 0; i < 50; i++) {
-      //pickedPlayers.push(pickAPlayer(players));
+      pickedPlayers.push(pickAPlayer(players));
     }
     let sandra = (karo = yann = maxime = sami = anneSo = error = 0);
     pickedPlayers.map((player) => {
@@ -54,15 +54,15 @@ describe('Choisir les joueurs', () => {
     const players = ['Sandra', 'Karo', 'Yann', 'Maxime', 'Sami', "Anne-So'"];
     let player = getNextPlayer('Sandra', players);
     expect(player).to.be.equal('Karo');
-    player = getNetPlayer('Karo', players);
+    player = getNextPlayer('Karo', players);
     expect(player).to.be.equal('Yann');
-    player = getNetPlayer('Yann', players);
+    player = getNextPlayer('Yann', players);
     expect(player).to.be.equal('Maxime');
-    player = getNetPlayer('Maxime', players);
+    player = getNextPlayer('Maxime', players);
     expect(player).to.be.equal('Sami');
-    player = getNetPlayer('Sami', players);
+    player = getNextPlayer('Sami', players);
     expect(player).to.be.equal("Anne-So'");
-    player = getNetPlayer("Anne-So'", players);
+    player = getNextPlayer("Anne-So'", players);
     expect(player).to.be.equal('Sandra');
     done();
   });
