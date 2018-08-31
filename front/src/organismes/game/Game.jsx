@@ -7,27 +7,9 @@ import Dice from "./../../atomes/dice/Dice.jsx";
 import Ranking from "./../../molecules/ranking/Ranking.jsx";
 import Social from "./../../molecules/social/Social.jsx";
 import Board from "./../../molecules/board/Board.jsx";
-import Popup from "./../popup/Popup.jsx";
-import CreateGame from "./../../molecules/createGame/CreateGame.jsx";
-import CountDownToGame from "./../../atomes/countDownToGame/CountDownToGame.jsx";
-import WaitingForPlayers from "./../../molecules/waitingForPlayers/WaitingForPlayers.jsx";
-import Question from "./../../molecules/question/Question.jsx";
-import StopGame from "./../../molecules/stopGame/StopGame.jsx";
-import NameWinner from "./../../molecules/nameWinner/NameWinner.jsx";
 import Logo from "./../../atomes/logo/Logo.jsx";
 
-const CreateGamePopup = () => <Popup comp={<CreateGame />} />;
-const WaitingForGamePopup = () => (
-  <Popup comp={<CountDownToGame countDown={10} />} />
-);
-const WaitingPlayersPopup = () => (
-  <Popup comp={<WaitingForPlayers maxPLayers={8} />} />
-);
-const QuestionPopup = () => <Popup comp={<Question />} />;
-const StopGamePopup = () => <Popup comp={<StopGame />} />;
-const WinnerPopup = () => <Popup comp={<NameWinner />} />;
-
-const Game = ({ id }) => (
+const Game = ({ id, children }) => (
   <div className="game">
     Partie #{id}
     <br />
@@ -44,16 +26,27 @@ const Game = ({ id }) => (
     <Ranking />
     <Social />
     <Board />
-    <BrowserRouter>
-      <Switch>
-        <Route path="/game/create" component={CreateGamePopup} />
-        <Route path="/game/wait" component={WaitingForGamePopup} />
-        <Route path="/game/waitPlayers" component={WaitingPlayersPopup} />
-        <Route path="/game/Question" component={QuestionPopup} />
-        <Route path="/game/endGame" component={StopGamePopup} />
-        <Route path="/game/winner" component={WinnerPopup} />
-      </Switch>
-    </BrowserRouter>
+    {/* <BrowserRouter> */}
+    <div>
+      {children}
+      <Link to="/game/end-game">
+        <Button
+          onClick={() => {
+            alert("#todo : route vers confirmation arrêt partie");
+          }}
+          name="Arrêter la partie"
+        />
+      </Link>
+      {/*  <Switch>
+          <Route path="/game/end-game" component={StopGamePopup} />
+          <Route path="/game/create" component={CreateGamePopup} />
+          <Route path="/game/wait" component={WaitingForGamePopup} />
+          <Route path="/game/waitPlayers" component={WaitingPlayersPopup} />
+          <Route path="/game/Question" component={QuestionPopup} />
+          <Route path="/game/winner" component={WinnerPopup} />
+        </Switch> */}
+    </div>
+    {/* </BrowserRouter> */}
   </div>
 );
 

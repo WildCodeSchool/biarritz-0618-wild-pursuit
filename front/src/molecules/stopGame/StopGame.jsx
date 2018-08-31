@@ -21,12 +21,14 @@ export default class StopGame extends Component {
           />
         </Link>
 
-        <Button
-          onClick={() => {
-            alert("#todo : fermeture popup, retour partie");
-          }}
-          name="Annuler"
-        />
+        <Link to="/game">
+          <Button
+            onClick={() => {
+              alert("#todo : fermeture popup, retour partie");
+            }}
+            name="Annuler"
+          />
+        </Link>
       </div>
     );
   }
