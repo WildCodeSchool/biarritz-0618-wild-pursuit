@@ -13,43 +13,51 @@ import Logo from "./../../commun/logo/Logo.jsx";
 import "./Game.css";
 
 const Game = ({ id, children }) => (
-  <Grid container spacing={40} justify="center">
-    <Grid item style={{
-      //border: '1px solid blue'
-    }}>
+  <Grid
+    container
+    spacing={40}
+    justify="center"
+    style={{ border: "1px solid black" }}
+  >
+    <div class="paper">{children}</div>
+    <Grid
+      item
+      style={{
+        width: "15%",
+        border: "1px solid blue"
+      }}
+    >
       <h1>Partie #{id}</h1>
       <Logo />
       <Link to="/game/end-game">
         <Button
-          onClick={() => {
+          id="endGame"
+          /*  onClick={() => {
             alert("#todo : route vers confirmation arrêt partie");
-          }}
+          }} */
           name="Arrêter la partie"
         />
       </Link>
-      <Dice result={6} 
-       alignItems="flex-end"
-       style={{
-      margin:'2px 5px 2em 0'
-    }} />
+      <Dice result={6} alignItems="flex-end" />
     </Grid>
-    <Grid item style={{
-      //border: '1px solid red'
-    }}>
+    <Grid
+      item
+      style={{
+        width: "60%",
+        border: "1px solid red"
+      }}
+    >
       <Board />
-      <div>
-        {children}  
-      </div>
     </Grid>
-    <Grid item>
+    <Grid
+      item
+      style={{
+        width: "25%",
+        border: "1px solid pink"
+      }}
+    >
       <Ranking />
-      <Grid
-  container
-  direction="row"
-  justify="center"
-  alignItems="center"
-> <Social />
-</Grid>
+      <Social />
     </Grid>
   </Grid>
 );

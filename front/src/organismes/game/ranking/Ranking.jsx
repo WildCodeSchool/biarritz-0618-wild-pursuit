@@ -3,14 +3,14 @@ import { players } from './../../../App.dummyDatas.js';
 import "./ranking.css";
 
 class Ranking extends Component {
-	constructor() {
-		super();
-		this._players = players; //TODO récupérer les jouurs de la partie et le nombre de camemberts
+  constructor() {
+    super();
+    this._players = players; //TODO récupérer les jouurs de la partie et le nombre de camemberts
 
-		this._players.sort((a, b) => {
-			return a.cheeseCount < b.cheeseCount ? 1 : -1;
-		});
-	}
+    this._players.sort((a, b) => {
+      return a.cheeseCount < b.cheeseCount ? 1 : -1;
+    });
+  }
 
 	render() {
 		return (

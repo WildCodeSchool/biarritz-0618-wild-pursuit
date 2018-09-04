@@ -38,7 +38,9 @@ class Dice extends Component {
   render() {
     return (
       <div className="dice">
-        <div onClick={this.lancerDe}>{this.state.results}</div>
+        <div id="result" onClick={this.lancerDe}>
+          {this.state.results}
+        </div>
       </div>
     );
   }

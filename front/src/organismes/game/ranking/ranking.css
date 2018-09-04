@@ -1,9 +1,6 @@
-/* #containerRank {
-    border: 2px solid grey;
-    padding: 2%;
-    width: 25%;
-} 
-
-#title {
-    justify-content: center;
-}*/
+#containerRank {
+  margin-bottom: 20%;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
