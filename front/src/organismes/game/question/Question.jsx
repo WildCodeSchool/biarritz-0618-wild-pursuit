@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import CountDown from "./../../atomes/countDown/CountDown.jsx";
-import List from "./../../atomes/list/List.jsx";
-import Button from "./../../atomes/button/Button.jsx";
-import { question, aCase } from "./../../App.dummyDatas.js";
+import CountDown from "./../countDown/CountDown.jsx";
+import List from "./../../../commun/list/List.jsx";
+import Button from "./../../../commun/button/Button.jsx";
+import { question, aCase } from "./../../../App.dummyDatas.js";
 
 export default class Question extends Component {
   constructor() {

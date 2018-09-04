@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import CountDown from './../countDown/CountDown.jsx';
+import CountDown from './../../countDown/CountDown.jsx';
 
 export default class CountDownToGame extends Component {
 	render() {

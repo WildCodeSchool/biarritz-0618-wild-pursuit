@@ -3,7 +3,7 @@ import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
-import Button from "./../../atomes/button/Button.jsx";
+import Button from "./../../../../commun/button/Button.jsx";
 
 export default class CreateGame extends Component {
   constructor() {

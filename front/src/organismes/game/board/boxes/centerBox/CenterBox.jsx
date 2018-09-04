@@ -11,7 +11,7 @@ export default class CenterBox extends Component {
       return (
         <div> CenterBox
           {this.state.id}
-          <img src={require('.././images/logoWP.png')}  width = "100" height = "70" />
+          <img src={require('./../../../../../commun/images/logoWP.png')}  width = "100" height = "70" />
           </div>
           );
         }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Button from "./../../atomes/button/Button.jsx";
-import List from "./../../atomes/list/List.jsx";
+import Button from "./../../../commun/button/Button.jsx";
+import List from "./../../../commun/list/List.jsx";
 //import "./social.css";
 
 class Social extends Component {

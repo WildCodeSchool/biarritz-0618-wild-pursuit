@@ -4,13 +4,13 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Lobby from "./lobby/Lobby.jsx";
 import Game from "./organismes/game/Game.jsx";
-import Popup from "./organismes/popup/Popup.jsx";
-import CreateGame from "./molecules/createGame/CreateGame.jsx";
-import CountDownToGame from "./atomes/countDownToGame/CountDownToGame.jsx";
-import WaitingForPlayers from "./molecules/waitingForPlayers/WaitingForPlayers.jsx";
-import Question from "./molecules/question/Question.jsx";
-import StopGame from "./molecules/stopGame/StopGame.jsx";
-import NameWinner from "./molecules/nameWinner/NameWinner.jsx";
+import Popup from "./organismes/game/popup/Popup.jsx";
+import CreateGame from "./organismes/game/popup/createGame/CreateGame.jsx";
+import CountDownToGame from "./organismes/game/popup/countDownToGame/CountDownToGame.jsx";
+import WaitingForPlayers from "./organismes/game/popup/waitingForPlayers/WaitingForPlayers.jsx";
+import Question from "./organismes/game/question/Question.jsx";
+import StopGame from "./organismes/game/popup/stopGame/StopGame.jsx";
+import NameWinner from "./organismes/game/popup/nameWinner/NameWinner.jsx";
 
 const CreateGamePopup = () => <Popup comp={<CreateGame />} />;
 const WaitingForGamePopup = () => (

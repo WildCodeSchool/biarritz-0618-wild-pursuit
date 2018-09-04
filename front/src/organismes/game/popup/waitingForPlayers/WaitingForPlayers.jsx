@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-import Button from "./../../atomes/button/Button.jsx";
+import Button from "./../../../../commun/button/Button.jsx";
 
 export default class WaitingForPlayers extends Component {
   constructor() {

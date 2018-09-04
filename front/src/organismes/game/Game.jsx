@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
-import Button from "./../../atomes/button/Button.jsx";
-import Dice from "./../../atomes/dice/Dice.jsx";
-import Ranking from "./../../molecules/ranking/Ranking.jsx";
-import Social from "./../../molecules/social/Social.jsx";
-import Board from "./../../molecules/board/Board.jsx";
-import Logo from "./../../atomes/logo/Logo.jsx";
+import Button from "./../../commun/button/Button.jsx";
+import Dice from "./dice/Dice.jsx";
+import Ranking from "./ranking/Ranking.jsx";
+import Social from "./social/Social.jsx";
+import Board from "./board/Board.jsx";
+import Logo from "./../../commun/logo/Logo.jsx";
 import "./Game.css";
 
 const Game = ({ id, children }) => (

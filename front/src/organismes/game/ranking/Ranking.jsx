@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { players } from './../../App.dummyDatas.js';
+import { players } from './../../../App.dummyDatas.js';
 import "./ranking.css";
 
 class Ranking extends Component {
@@ -17,7 +17,7 @@ class Ranking extends Component {
 			<table id="containerRank">
 				<thead>
 					<tr id="title">
-						<td colSpan="2">Classement <img src={require('./../../atomes/images/trophy.png')}  width = "30" height = "25" /></td>
+						<td colSpan="2">Classement <img src={require('./../../../commun/images/trophy.png')}  width = "30" height = "25" /></td>
 					</tr>
 				</thead>
 				<br/>
