@@ -4,21 +4,33 @@ const server = require('../app.js');
 const Question = require('./question.model');
 const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
-const questionsCtrl = require('./question.controller');
 
-describe('CRUD /questions', () => {
-  beforeEach((done) => {
-    console.info('deleting questions ...');
-    Question.destroy({
-      where: {},
-      truncate: true,
+
+
+
+//Avant ébut des test on suppr toutes les données
+beforeEach((done) => {
+  console.info('deleting questions ...');
+  Question.destroy({
+    where: {},
+    truncate: true,
+  })
+    .then(() => {
+      console.info('questions deleted');
+      done();
     })
-      .then(() => {
-        console.info('questions deleted');
-        done();
-      })
-      .catch(done);
-  });
+    .catch(done);
+});
+
+
+
+
+
+// un test pour voir si lorsqu'on crée une question on a bien un uuid qui lui est affecté
+// en verifiant directement dans la base sql
+
+//Test la création de la question
+describe('CRUD /questions', () => {
   describe('Create', () => {
     it('Should create a question and respond 201', (done) => {
       const request = {
@@ -52,17 +64,21 @@ describe('CRUD /questions', () => {
     });
   });
 
+
+
+
+
   //Test la lecture des questions
   describe('Read', () => {
     // read one
     it('Should get a question and respond 200', (done) => {
-      const theQuestion = {
+      const question = {
         theme: 'geographie',
         question: 'Quelle est la capitale de la France',
         response: 'Paris',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
       };
-      Question.create(theQuestion)
+      Question.create(question)
         .then((createdQuestion) => {
           const request = {
             method: 'GET',
@@ -70,7 +86,7 @@ describe('CRUD /questions', () => {
           };
           const expectedResponseBody = {
             id: createdQuestion.id,
-            ...theQuestion,
+            ...question,
           };
           return server.inject(request).then((response) => {
             expect(response.statusCode).to.be.equal(200);
@@ -80,6 +96,10 @@ describe('CRUD /questions', () => {
         })
         .catch(done);
     });
+
+
+
+
 
     //Read all
     it('Should get all questions and respond 200', (done) => {
@@ -110,20 +130,22 @@ describe('CRUD /questions', () => {
                 0: { ...questionA },
                 1: { ...questionB },
               };
-              return server
-                .inject(request)
-                .then((response) => {
-                  expect(response.statusCode).to.be.equal(200); // quand l'on arrive à lire toutes les questions
-                  expect(response.result).to.include(expectedResponseBody); // les questions apparaissent
-                  done();
-                })
-                .catch(done);
+              return server.inject(request).then((response) => {
+                expect(response.statusCode).to.be.equal(200); // quand l'on arrive à lire toutes les questions
+                expect(response.result).to.include(expectedResponseBody); // les questions apparaissent
+                done();
+              }).catch(done);
             })
             .catch(done);
         })
         .catch(done);
     });
   });
+
+
+
+
+
 
   //Test de la mise à jour d'une question
   describe('Update', () => {
@@ -151,6 +173,7 @@ describe('CRUD /questions', () => {
       server
         .inject(requestCreate)
         .then((res) => {
+          
           const requestUpdate = {
             // on la modifie
             method: 'PUT',
@@ -165,6 +188,7 @@ describe('CRUD /questions', () => {
           server
             .inject(requestUpdate)
             .then((response) => {
+              
               expect(response.statusCode).to.be.equal(200);
               expect(response.result).to.include('id');
               expect(response.result).to.include(expectedResponseBody);
@@ -176,15 +200,20 @@ describe('CRUD /questions', () => {
     });
   });
 
+
+
+
+  
+  //Test de la suppression d'une question
   describe('Destroy', () => {
     it('Should destroy a question and respond 200', (done) => {
-      const theQuestion = {
+      const question = {
         theme: 'geographie',
         question: 'Quelle est la capitale de la France',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Paris',
       };
-      Question.create(theQuestion)
+      Question.create(question)
         .then((createdQuestion) => {
           const request = {
             method: 'DELETE',
@@ -195,10 +224,10 @@ describe('CRUD /questions', () => {
             .then((response) => {
               expect(response.statusCode).to.be.equal(200); // on attend que la reponse et 200
               expect(response.result).to.be.equal(null); // on attend que l'objet que l'on a detruit soit null ou undefined
-              done();
+              done(); 
             })
             .catch(done);
-        })
+        })  
         .catch(done);
     });
   });

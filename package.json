@@ -1,11 +1,11 @@
 {
   "name": "biarritz-0618-wild-pursuit",
   "version": "0.0.1",
-  "description": "WIld pursuit",
+  "description": "Wild pursuit",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"./src/**/*.test.js\"",
-    "test:watch": "mocha -w \"./src/**/*.test.js\""
+    "test": "NODE_ENV=test mocha \"./src/**/*.test.js\"",
+    "test:watch": "NODE_ENV=test mocha -w \"./src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,11 @@
   },
   "dependencies": {
     "hapi": "^17.5.2",
-    "mongoose": "^5.2.4"
+    "pg": "^7.4.3",
+    "postgresql": "0.0.1",
+    "sequelize": "^4.38.0",
+    "uuid": "^3.3.2",
+    "win-node-env": "^0.1.0"
   },
   "prettier": {
     "singleQuote": true,
