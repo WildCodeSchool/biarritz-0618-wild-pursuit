@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "./../../atomes/button/Button.jsx";
 import List from "./../../atomes/list/List.jsx";
-//import "./social.css";
+import "./social.css";
 
 class Social extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class Social extends Component {
         }}
         name="Dommage..."
       />,
-      <Button 
+      <Button
         onClick={() => {
           alert("#todo : afficher le texte");
         }}
@@ -34,50 +34,44 @@ class Social extends Component {
       />
     ];
     this._emoInteractions = [
-     
-      <Button  
+      <Button
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="🙂"
         variant="fab"
-      /> 
-      ,
-     
-      <Button 
+      />,
+      <Button
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="❤️"
         variant="fab"
       />,
-     
-      <Button 
+
+      <Button
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😉"
         variant="fab"
-      /> ,
-     
-      <Button 
+      />,
+
+      <Button
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😀"
         variant="fab"
-      />
-      
-      ,
-     
-      <Button 
+      />,
+
+      <Button
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="☹️"
         variant="fab"
       />
-      
     ];
   }
 
@@ -85,11 +79,12 @@ class Social extends Component {
     return (
       <div id="container">
         <div id="word">
-        <List  items={this._TxtInteractions} />
+          <List items={this._TxtInteractions} />
         </div>
-        <div id="icon"><br/>
-        <List items={this._emoInteractions} />
-      </div>
+        <div id="icon">
+          <br />
+          <List items={this._emoInteractions} />
+        </div>
       </div>
     );
   }

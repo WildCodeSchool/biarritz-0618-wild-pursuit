@@ -1,19 +1,13 @@
-/*  #container {
-     border: 2px solid grey;
-     padding: 2%;
-     width: 25%;
- } */
-
-#word {
-    margin: 20px;
-    justify-content: center;
+#container {
+  width: 100%;
 }
 
 #icon {
-    margin: 20px;
-    display: flex;
-    justify-content: baseline;
-    size: 10px;
-    margin-block-end: auto;
-    margin-block-start: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#word button {
+  margin-bottom: 5%;
+  align-items: center;
 }
