@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import CheesePart from "./cheesePart/CheesePart.jsx";
 
 export default class Pawn extends Component {
-  constructor(props) {
-    super();
-    this.state = { ...props.centerObjet };
-  }
-
   render() {
-    return <div>Un Pion</div>;
+    return (
+      <div>
+        Un Pion
+        <CheesePart />
+      </div>
+    );
   }
 }
