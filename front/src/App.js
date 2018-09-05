@@ -11,6 +11,7 @@ import WaitingForPlayers from "./game/popup/waitingForPlayers/WaitingForPlayers.
 import Question from "./game/question/Question.jsx";
 import StopGame from "./game/popup/stopGame/StopGame.jsx";
 import NameWinner from "./game/popup/nameWinner/NameWinner.jsx";
+import Stats from "./game/popup/stats/Stats.jsx";
 
 const CreateGamePopup = () => <Popup comp={<CreateGame />} />;
 const WaitingForGamePopup = () => (
@@ -22,6 +23,7 @@ const WaitingPlayersPopup = () => (
 const QuestionPopup = () => <Popup comp={<Question />} />;
 const StopGamePopup = () => <Popup comp={<StopGame />} />;
 const WinnerPopup = () => <Popup comp={<NameWinner />} />;
+const StatsPopup = () => <Popup comp={<Stats />} />;
 
 class App extends Component {
   render() {
@@ -38,6 +40,7 @@ class App extends Component {
               <Route path="/game/waitPlayers" component={WaitingPlayersPopup} />
               <Route path="/game/Question" component={QuestionPopup} />
               <Route path="/game/winner" component={WinnerPopup} />
+              <Route path="/game/stats" component={StatsPopup} />
             </Game>
           </Switch>
         </BrowserRouter>
