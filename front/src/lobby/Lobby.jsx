@@ -56,7 +56,7 @@ class Lobby extends Component {
       <div id='fondEcran'> 
       <div>
          <img id='logo' src={require("./../commun/images/logoWP.png")}  />
-        <h3 id='typo'> Crées ou rejoinds une équipe de wildeur !   </h3>
+        <h3 id='typo'> Crée ou rejoins une équipe de wildeurs !   </h3>
         <br/>
         <List items={this.rejoindre} />
         </div>

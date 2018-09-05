@@ -12,22 +12,24 @@ import Board from "./board/Board.jsx";
 import "./Game.css";
 
 const Game = ({ id, children }) => (
+  <Grid id = 'fondEcranPartie'>
   <Grid
     container
     spacing={40}
     justify="center"
-    style={{ border: "1px solid black" }}
+    /* style={{ border: "1px solid black" }} */
   >
     <div class="paper">{children}</div>
     <Grid
       item
       style={{
         width: "15%",
-        border: "1px solid blue"
+       /*  border: "1px solid blue" */
       }}
     >
+    <Logo />
       <h1>Partie #{id}</h1>
-      {/* <Logo /> */}
+      
       <Link to="/game/end-game">
         <Button
           id="endGame"
@@ -43,7 +45,7 @@ const Game = ({ id, children }) => (
       item
       style={{
         width: "60%",
-        border: "1px solid red"
+        /* border: "1px solid red" */
       }}
     >
       <Board />
@@ -52,12 +54,19 @@ const Game = ({ id, children }) => (
       item
       style={{
         width: "25%",
-        border: "1px solid pink"
+       /*  border: "1px solid pink" */
       }}
     >
+   
+    <Grid id = 'rank'
+    style={{
+      background : '#D3D3D3', 
+      }}>
       <Ranking />
+      </Grid>
       <Social />
     </Grid>
+  </Grid>
   </Grid>
 );
 
