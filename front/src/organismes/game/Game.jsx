@@ -28,7 +28,7 @@ const Game = ({ id, children }) => (
       }}
     >
       <h1>Partie #{id}</h1>
-      <Logo />
+      {/* <Logo /> */}
       <Link to="/game/end-game">
         <Button
           id="endGame"

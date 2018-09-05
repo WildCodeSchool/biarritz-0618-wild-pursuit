@@ -5,6 +5,7 @@ import CheeseBox from "./boxes/cheeseBox/CheeseBox.jsx";
 import ReplayBox from "./boxes/replayBox/ReplayBox.jsx";
 import CenterBox from "./boxes/centerBox/CenterBox.jsx";
 
+
 export default class Board extends Component {
   render() {
     return (
