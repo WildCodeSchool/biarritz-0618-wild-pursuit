@@ -4,11 +4,13 @@ import NormalBox from "./boxes/normalBox/NormalBox.jsx";
 import CheeseBox from "./boxes/cheeseBox/CheeseBox.jsx";
 import ReplayBox from "./boxes/replayBox/ReplayBox.jsx";
 import CenterBox from "./boxes/centerBox/CenterBox.jsx";
+import Pawn from "./pawn/Pawn.jsx";
 
 export default class Board extends Component {
   render() {
     return (
       <div>
+        <Pawn />
         <NormalBox
           objet={{
             id: 27,
