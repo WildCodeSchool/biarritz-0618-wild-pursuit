@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Button from "./../../../commun/button/Button.jsx";
 

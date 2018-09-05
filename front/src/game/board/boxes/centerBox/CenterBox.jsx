@@ -14,6 +14,7 @@ export default class CenterBox extends Component {
         {this.state.id}
         <img
           src={require("./../../../../commun/images/logoWP.png")}
+          alt="Logo Wild Pursuit"
           width="100"
           height="70"
         />

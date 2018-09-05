@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "./../commun/button/Button.jsx";
 import List from "./../commun/list/List.jsx";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { generateDummyGames } from "./../App.dummyDatas.js";
 

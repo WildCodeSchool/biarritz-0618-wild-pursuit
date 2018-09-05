@@ -21,6 +21,7 @@ class Ranking extends Component {
               Classement{" "}
               <img
                 src={require("./../../commun/images/trophy.png")}
+                alt="Logo Wild Pursuit"
                 width="30"
                 height="25"
               />

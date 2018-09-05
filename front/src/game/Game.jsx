@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import Button from "./../commun/button/Button.jsx";
