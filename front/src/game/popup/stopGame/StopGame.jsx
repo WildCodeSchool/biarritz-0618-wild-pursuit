@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Button from "./../../../../commun/button/Button.jsx";
+import Button from "./../../../commun/button/Button.jsx";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 export default class StopGame extends Component {
