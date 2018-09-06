@@ -9,6 +9,15 @@ import Dice from "./dice/Dice.jsx";
 import Ranking from "./ranking/Ranking.jsx";
 import Social from "./social/Social.jsx";
 import Board from "./board/Board.jsx";
+import Popup from "./popup/Popup.jsx";
+import CreateGame from "./popup/createGame/CreateGame.jsx";
+import CountDownToGame from "./popup/countDownToGame/CountDownToGame.jsx";
+import WaitingForPlayers from "./popup/waitingForPlayers/WaitingForPlayers.jsx";
+import Question from "./question/Question.jsx";
+import StopGame from "./popup/stopGame/StopGame.jsx";
+import NameWinner from "./popup/nameWinner/NameWinner.jsx";
+import Stats from "./popup/stats/Stats.jsx";
+
 import "./Game.css";
 
 const Game = ({ id, children }) => (
@@ -18,7 +27,7 @@ const Game = ({ id, children }) => (
     justify="center"
     style={{ border: "1px solid black" }}
   >
-    <div class="paper">{children}</div>
+    <Popup comp={<CreateGame />} open={true} />
     <Grid
       item
       style={{

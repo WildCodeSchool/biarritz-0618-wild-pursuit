@@ -1,25 +1,54 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ButtonMUI from "@material-ui/core/Button";
-import { Paper } from "@material-ui/core";
-//import "./popup.css";
+import { Link } from "react-router-dom";
 
-const Popup = ({ comp }) => (
-  <div>
-    <Paper elevation={14} style={{ margin: 32 }}>
-      <div>
-        <ButtonMUI
-          onClick={() => {
-            alert("#todo : fermeture de la popup");
-          }}
-        >
-          X
-        </ButtonMUI>
-      </div>
-      {comp}
-    </Paper>
-  </div>
-);
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Modal from "@material-ui/core/Modal";
+import Paper from "@material-ui/core/Paper";
+import "./popup.css";
+
+class Popup extends Component {
+  constructor(props) {
+    super();
+    this.state = { ...props };
+    this.handleClose = this.handleClose.bind(this);
+  }
+
+  handleClose() {
+    this.setState({ open: false });
+  }
+
+  render() {
+    return (
+      <Modal
+        open={this.state.open}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          width: "100%",
+          position: "absolute"
+        }}
+      >
+        <Paper elevation="20">
+          <Link to="/">
+            <ButtonMUI
+              onClick={() => {
+                this.handleClose();
+              }}
+            >
+              X
+            </ButtonMUI>
+          </Link>
+          <div style={{ padding: "0 50px 50px 50px" }}>{this.state.comp}</div>
+        </Paper>
+      </Modal>
+    );
+  }
+}
 
 Popup.propTypes = {
   comp: PropTypes.element.isRequired
