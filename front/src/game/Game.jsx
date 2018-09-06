@@ -23,7 +23,8 @@ const Game = ({ id, children }) => (
     <Grid
       item
       style={{
-        width: "15%",
+        width: "15%"
+        ,
        /*  border: "1px solid blue" */
       }}
     >
@@ -41,10 +42,11 @@ const Game = ({ id, children }) => (
       </Link>
       <Dice result={6} alignItems="flex-end" />
     </Grid>
-    <Grid
+    <Grid id='plateau'
       item
       style={{
         width: "60%",
+        
         /* border: "1px solid red" */
       }}
     >

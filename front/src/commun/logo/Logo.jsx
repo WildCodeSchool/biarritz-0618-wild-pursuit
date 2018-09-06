@@ -8,8 +8,8 @@ export default class Logo extends Component {
         <img
           src={require("./../images/logoWP.png")}
           alt="Logo Wild Pursuit"
-          width="100"
-          height="70"
+          width="150"
+          height="110"
         />
       </div>
     );

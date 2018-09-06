@@ -20,3 +20,10 @@
     background: '#D3D3D3';
     margin-top: 10px;
 }
+
+#plateau {
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: auto;
+    margin-bottom: auto;
+}
