@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Button from "./../../../commun/button/Button.jsx";
 
-export default class CreateGame extends Component {
+class CreateGame extends Component {
   constructor() {
     super();
     this.state = {
@@ -51,6 +52,7 @@ export default class CreateGame extends Component {
         "Compte à rebours avant la partie : " +
         countDown
     );
+    this.props.dispatch({ type: "@popup/CLOSE" });
   };
   render() {
     return (
@@ -90,16 +92,20 @@ export default class CreateGame extends Component {
               value="checkedA"
             />
           </div>
-          <Link to="/game/waitPlayers">
-            <Button
-              onClick={() => {
-                this.handleCreateGame(this.state.value, this.state.countDown);
-              }}
-              name="Créer la partie"
-            />
-          </Link>
+          <Button
+            onClick={() => {
+              this.handleCreateGame(this.state.value, this.state.countDown);
+            }}
+            name="Créer la partie"
+          />
         </div>
       </div>
     );
   }
 }
+
+// function mapStateToProps({ Popup }) {
+//   return { isOpen: Popup.isOpen, content: Popup.content };
+// }
+
+export default connect(() => ({}))(CreateGame);

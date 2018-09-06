@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ButtonMUI from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -17,13 +18,16 @@ class Popup extends Component {
   }
 
   handleClose() {
-    this.setState({ open: false });
+    // this.setState({ open: false });
+    this.props.dispatch({
+      type: "@popup/CLOSE"
+    });
   }
 
   render() {
     return (
       <Modal
-        open={this.state.open}
+        open={this.props.isOpen}
         style={{
           display: "flex",
           justifyContent: "center",
@@ -34,16 +38,17 @@ class Popup extends Component {
         }}
       >
         <Paper elevation="20">
-          <Link to="/">
-            <ButtonMUI
-              onClick={() => {
-                this.handleClose();
-              }}
-            >
-              X
-            </ButtonMUI>
-          </Link>
-          <div style={{ padding: "0 50px 50px 50px" }}>{this.state.comp}</div>
+          <ButtonMUI
+            onClick={() => {
+              this.handleClose();
+            }}
+          >
+            X
+          </ButtonMUI>
+
+          <div style={{ padding: "0 50px 50px 50px" }}>
+            {this.props.content}
+          </div>
         </Paper>
       </Modal>
     );
@@ -53,5 +58,8 @@ class Popup extends Component {
 Popup.propTypes = {
   comp: PropTypes.element.isRequired
 };
+function mapStateToProps({ Popup }) {
+  return { isOpen: Popup.isOpen, content: Popup.content };
+}
 
-export default Popup;
+export default connect(mapStateToProps)(Popup);

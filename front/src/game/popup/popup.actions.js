@@ -1,0 +1,3 @@
+// {
+// 	type: 'CLOSE_POPUP'
+// }

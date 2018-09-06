@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 
@@ -20,14 +21,14 @@ import Stats from "./popup/stats/Stats.jsx";
 
 import "./Game.css";
 
-const Game = ({ id, children }) => (
+const Game = ({ id, children, dispatch }) => (
   <Grid
     container
     spacing={40}
     justify="center"
     style={{ border: "1px solid black" }}
   >
-    <Popup comp={<CreateGame />} open={true} />
+    <Popup />
     <Grid
       item
       style={{
@@ -37,15 +38,19 @@ const Game = ({ id, children }) => (
     >
       <h1>Partie #{id}</h1>
       <Logo />
-      <Link to="/game/end-game">
-        <Button
-          id="endGame"
-          /*  onClick={() => {
-            alert("#todo : route vers confirmation arrêt partie");
-          }} */
-          name="Arrêter la partie"
-        />
-      </Link>
+
+      <Button
+        id="endGame"
+        onClick={() => {
+          alert("#todo : route vers confirmation arrêt partie");
+          dispatch({
+            type: "@popup/OPEN",
+            payload: { content: <CreateGame /> }
+          });
+        }}
+        name="Arrêter la partie"
+      />
+
       <Dice result={6} alignItems="flex-end" />
     </Grid>
     <Grid
@@ -78,4 +83,8 @@ Game.defaultProps = {
   id: 1
 };
 
-export default Game;
+// function mapStateToProps({ Game }) {
+//   return Game;
+// }
+
+export default connect(() => ({}))(Game);
