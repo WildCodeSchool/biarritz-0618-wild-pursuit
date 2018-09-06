@@ -22,55 +22,73 @@ import Stats from "./popup/stats/Stats.jsx";
 import "./Game.css";
 
 const Game = ({ id, children, dispatch }) => (
-  <Grid
-    container
-    spacing={40}
-    justify="center"
-    style={{ border: "1px solid black" }}
-  >
-    <Popup />
+  <Grid id="fondEcranPartie">
     <Grid
-      item
-      style={{
-        width: "15%",
-        border: "1px solid blue"
-      }}
-    >
-      <h1>Partie #{id}</h1>
-      <Logo />
+      id="gridSize"
+      container
+      spacing={40}
+      justify="center"
 
-      <Button
-        id="endGame"
-        onClick={() => {
-          alert("#todo : route vers confirmation arrêt partie");
-          dispatch({
-            type: "@popup/OPEN",
-            payload: { content: <CreateGame /> }
-          });
+      /* style={{ border: "1px solid black" }} */
+    >
+      <Popup />
+      <Grid
+        item
+        style={{
+          width: "20%",
+          padding: "40px"
+
+          /*  border: "1px solid blue" */
         }}
-        name="Arrêter la partie"
-      />
+      >
+        <Logo />
+        <h3>Partie #{id}</h3>
 
-      <Dice result={6} alignItems="flex-end" />
-    </Grid>
-    <Grid
-      item
-      style={{
-        width: "60%",
-        border: "1px solid red"
-      }}
-    >
-      <Board />
-    </Grid>
-    <Grid
-      item
-      style={{
-        width: "25%",
-        border: "1px solid pink"
-      }}
-    >
-      <Ranking />
-      <Social />
+        <Button
+          id="endGame"
+          onClick={() => {
+            alert("#todo : route vers confirmation arrêt partie");
+            dispatch({
+              type: "@popup/OPEN",
+              payload: { content: <CreateGame /> }
+            });
+          }}
+          name="Arrêter la partie"
+        />
+        <div id="dicePosition">
+          <Dice result={6} alignItems="flex-end" />
+        </div>
+      </Grid>
+      <Grid
+        id="plateau"
+        item
+        style={{
+          width: "60%"
+
+          /* border: "1px solid red" */
+        }}
+      >
+        <Board />
+      </Grid>
+      <Grid
+        id="rightGrisBoarder"
+        item
+        style={{
+          width: "20%"
+          /*  border: "1px solid pink" */
+        }}
+      >
+        <Grid
+          id="rank"
+          style={{
+            background: "#D3D3D3",
+            opacity: "50%"
+          }}
+        >
+          <Ranking />
+        </Grid>
+        <Social />
+      </Grid>
     </Grid>
   </Grid>
 );

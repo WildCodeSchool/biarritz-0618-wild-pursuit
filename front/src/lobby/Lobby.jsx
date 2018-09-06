@@ -4,6 +4,7 @@ import List from "./../commun/list/List.jsx";
 import { Link } from "react-router-dom";
 
 import { generateDummyGames } from "./../App.dummyDatas.js";
+import './lobby.css';
 
 class Lobby extends Component {
   constructor() {
@@ -24,8 +25,13 @@ class Lobby extends Component {
         partie.maxPlayers;
       let path = "/game/" + partie.id;
       return (this.rejoindre[i] = (
+<<<<<<< HEAD
         <Link to={path}>
           <Button
+=======
+        <Link to="/game/wait">
+          <Button  id='button'
+>>>>>>> cb5e9c2dd46195034cf3f46c468160a4ec71c8c4
             onClick={() => {
               this.joinGame(partie.id);
             }}
@@ -40,8 +46,13 @@ class Lobby extends Component {
     }
 
     this.rejoindre.push(
+<<<<<<< HEAD
       <Link to="/game/">
         <Button
+=======
+      <Link to="/game/create">
+        <Button id='button'
+>>>>>>> cb5e9c2dd46195034cf3f46c468160a4ec71c8c4
           onClick={() => {
             this.createGame();
           }}
@@ -64,10 +75,13 @@ class Lobby extends Component {
 
   render() {
     return (
+      <div id='fondEcran'> 
       <div>
-        <h1>Wild Pursuit</h1>
-        <h2>A la recherche de la quête perdue</h2>
+         <img id='logo' src={require("./../commun/images/logoWP.png")}  />
+        <h3 id='typo'> Crée ou rejoins une équipe de wildeurs !   </h3>
+        <br/>
         <List items={this.rejoindre} />
+        </div>
       </div>
     );
   }
