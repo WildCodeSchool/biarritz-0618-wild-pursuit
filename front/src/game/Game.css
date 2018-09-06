@@ -29,13 +29,16 @@
 
 #rightGrisBoarder {
     padding: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #dicePosition {
     padding: 0;
     margin-bottom: 1px;
+    bottom: 4%;
 }
 
 #gridSize {
-    height: 914px
+    height: 814px
 }
