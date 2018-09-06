@@ -21,14 +21,14 @@ class Ranking extends Component {
               Classement{" "}
               <img
                 src={require("./../../commun/images/trophy.png")}
-                alt="Logo Wild Pursuit"
+                alt="trophy title"
                 width="30"
                 height="25"
               />
             </td>
           </tr>
         </thead>
-        <br />
+        
         <tbody>
           {this._players.map((player, i) => {
             return (

@@ -17,13 +17,25 @@
 
 #rank {
     border-radius: 10px;
-    background: '#D3D3D3';
     margin-top: 10px;
 }
 
 #plateau {
-    margin: 0;
-    box-sizing: border-box;
+    /* margin: 0; */
+    /* box-sizing: fixed; */
     margin-top: auto;
     margin-bottom: auto;
+}
+
+#rightGrisBoarder {
+    padding: 40px;
+}
+
+#dicePosition {
+    padding: 0;
+    margin-bottom: 1px;
+}
+
+#gridSize {
+    height: 914px
 }

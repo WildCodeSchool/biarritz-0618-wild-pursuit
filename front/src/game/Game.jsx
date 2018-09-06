@@ -13,23 +13,27 @@ import "./Game.css";
 
 const Game = ({ id, children }) => (
   <Grid id = 'fondEcranPartie'>
-  <Grid
+  
+  <Grid id='gridSize'
     container
     spacing={40}
     justify="center"
+    
+    
     /* style={{ border: "1px solid black" }} */
   >
-    <div class="paper">{children}</div>
+    <div className="paper">{children}</div>
     <Grid
       item
       style={{
-        width: "15%"
-        ,
+        width: "20%",
+        padding:"40px",
+        
        /*  border: "1px solid blue" */
       }}
     >
     <Logo />
-      <h1>Partie #{id}</h1>
+      <h3>Partie #{id}</h3>
       
       <Link to="/game/end-game">
         <Button
@@ -40,7 +44,9 @@ const Game = ({ id, children }) => (
           name="Arrêter la partie"
         />
       </Link>
+      <div id='dicePosition'>
       <Dice result={6} alignItems="flex-end" />
+      </div>
     </Grid>
     <Grid id='plateau'
       item
@@ -52,17 +58,18 @@ const Game = ({ id, children }) => (
     >
       <Board />
     </Grid>
-    <Grid
+    <Grid id='rightGrisBoarder'
       item
       style={{
-        width: "25%",
+        width: "20%",
        /*  border: "1px solid pink" */
       }}
     >
    
     <Grid id = 'rank'
     style={{
-      background : '#D3D3D3', 
+      background : '#D3D3D3',
+      opacity : '50%', 
       }}>
       <Ranking />
       </Grid>
@@ -70,6 +77,7 @@ const Game = ({ id, children }) => (
     </Grid>
   </Grid>
   </Grid>
+  
 );
 
 Game.propTypes = {
