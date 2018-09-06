@@ -12,8 +12,10 @@ export default class CreateGame extends Component {
       value: 4,
       checkedA: true,
       checkedB: false,
-      checkedC: false
+      checkedC: false,
+      countDown: 10
     };
+    // this.handleCreateGame = this.handleCreateGame.bind(this);
   }
   handleSlider = (event, value) => {
     this.setState({ value });
@@ -27,7 +29,28 @@ export default class CreateGame extends Component {
         checkedC: false
       });
       this.setState({ [name]: event.target.checked });
+      switch (name) {
+        case "checkedA":
+          this.setState({ countDown: 10 });
+          break;
+        case "checkedB":
+          this.setState({ countDown: 60 });
+          break;
+        case "checkedC":
+          this.setState({ countDown: 180 });
+          break;
+      }
     }
+  };
+
+  handleCreateGame = (nbPLayers, countDown) => {
+    alert(
+      "Nombre de joueurs de la partie : " +
+        nbPLayers +
+        "\n" +
+        "Compte à rebours avant la partie : " +
+        countDown
+    );
   };
   render() {
     return (
@@ -70,7 +93,7 @@ export default class CreateGame extends Component {
           <Link to="/game/waitPlayers">
             <Button
               onClick={() => {
-                alert("#todo : route vers attente de la connexion des joueurs");
+                this.handleCreateGame(this.state.value, this.state.countDown);
               }}
               name="Créer la partie"
             />
