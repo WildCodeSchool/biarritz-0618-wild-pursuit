@@ -22,11 +22,12 @@ class Lobby extends Component {
         partie.connectedPlayers +
         "/" +
         partie.maxPlayers;
+      let path = "/game/" + partie.id;
       return (this.rejoindre[i] = (
-        <Link to="/game/wait">
+        <Link to={path}>
           <Button
             onClick={() => {
-              alert("#todo : route vers attente de la connexion des joueurs");
+              this.joinGame(partie.id);
             }}
             name={name}
           />
@@ -39,15 +40,26 @@ class Lobby extends Component {
     }
 
     this.rejoindre.push(
-      <Link to="/game/create">
+      <Link to="/game/">
         <Button
           onClick={() => {
-            alert("#todo : route vers créer partie");
+            this.createGame();
           }}
           name="Créer une partie"
         />
       </Link>
     );
+
+    this.joinGame = this.joinGame.bind(this);
+    this.createGame = this.createGame.bind(this);
+  }
+
+  joinGame(id) {
+    alert("Rejoindre la partie #" + id);
+  }
+
+  createGame() {
+    alert("Créer une partie");
   }
 
   render() {
