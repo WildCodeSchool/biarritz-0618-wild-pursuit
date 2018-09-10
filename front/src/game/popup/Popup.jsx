@@ -38,7 +38,7 @@ class Popup extends Component {
           position: "absolute"
         }}
       >
-        <Paper elevation="20">
+        <Paper>
           <Link to="/">
             <Button
               onClick={() => {
