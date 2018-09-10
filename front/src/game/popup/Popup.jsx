@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Button from "./../../commun/button/Button.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -58,9 +57,6 @@ class Popup extends Component {
   }
 }
 
-Popup.propTypes = {
-  comp: PropTypes.element.isRequired
-};
 function mapStateToProps({ Popup, CountDown }) {
   return {
     isOpen: Popup.isOpen,
