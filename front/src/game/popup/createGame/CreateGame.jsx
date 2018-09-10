@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Button from "./../../../commun/button/Button.jsx";
@@ -40,6 +39,9 @@ class CreateGame extends Component {
           break;
         case "checkedC":
           this.setState({ countDown: 180 });
+          break;
+        default:
+          this.setState({ countDown: 10 });
           break;
       }
     }

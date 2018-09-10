@@ -4,8 +4,6 @@ import Button from "./../../commun/button/Button.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import Paper from "@material-ui/core/Paper";
 import "./popup.css";

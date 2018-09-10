@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import { decomposeToMinutesAndSecs } from "./CountDown.helper.js";
 import DisplayTime from "./DisplayTime.jsx";
 
-import { closePopup } from "./countdown.actions.js";
-
 class CountDown extends Component {
   constructor(props) {
     super();

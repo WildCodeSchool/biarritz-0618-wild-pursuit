@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Button from "./../../../commun/button/Button.jsx";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Stats from "./../stats/Stats.jsx";
