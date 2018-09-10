@@ -18,6 +18,12 @@ export default function reduce(state = initialState, action = {}) {
         isOpen: true,
         content: payload.content
       };
+    case "@popup/CHANGE":
+      return {
+        ...state,
+        isOpen: true,
+        content: payload.content
+      };
     default:
       return state;
   }

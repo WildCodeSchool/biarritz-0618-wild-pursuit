@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Button from "./../../../commun/button/Button.jsx";
+import WaitingForPlayers from "./../waitingForPlayers/WaitingForPlayers.jsx";
 
 class CreateGame extends Component {
   constructor() {
@@ -52,7 +53,10 @@ class CreateGame extends Component {
         "Compte à rebours avant la partie : " +
         countDown
     );
-    this.props.dispatch({ type: "@popup/CLOSE" });
+    this.props.dispatch({
+      type: "@popup/CHANGE",
+      payload: { content: <WaitingForPlayers /> }
+    });
   };
   render() {
     return (
@@ -67,7 +71,7 @@ class CreateGame extends Component {
               max={6}
               step={1}
               onChange={this.handleSlider}
-              width={300}
+              width={150}
             />{" "}
             {this.state.value}
           </div>

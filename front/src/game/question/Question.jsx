@@ -32,7 +32,7 @@ export default class Question extends Component {
     }
     return (
       <div>
-        <CountDown seconds={60} />
+        <CountDown seconds={15} />
         <h1>A vous de jouer !</h1>
         <h2>{displayCatCheese}</h2>
         <p>{this.question.question}</p>

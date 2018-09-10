@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Button from "./../../../commun/button/Button.jsx";
 import { Link } from "react-router-dom";
+import NameWinner from "../nameWinner/NameWinner";
+import { connect } from "react-redux";
 
-export default class StopGame extends Component {
+class StopGame extends Component {
   render() {
     return (
       <div>
@@ -12,24 +14,29 @@ export default class StopGame extends Component {
           voulez faire ?<br /> Attention, cette action est irréversible !
         </span>
 
-        <Link to="/">
-          <Button
-            onClick={() => {
-              alert("#todo : route vers lobby");
-            }}
-            name="Confirmer"
-          />
-        </Link>
+        <Button
+          onClick={() => {
+            //alert("#todo : route vers lobby");
+            this.props.dispatch({
+              type: "@popup/OPEN",
+              payload: { content: <NameWinner /> }
+            });
+          }}
+          name="Confirmer"
+        />
 
-        <Link to="/game">
-          <Button
-            onClick={() => {
-              alert("#todo : fermeture popup, retour partie");
-            }}
-            name="Annuler"
-          />
-        </Link>
+        <Button
+          onClick={() => {
+            //alert("#todo : fermeture popup, retour partie");
+            this.props.dispatch({
+              type: "@popup/CLOSE"
+            });
+          }}
+          name="Annuler"
+        />
       </div>
     );
   }
 }
+
+export default connect(() => ({}))(StopGame);

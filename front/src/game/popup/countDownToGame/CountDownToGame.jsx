@@ -1,19 +1,32 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import CountDown from './../../countDown/CountDown.jsx';
+import CountDown from "./../../countDown/CountDown.jsx";
 
-export default class CountDownToGame extends Component {
-	render() {
-		return (
-			<div className='CountDownToGame'>
-				<h1>La Partie commence dans</h1>
-				<CountDown seconds={this.props.countDown} />
-			</div>
-		);
-	}
+class CountDownToGame extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: "@countdown/START"
+    });
+  }
+  ///// TROUVER COMMENT LIRE L'ETAT DU STORE ET COMMENT METTRE A JOUR LE COMPOSANT AUX CHANGEMENT DU STORE
+  //this.props.dispatch(closePopup());
+
+  render() {
+    return (
+      <div className="CountDownToGame">
+        <h1>La Partie commence dans</h1>
+        <CountDown seconds={this.props.countDown} />
+      </div>
+    );
+  }
 }
 
 CountDownToGame.propTypes = {
-	countDown: PropTypes.number.isRequired,
+  countDown: PropTypes.number.isRequired
 };
+
+//export default CountDownToGame;
+
+export default connect(() => ({}))(CountDownToGame);

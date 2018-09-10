@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Button from "./../../../commun/button/Button.jsx";
+import CountDownToGame from "../countDownToGame/CountDownToGame";
 
-export default class WaitingForPlayers extends Component {
+class WaitingForPlayers extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,9 +26,9 @@ export default class WaitingForPlayers extends Component {
   }
   render() {
     if (this.state.playersConnected === this.props.maxPLayers) {
-      alert(
+      /* alert(
         "Le nombre de joueur attendu a été atteint, le compte a rebours va commencer"
-      );
+      ); */
     }
     return (
       <div>
@@ -39,7 +41,10 @@ export default class WaitingForPlayers extends Component {
         <Link to="/game/wait">
           <Button
             onClick={() => {
-              alert("#todo : route vers countDownGame");
+              this.props.dispatch({
+                type: "@popup/CHANGE",
+                payload: { content: <CountDownToGame countDown={10} /> }
+              });
             }}
             name="Commencer la partie quand même"
             disabled={this.state.playersConnected < 2}
@@ -53,3 +58,5 @@ export default class WaitingForPlayers extends Component {
 WaitingForPlayers.propTypes = {
   maxPLayers: PropTypes.number.isRequired
 };
+
+export default connect(() => ({}))(WaitingForPlayers);

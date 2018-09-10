@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -21,77 +21,117 @@ import Stats from "./popup/stats/Stats.jsx";
 
 import "./Game.css";
 
-const Game = ({ id, children, dispatch }) => (
-  <Grid id="fondEcranPartie">
-    <Grid
-      id="gridSize"
-      container
-      spacing={40}
-      justify="center"
+class Game extends Component {
+  constructor() {
+    super();
 
-      /* style={{ border: "1px solid black" }} */
-    >
-      <Popup />
-      <Grid
-        item
-        style={{
-          width: "20%",
-          padding: "40px"
-
-          /*  border: "1px solid blue" */
-        }}
-      >
-        <Logo />
-        <h3>Partie #{id}</h3>
-
-        <Button
-          id="endGame"
-          onClick={() => {
-            alert("#todo : route vers confirmation arrêt partie");
-            dispatch({
-              type: "@popup/OPEN",
-              payload: { content: <CreateGame /> }
-            });
-          }}
-          name="Arrêter la partie"
-        />
-        <div id="dicePosition">
-          <Dice result={6} alignItems="flex-end" />
-        </div>
-      </Grid>
-      <Grid
-        id="plateau"
-        item
-        style={{
-          width: "60%"
-
-          /* border: "1px solid red" */
-        }}
-      >
-        <Board />
-      </Grid>
-      <Grid
-        id="rightGrisBoarder"
-        item
-        style={{
-          width: "20%"
-          /*  border: "1px solid pink" */
-        }}
-      >
+    this.openQuestion = this.openQuestion.bind(this);
+    this.stopGame = this.stopGame.bind(this);
+    this.createGame = this.createGame.bind(this);
+  }
+  openQuestion() {
+    this.props.dispatch({
+      type: "@popup/OPEN",
+      payload: { content: <Question /> }
+    });
+  }
+  createGame() {
+    this.props.dispatch({
+      type: "@popup/OPEN",
+      payload: { content: <CreateGame /> }
+    });
+  }
+  stopGame() {
+    this.props.dispatch({
+      type: "@popup/OPEN",
+      payload: { content: <StopGame /> }
+    });
+  }
+  render() {
+    return (
+      <Grid id="fondEcranPartie">
         <Grid
-          id="rank"
-          style={{
-            background: "#D3D3D3",
-            opacity: "50%"
-          }}
+          id="gridSize"
+          container
+          spacing={40}
+          justify="center"
+
+          /* style={{ border: "1px solid black" }} */
         >
-          <Ranking />
+          <Popup />
+          <Grid
+            item
+            style={{
+              width: "20%",
+              padding: "40px"
+
+              /*  border: "1px solid blue" */
+            }}
+          >
+            <Logo />
+            <h3>Partie #{this.props.id}</h3>
+
+            <Button
+              id="endGame"
+              onClick={() => {
+                this.stopGame();
+              }}
+              name="Arrêter la partie"
+            />
+
+            <Button
+              onClick={() => {
+                this.createGame();
+              }}
+              name="Créer une partie"
+            />
+
+            <Button
+              onClick={() => {
+                this.openQuestion();
+              }}
+              name="Question"
+            />
+
+            <div id="dicePosition">
+              <Dice result={6} alignItems="flex-end" />
+            </div>
+          </Grid>
+          <Grid
+            id="plateau"
+            item
+            style={{
+              width: "60%"
+
+              /* border: "1px solid red" */
+            }}
+          >
+            <Board />
+          </Grid>
+          <Grid
+            id="rightGrisBoarder"
+            item
+            style={{
+              width: "20%"
+              /*  border: "1px solid pink" */
+            }}
+          >
+            <Grid
+              id="rank"
+              style={{
+                background: "#D3D3D3",
+                opacity: "50%"
+              }}
+            >
+              <Ranking />
+            </Grid>
+            <Social />
+          </Grid>
         </Grid>
-        <Social />
       </Grid>
-    </Grid>
-  </Grid>
-);
+    );
+  }
+}
 
 Game.propTypes = {
   id: PropTypes.number.isRequired

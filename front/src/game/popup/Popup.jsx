@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ButtonMUI from "@material-ui/core/Button";
+import Button from "./../../commun/button/Button.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import Paper from "@material-ui/core/Paper";
 import "./popup.css";
+import { closePopup } from "../countDown/countdown.actions";
 
 class Popup extends Component {
   constructor(props) {
@@ -25,6 +26,9 @@ class Popup extends Component {
   }
 
   render() {
+    if (this.props.isFinished) {
+      this.props.dispatch(closePopup());
+    }
     return (
       <Modal
         open={this.props.isOpen}
@@ -38,13 +42,14 @@ class Popup extends Component {
         }}
       >
         <Paper elevation="20">
-          <ButtonMUI
-            onClick={() => {
-              this.handleClose();
-            }}
-          >
-            X
-          </ButtonMUI>
+          <Link to="/">
+            <Button
+              onClick={() => {
+                this.handleClose();
+              }}
+              name="X"
+            />
+          </Link>
 
           <div style={{ padding: "0 50px 50px 50px" }}>
             {this.props.content}
@@ -58,8 +63,12 @@ class Popup extends Component {
 Popup.propTypes = {
   comp: PropTypes.element.isRequired
 };
-function mapStateToProps({ Popup }) {
-  return { isOpen: Popup.isOpen, content: Popup.content };
+function mapStateToProps({ Popup, CountDown }) {
+  return {
+    isOpen: Popup.isOpen,
+    content: Popup.content,
+    isFinished: CountDown.isFinished
+  };
 }
 
 export default connect(mapStateToProps)(Popup);
