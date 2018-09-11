@@ -1,14 +1,15 @@
 #container {
-    width: 100%;
-    margin-top: 120px;
+  width: 100%;
+  margin-top: 80%;
 }
 
 #icon {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #word button {
-    margin-bottom: 5%;
-    align-items: center;
+  margin-bottom: 5%;
+  align-items: center;
 }

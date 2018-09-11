@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 
-import Button from "./../commun/button/Button.jsx";
+import GameButton from "./../commun/button/GameButton.jsx";
 import Logo from "./../commun/logo/Logo.jsx";
 import Dice from "./dice/Dice.jsx";
 import Ranking from "./ranking/Ranking.jsx";
@@ -52,26 +52,16 @@ class Game extends Component {
       <Grid id="fondEcranPartie">
         <Grid
           id="gridSize"
+          style={{ border: "1px solid black" }}
           container
-          spacing={40}
           justify="center"
-
-          /* style={{ border: "1px solid black" }} */
         >
           <Popup />
-          <Grid
-            item
-            style={{
-              width: "20%",
-              padding: "40px"
-
-              /*  border: "1px solid blue" */
-            }}
-          >
+          <Grid id="left" item xs>
             <Logo />
             <h3>Partie #{this.props.id}</h3>
 
-            <Button
+            <GameButton
               id="endGame"
               onClick={() => {
                 this.stopGame();
@@ -79,14 +69,14 @@ class Game extends Component {
               name="Arrêter la partie"
             />
 
-            <Button
+            <GameButton
               onClick={() => {
                 this.createGame();
               }}
               name="Créer une partie"
             />
 
-            <Button
+            <GameButton
               onClick={() => {
                 this.openQuestion();
               }}
@@ -97,32 +87,11 @@ class Game extends Component {
               <Dice result={6} alignItems="flex-end" />
             </div>
           </Grid>
-          <Grid
-            id="plateau"
-            item
-            style={{
-              width: "60%"
-
-              /* border: "1px solid red" */
-            }}
-          >
+          <Grid id="plateau" item xs={7}>
             <Board />
           </Grid>
-          <Grid
-            id="rightGrisBoarder"
-            item
-            style={{
-              width: "20%"
-              /*  border: "1px solid pink" */
-            }}
-          >
-            <Grid
-              id="rank"
-              style={{
-                background: "#D3D3D3",
-                opacity: "50%"
-              }}
-            >
+          <Grid id="rightGrisBoarder" item xs={3}>
+            <Grid id="rank">
               <Ranking />
             </Grid>
             <Social />

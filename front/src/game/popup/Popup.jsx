@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Button from "./../../commun/button/Button.jsx";
+import XButton from "./../../commun/button/XButton.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -8,7 +8,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import Paper from "@material-ui/core/Paper";
-import "./popup.css";
 import { closePopup } from "../countDown/countdown.actions";
 
 class Popup extends Component {
@@ -37,13 +36,19 @@ class Popup extends Component {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          width: "100%",
-          position: "absolute"
+          width: "100%"
         }}
       >
-        <Paper elevation="20">
+        <Paper
+          elevation="20"
+          style={{
+            width: "70%",
+            height: "70%",
+            position: "relative"
+          }}
+        >
           <Link to="/">
-            <Button
+            <XButton
               onClick={() => {
                 this.handleClose();
               }}
@@ -51,9 +56,9 @@ class Popup extends Component {
             />
           </Link>
 
-          <div style={{ padding: "0 50px 50px 50px" }}>
-            {this.props.content}
-          </div>
+          {/* <div style={{ padding: "0 50px 50px 50px" }}> */}
+          {this.props.content}
+          {/* </div> */}
         </Paper>
       </Modal>
     );

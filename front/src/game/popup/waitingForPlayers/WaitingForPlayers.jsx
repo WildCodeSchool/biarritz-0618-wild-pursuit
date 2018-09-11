@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Button from "./../../../commun/button/Button.jsx";
+import CreateButton from "./../../../commun/button/CreateButton.jsx";
 import CountDownToGame from "../countDownToGame/CountDownToGame";
+
+import "./WaitingForPlayers.css";
 
 class WaitingForPlayers extends Component {
   constructor() {
@@ -33,13 +35,15 @@ class WaitingForPlayers extends Component {
     return (
       <div>
         <h1>En attente de la connexion des joueurs</h1>
-        {this.state.playersConnected} sur {this.props.maxPLayers}
-        <br />
+        <div id="playersConnected">
+          🐾 {this.state.playersConnected} sur {this.props.maxPLayers}
+        </div>
+
         <button onClick={this.playerJoined}>(Un joueur se connecte)</button>
         <button onClick={this.playerLeft}>(Un joueur se deconnecte)</button>
         <br />
         <Link to="/game/wait">
-          <Button
+          <CreateButton
             onClick={() => {
               this.props.dispatch({
                 type: "@popup/CHANGE",

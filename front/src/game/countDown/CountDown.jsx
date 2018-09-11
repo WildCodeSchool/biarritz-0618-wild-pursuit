@@ -6,6 +6,7 @@ import { decomposeToMinutesAndSecs } from "./CountDown.helper.js";
 import DisplayTime from "./DisplayTime.jsx";
 
 import { closePopup } from "./countdown.actions.js";
+import "./CountDown.css";
 
 class CountDown extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class CountDown extends Component {
 
   render() {
     return (
-      <div>
+      <div id="countDownToGame">
         ⏱ <DisplayTime time={this.state.time} />
       </div>
     );

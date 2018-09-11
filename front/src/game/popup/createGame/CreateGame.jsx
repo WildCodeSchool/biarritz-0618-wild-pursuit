@@ -4,8 +4,10 @@ import Switch from "@material-ui/core/Switch";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Button from "./../../../commun/button/Button.jsx";
+import CreateButton from "./../../../commun/button/CreateButton.jsx";
 import WaitingForPlayers from "./../waitingForPlayers/WaitingForPlayers.jsx";
+
+import "./CreateGame.css";
 
 class CreateGame extends Component {
   constructor() {
@@ -60,43 +62,57 @@ class CreateGame extends Component {
   };
   render() {
     return (
-      <div>
+      <div id="contain">
         <h1>Créer une Partie</h1>
-        <div>
-          <div>
-            Nombre de joueurs: <br />2{" "}
-            <Slider
-              value={this.state.value}
-              min={2}
-              max={6}
-              step={1}
-              onChange={this.handleSlider}
-              width={150}
-            />{" "}
-            {this.state.value}
+        <div id="containTwo">
+          <div id="slider">
+            <h2> Nombre de joueurs:</h2>
+            <div id="sliderTwo">
+              <span>2 </span>
+              <Slider
+                value={this.state.value}
+                min={2}
+                max={6}
+                step={1}
+                onChange={this.handleSlider}
+              />{" "}
+              <span>{this.state.value}</span>
+            </div>
           </div>
-          <div>
-            Compte à rebour avant partie :<br />
-            10 Secondes
-            <Switch
-              checked={this.state.checkedA}
-              onChange={this.handleSwitch("checkedA")}
-              value="checkedA"
-            />
-            1 Minute
-            <Switch
-              checked={this.state.checkedB}
-              onChange={this.handleSwitch("checkedB")}
-              value="checkedA"
-            />
-            3 Minutes
-            <Switch
-              checked={this.state.checkedC}
-              onChange={this.handleSwitch("checkedC")}
-              value="checkedA"
-            />
+          <div id="switch">
+            <h2>Compte à rebour avant partie :</h2>
+            <div id="switchTwo">
+              <div class="timer">
+                <div class="timertext">10 Secondes</div>
+                <Switch
+                  checked={this.state.checkedA}
+                  onChange={this.handleSwitch("checkedA")}
+                  value="checkedA"
+                />
+              </div>
+              <div class="timer">
+                <div class="timertext">1 Minute</div>
+                <div>
+                  <Switch
+                    checked={this.state.checkedB}
+                    onChange={this.handleSwitch("checkedB")}
+                    value="checkedA"
+                  />
+                </div>
+              </div>
+              <div class="timer">
+                <div class="timertext"> 3 Minutes</div>
+                <Switch
+                  checked={this.state.checkedC}
+                  onChange={this.handleSwitch("checkedC")}
+                  value="checkedA"
+                />
+              </div>
+            </div>
           </div>
-          <Button
+          <CreateButton
+            variant="contained"
+            color="primary"
             onClick={() => {
               this.handleCreateGame(this.state.value, this.state.countDown);
             }}

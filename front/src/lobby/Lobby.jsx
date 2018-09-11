@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "./../commun/button/Button.jsx";
+import FlatButton from "./../commun/button/FlatButton";
 import List from "./../commun/list/List.jsx";
 import { Link } from "react-router-dom";
 
@@ -24,9 +25,10 @@ class Lobby extends Component {
         "/" +
         partie.maxPlayers;
       let path = "/game/" + partie.id;
+
       return (this.rejoindre[i] = (
         <Link to={path}>
-          <Button
+          <FlatButton
             onClick={() => {
               this.joinGame(partie.id);
             }}
@@ -42,7 +44,8 @@ class Lobby extends Component {
 
     this.rejoindre.push(
       <Link to="/game/">
-        <Button
+        <FlatButton
+          marginTop="4%"
           onClick={() => {
             this.createGame();
           }}
@@ -56,11 +59,11 @@ class Lobby extends Component {
   }
 
   joinGame(id) {
-    alert("Rejoindre la partie #" + id);
+    //alert("Rejoindre la partie #" + id);
   }
 
   createGame() {
-    alert("Créer une partie");
+    //alert("Créer une partie");
   }
 
   render() {
@@ -70,7 +73,12 @@ class Lobby extends Component {
           <img id="logo" src={require("./../commun/images/logoWP.png")} />
           <h3 id="typo"> Crée ou rejoins une équipe de wildeurs ! </h3>
           <br />
-          <List items={this.rejoindre} />
+          <List
+            items={this.rejoindre}
+            itemStyle={{
+              margin: "1%"
+            }}
+          />
         </div>
       </div>
     );

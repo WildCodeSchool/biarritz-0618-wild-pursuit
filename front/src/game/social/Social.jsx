@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Button from "./../../commun/button/Button.jsx";
+import GameButton from "./../../commun/button/GameButton.jsx";
+import SmileButton from "./../../commun/button/SmileButton.jsx";
 import List from "./../../commun/list/List.jsx";
 import "./social.css";
 
@@ -8,25 +10,25 @@ class Social extends Component {
     super();
 
     this._TxtInteractions = [
-      <Button
+      <GameButton
         onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="Bravo !"
       />,
-      <Button
+      <GameButton
         onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="Dommage..."
       />,
-      <Button
+      <GameButton
         onClick={() => {
           alert("#todo : afficher le texte");
         }}
         name="Bien joué !"
       />,
-      <Button
+      <GameButton
         onClick={() => {
           alert("#todo : afficher le texte");
         }}
@@ -34,38 +36,35 @@ class Social extends Component {
       />
     ];
     this._emoInteractions = [
-      <Button
+      <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="🙂"
         variant="fab"
       />,
-      <Button
+      <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="❤️"
         variant="fab"
       />,
-
-      <Button
+      <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😉"
         variant="fab"
       />,
-
-      <Button
+      <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😀"
         variant="fab"
       />,
-
-      <Button
+      <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
