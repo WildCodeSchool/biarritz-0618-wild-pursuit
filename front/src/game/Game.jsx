@@ -11,7 +11,7 @@ import Social from "./social/Social.jsx";
 import Board from "./board/Board.jsx";
 import Popup from "./popup/Popup.jsx";
 import CreateGame from "./popup/createGame/CreateGame.jsx";
-import Question from "./question/Question.jsx";
+import Question from "./popup/question/Question.jsx";
 import StopGame from "./popup/stopGame/StopGame.jsx";
 import NameWinner from "./popup/nameWinner/NameWinner.jsx";
 
