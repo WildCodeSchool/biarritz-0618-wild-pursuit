@@ -4,8 +4,6 @@ import XButton from "./../../commun/button/XButton.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import Paper from "@material-ui/core/Paper";
 import { closePopup } from "../countDown/countdown.actions";
@@ -65,9 +63,6 @@ class Popup extends Component {
   }
 }
 
-Popup.propTypes = {
-  comp: PropTypes.element.isRequired
-};
 function mapStateToProps({ Popup, CountDown }) {
   return {
     isOpen: Popup.isOpen,

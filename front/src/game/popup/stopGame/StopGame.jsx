@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Button from "./../../../commun/button/Button.jsx";
-import { Link } from "react-router-dom";
 import NameWinner from "../nameWinner/NameWinner";
 import { connect } from "react-redux";
 
