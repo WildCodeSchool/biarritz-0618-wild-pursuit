@@ -22,7 +22,7 @@ function getQuestion() {
       }); //donc random à chaque élèment
       const theQuestion = {
         id: question.id,
-        theme: question.theme,
+        themeName: question.themeName,
         question: question.question,
         correctAnswer: question.response,
         answers: answers,
@@ -36,7 +36,7 @@ function displayQuestion(id) {
   return new Promise((resolve, reject) => {
     getQuestion().then((theQuestion) => {
       //id a ajouter en parametre de la fonction des la modif de getQuestion()
-      console.log('[' + theQuestion.theme + '] ' + theQuestion.question);
+      console.log('[' + theQuestion.themeName + '] ' + theQuestion.question);
       const answers = theQuestion.answers;
       let i = 1;
       answers.forEach((answer) => {
@@ -70,7 +70,7 @@ function getQuestions() {
         listQuestions.forEach((theQuestion) => {
           allQuestions[i] = {
             id: theQuestion.id,
-            theme: theQuestion.theme,
+            themeName: theQuestion.themeName,
             isAlreadyUsed: false,
           };
           i++;
@@ -85,7 +85,10 @@ function pickQuestion(listQuestions, theme) {
   return new Promise((resolve, reject) => {
     let chosenQuestion = [];
     listQuestions.forEach((theQuestion) => {
-      if (theQuestion.theme === theme && theQuestion.isAlreadyUsed === false) {
+      if (
+        theQuestion.themeName === theme &&
+        theQuestion.isAlreadyUsed === false
+      ) {
         chosenQuestion.push(theQuestion.id);
       }
     });
