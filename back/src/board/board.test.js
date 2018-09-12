@@ -62,54 +62,48 @@ describe('Generate a board', () => {
     const theBoard = new NormalBoard(nbCat);
 
     expect(theBoard).to.be.an.instanceOf(NormalBoard);
-    expect(theBoard.getNeighbors(theBoard.theBoxes[4], 6)).to.be.an.array();
+    expect(theBoard.getNeighbors(theBoard.boxes[4], 6)).to.be.an.array();
 
     let result = [
-      theBoard.theBoxes[40],
-      theBoard.theBoxes[69],
-      theBoard.theBoxes[8],
-      theBoard.theBoxes[14],
-      theBoard.theBoxes[20],
-      theBoard.theBoxes[26],
-      theBoard.theBoxes[32],
+      theBoard.boxes[40],
+      theBoard.boxes[69],
+      theBoard.boxes[8],
+      theBoard.boxes[14],
+      theBoard.boxes[20],
+      theBoard.boxes[26],
+      theBoard.boxes[32],
     ];
-    expect(theBoard.getNeighbors(theBoard.theBoxes[4], 6)).to.be.equal(result);
+    expect(theBoard.getNeighbors(theBoard.boxes[4], 6)).to.be.equal(result);
+
+    result = [theBoard.boxes[3], theBoard.boxes[39], theBoard.boxes[70]];
+    expect(theBoard.getNeighbors(theBoard.boxes[6], 3)).to.be.equal(result);
 
     result = [
-      theBoard.theBoxes[3],
-      theBoard.theBoxes[39],
-      theBoard.theBoxes[70],
+      theBoard.boxes[38],
+      theBoard.boxes[71],
+      theBoard.boxes[47],
+      theBoard.boxes[50],
+      theBoard.boxes[53],
+      theBoard.boxes[56],
+      theBoard.boxes[59],
+      theBoard.boxes[62],
+      theBoard.boxes[65],
+      theBoard.boxes[68],
+      theBoard.boxes[1],
+      theBoard.boxes[7],
+      theBoard.boxes[19],
+      theBoard.boxes[25],
+      theBoard.boxes[31],
+      theBoard.boxes[24],
+      theBoard.boxes[9],
+      theBoard.boxes[15],
+      theBoard.boxes[21],
+      theBoard.boxes[27],
+      theBoard.boxes[33],
+      theBoard.boxes[34],
+      theBoard.boxes[65],
     ];
-    expect(theBoard.getNeighbors(theBoard.theBoxes[6], 3)).to.be.equal(result);
-
-    result = [
-      theBoard.theBoxes[38],
-      theBoard.theBoxes[71],
-      theBoard.theBoxes[47],
-      theBoard.theBoxes[50],
-      theBoard.theBoxes[53],
-      theBoard.theBoxes[56],
-      theBoard.theBoxes[59],
-      theBoard.theBoxes[62],
-      theBoard.theBoxes[65],
-      theBoard.theBoxes[68],
-      theBoard.theBoxes[1],
-      theBoard.theBoxes[7],
-      theBoard.theBoxes[19],
-      theBoard.theBoxes[25],
-      theBoard.theBoxes[31],
-      theBoard.theBoxes[24],
-      theBoard.theBoxes[9],
-      theBoard.theBoxes[15],
-      theBoard.theBoxes[21],
-      theBoard.theBoxes[27],
-      theBoard.theBoxes[33],
-      theBoard.theBoxes[34],
-      theBoard.theBoxes[65],
-    ];
-    expect(theBoard.getNeighbors(theBoard.theBoxes[42], 15)).to.be.equal(
-      result
-    );
+    expect(theBoard.getNeighbors(theBoard.boxes[42], 15)).to.be.equal(result);
 
     done();
   });
