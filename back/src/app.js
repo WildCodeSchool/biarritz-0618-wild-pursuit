@@ -6,6 +6,8 @@ const getQuestion = require('./tour/tour.controller.js').getQuestion;
 const afficherQuestion = require('./tour/tour.controller.js').afficherQuestion;
 const repondreQuestion = require('./tour/tour.controller.js').repondreQuestion;
 
+const Game = require('./game/game.class.js');
+
 //let readline = require('readline-sync');
 
 // -------------------------------
@@ -19,6 +21,8 @@ if (!module.parent) {
 require('./syncModels.js');
 
 server.route(require('./question/question.routes'));
+
+let aGame = new Game();
 
 module.exports = server;
 /* getQuestion().then((laQuestion) => {
