@@ -28,34 +28,6 @@ describe('Lancer le timer', () => {
   });
 });
 
-// A DEPLACER DANS LES TESTS DE LA CLASSE Player
-describe.skip('Positioner le joueur', () => {
-  it('Should set the position of a player to a given box', (done) => {
-    let aBox = new NormalBox(12);
-    let aPlayer = new Player();
-    let thePosition = aPlayer.setPosition(aBox.id);
-    expect(thePosition).to.be.equal(aBox.id);
-    done();
-  });
-  it('Should get the id of the case where the player is positionned at', (done) => {
-    let aBox = new NormalBox(25);
-    let aPlayer = new Player();
-    aPlayer.setPosition(aBox.id);
-    let thePosition = aPlayer.position;
-    expect(thePosition).to.be.equal(aBox.id);
-    done();
-  });
-});
-
-// A DEPLACER DANS LES TESTS DE LA CLASS *Box
-describe.skip('Récupérer les infos de la case', () => {
-  it('Should get the theme associated to the box', (done) => {
-    let aBox = new NormalBox(25, 'Géographie');
-    let theTheme = aBox.category;
-    expect(theTheme).to.be.equal('Géographie');
-  });
-});
-
 describe('Afficher et répondre à une question', () => {
   beforeEach((done) => {
     console.info('Deleting questions...');
