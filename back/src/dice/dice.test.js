@@ -1,6 +1,6 @@
 const Code = require('code');
 const expect = Code.expect;
-const lancerDe = require('./dice.controller.js');
+const launchDice = require('./dice.controller.js');
 //const server = require('../app.js');
 //const expect = require('expect.js');
 
