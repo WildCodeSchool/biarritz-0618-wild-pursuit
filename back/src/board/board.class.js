@@ -24,10 +24,10 @@ class NormalBoard extends IBoard {
     this._thePaths = boardHelpers.createPaths(nbCat, this._theBoxes);
   }
 
-  get theBoxes() {
+  get boxes() {
     return this._theBoxes;
   }
-  get thePaths() {
+  get paths() {
     return this._thePaths;
   }
 
