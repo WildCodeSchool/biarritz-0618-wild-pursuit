@@ -1,3 +1,4 @@
+const Theme = require('./theme.model.js');
 const themes = [
   { name: 'Culture Générale' },
   { name: 'Littérature' },
@@ -20,5 +21,9 @@ const themes = [
   { name: 'People' },
   { name: 'Animaux' },
 ];
-
-module.exports = themes;
+function fillDBThemes() {
+  themes.forEach((theme) => {
+    Theme.create(theme);
+  });
+}
+module.exports = fillDBThemes;
