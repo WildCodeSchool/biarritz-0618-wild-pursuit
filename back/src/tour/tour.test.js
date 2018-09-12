@@ -69,7 +69,7 @@ describe('Afficher et répondre à une question', () => {
           Promise.all(
             questions.map((question) => {
               const theQuestion = {
-                theme: 'MON THEME', //question.category,
+                themeName: 'Géographie', //question.category,
                 question: question.question,
                 response: question.correct_answer,
                 responses: question.incorrect_answers,
@@ -94,8 +94,8 @@ describe('Afficher et répondre à une question', () => {
         expect(listQuestions[0].id).to.exist();
         expect(listQuestions[0].id).to.be.a.string();
 
-        expect(listQuestions[0].theme).to.exist();
-        expect(listQuestions[0].theme).to.be.a.string();
+        expect(listQuestions[0].themeName).to.exist();
+        expect(listQuestions[0].themeName).to.be.a.string();
 
         expect(listQuestions[0].isAlreadyUsed).to.exist();
         expect(listQuestions[0].isAlreadyUsed).to.be.a.boolean();
@@ -107,7 +107,7 @@ describe('Afficher et répondre à une question', () => {
   it('Sould pick one question', (done) => {
     getQuestions()
       .then((listQuestions) => {
-        pickQuestion(listQuestions, 'MON THEME') // MON THEME sera modifié ulterieurement en fonction du tour
+        pickQuestion(listQuestions, 'Géographie')
           .then((chosenQuestion) => {
             expect(chosenQuestion).to.be.a.string();
             let i = 0;
