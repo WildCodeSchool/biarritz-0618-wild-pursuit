@@ -2,11 +2,10 @@ const Code = require('code');
 const expect = Code.expect;
 const server = require('../app.js');
 const Question = require('./question.model');
+const Theme = require('./theme/theme.model');
 const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 const questionsCtrl = require('./question.controller');
-
-
 
 describe('CRUD /questions', () => {
   beforeEach((done) => {
@@ -28,7 +27,7 @@ describe('CRUD /questions', () => {
         url: '/questions',
         payload: {
           id: uuidv4(),
-          theme: 'geographie',
+          themeName: 'Géographie',
           question: 'Quelle est la capitale de la France',
           responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
           response: 'Paris',
@@ -36,7 +35,7 @@ describe('CRUD /questions', () => {
       };
 
       const expectedResponseBody = {
-        theme: 'geographie',
+        themeName: 'Géographie',
         question: 'Quelle est la capitale de la France',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Paris',
@@ -59,7 +58,7 @@ describe('CRUD /questions', () => {
     // read one
     it('Should get a question and respond 200', (done) => {
       const question = {
-        theme: 'geographie',
+        themeName: 'Géographie',
         question: 'Quelle est la capitale de la France',
         response: 'Paris',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
@@ -87,14 +86,14 @@ describe('CRUD /questions', () => {
     it('Should get all questions and respond 200', (done) => {
       const questionA = {
         id: uuidv4(),
-        theme: 'maman',
+        themeName: 'Géographie',
         question: 'manger?',
         response: 'sushi',
         responses: ['riz', 'pates', 'pizza', 'patate'],
       };
       const questionB = {
         id: uuidv4(),
-        theme: 'blalbla',
+        themeName: 'Littérature',
         question: 'blobloblo ?',
         response: 'oui',
         responses: ['aa', 'bb', 'jj', 'aaz'],
@@ -135,7 +134,7 @@ describe('CRUD /questions', () => {
         method: 'POST',
         url: '/questions',
         payload: {
-          theme: 'geographie',
+          themeName: 'Géographie',
           question: 'Quelle est la capitale de la France',
           responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
           response: 'Paris',
@@ -144,7 +143,7 @@ describe('CRUD /questions', () => {
 
       const expectedResponseBody = {
         // on attend que la modif soie prise en compte
-        theme: 'geographie',
+        themeName: 'Géographie',
         question: 'Quelle est la capitale de la France ?',
         responses: ['Tokyo', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Pau',
@@ -158,7 +157,7 @@ describe('CRUD /questions', () => {
             method: 'PUT',
             url: `/questions/${res.result.id}`, // on sait pas trop quelle cela modifie
             payload: {
-              theme: 'geographie',
+              themeName: 'Géographie',
               question: 'Quelle est la capitale de la France ?',
               responses: ['Tokyo', 'Toulouse', 'Bordeaux', 'Londres'],
               response: 'Pau',
@@ -181,7 +180,7 @@ describe('CRUD /questions', () => {
   describe('Destroy', () => {
     it('Should destroy a question and respond 200', (done) => {
       const question = {
-        theme: 'geographie',
+        themeName: 'Géographie',
         question: 'Quelle est la capitale de la France',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Paris',
