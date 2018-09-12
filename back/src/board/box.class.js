@@ -19,7 +19,11 @@ class IBox extends Noeud {
     return [this._x, this._y];
   }
 
-  play() {}
+  play() {
+    throw new Error(
+      "IBox:play: not implemented, you're trying to use an Interface!!"
+    );
+  }
 }
 
 class NormalBox extends IBox {

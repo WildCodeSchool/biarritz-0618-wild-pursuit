@@ -9,7 +9,11 @@ class IBoard extends Graph {
     super();
   }
 
-  getNeighbors(aCase, distance) {}
+  getNeighbors(aCase, distance) {
+    throw new Error(
+      "IBoard:getNeighbors: not implemented, you're trying to use an Interface!!"
+    );
+  }
 }
 
 class NormalBoard extends IBoard {

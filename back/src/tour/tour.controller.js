@@ -1,14 +1,6 @@
 const Question = require('./../question/question.model.js');
 const laQuestion = require('./../question/question.controller.js');
 
-module.exports = {
-  startTimer,
-  getQuestion,
-  displayQuestion,
-  resolveQuestion,
-  getQuestions,
-  pickQuestion,
-};
 function startTimer(timer) {
   if (timer.countDown <= 0) {
     return;
@@ -103,9 +95,11 @@ function pickQuestion(listQuestions, theme) {
   });
 }
 
-//Getquestions()
-//pickQuestion(questions)
-//GetQuestion(id)
-//afficherQuestion(id)
-//attendre la réponse utilisateur
-//repondreQuestion(reponseUser)
+module.exports = {
+  startTimer,
+  getQuestion,
+  displayQuestion,
+  resolveQuestion,
+  getQuestions,
+  pickQuestion,
+};
