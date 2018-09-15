@@ -41,35 +41,30 @@ class Social extends Component {
           alert("#todo : afficher le smile");
         }}
         name="🙂"
-        variant="fab"
       />,
       <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="❤️"
-        variant="fab"
       />,
       <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😉"
-        variant="fab"
       />,
       <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="😀"
-        variant="fab"
       />,
       <SmileButton
         onClick={() => {
           alert("#todo : afficher le smile");
         }}
         name="☹️"
-        variant="fab"
       />
     ];
   }

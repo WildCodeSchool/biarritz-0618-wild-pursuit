@@ -5,9 +5,6 @@ import PropTypes from "prop-types";
 import { decomposeToMinutesAndSecs } from "./CountDown.helper.js";
 import DisplayTime from "./DisplayTime.jsx";
 
-import { closePopup } from "./countdown.actions.js";
-import "./CountDown.css";
-
 class CountDown extends Component {
   constructor(props) {
     super();
@@ -49,7 +46,7 @@ class CountDown extends Component {
 
   render() {
     return (
-      <div id="countDownToGame">
+      <div id={this.props.id}>
         ⏱ <DisplayTime time={this.state.time} />
       </div>
     );
@@ -60,5 +57,4 @@ CountDown.propTypes = {
   seconds: PropTypes.number.isRequired
 };
 
-//export default CountDown;
 export default connect(() => ({}))(CountDown);

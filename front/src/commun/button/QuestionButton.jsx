@@ -1,15 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import BaseButton from "./Button";
+import Button from "./Button";
 
-const CreateButton = ({ name, onClick, bottom }) => (
-  <BaseButton
+const QuestionButton = ({ name, onClick, bottom }) => (
+  <Button
     style={{
-      backgroundColor: "#76FF6B",
       width: "25%",
       position: "absolute",
-      right: "5%",
       bottom: bottom
     }}
     name={name}
@@ -17,10 +15,10 @@ const CreateButton = ({ name, onClick, bottom }) => (
   />
 );
 
-CreateButton.propTypes = {
+QuestionButton.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-CreateButton.defaultProps = {};
+QuestionButton.defaultProps = {};
 
-export default CreateButton;
+export default QuestionButton;

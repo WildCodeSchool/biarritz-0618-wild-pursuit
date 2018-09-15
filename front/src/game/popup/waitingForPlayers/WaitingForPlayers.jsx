@@ -28,10 +28,8 @@ class WaitingForPlayers extends Component {
   }
   render() {
     if (this.state.playersConnected === this.props.maxPLayers) {
-      /* alert(
-        "Le nombre de joueur attendu a été atteint, le compte a rebours va commencer"
-      ); */
     }
+
     return (
       <div>
         <h1>En attente de la connexion des joueurs</h1>
@@ -44,6 +42,7 @@ class WaitingForPlayers extends Component {
         <br />
         <Link to="/game/wait">
           <CreateButton
+            bottom="5%"
             onClick={() => {
               this.props.dispatch({
                 type: "@popup/CHANGE",

@@ -8,6 +8,8 @@ import List from "./../../../commun/list/List.jsx";
 import Button from "./../../../commun/button/Button.jsx";
 import CheeseWin from "./../cheeseWin/CheeseWin.jsx";
 
+import "./Question.css";
+
 class Question extends Component {
   constructor() {
     super();
@@ -82,11 +84,11 @@ class Question extends Component {
       );
     });
     return (
-      <div>
-        <CountDown seconds={15} />
+      <div id="containQuestion">
+        <CountDown id="countDownToQuestion" seconds={15} />
         <h1>A vous de jouer !</h1>
         <h2>{displayCatCheese}</h2>
-        <p>{this.question.question}</p>
+        <p id="pQuest">{this.question.question}</p>
         <List items={theButtons} />
       </div>
     );

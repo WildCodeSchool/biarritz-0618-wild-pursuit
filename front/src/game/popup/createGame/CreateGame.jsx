@@ -18,8 +18,8 @@ class CreateGame extends Component {
       checkedC: false,
       countDown: 10
     };
-    // this.handleCreateGame = this.handleCreateGame.bind(this);
   }
+
   handleSlider = (event, value) => {
     this.setState({ value });
   };
@@ -113,21 +113,16 @@ class CreateGame extends Component {
             </div>
           </div>
           <CreateButton
-            variant="contained"
-            color="primary"
             onClick={() => {
               this.handleCreateGame(this.state.value, this.state.countDown);
             }}
             name="Créer la partie"
+            bottom={0}
           />
         </div>
       </div>
     );
   }
 }
-
-// function mapStateToProps({ Popup }) {
-//   return { isOpen: Popup.isOpen, content: Popup.content };
-// }
 
 export default connect(() => ({}))(CreateGame);

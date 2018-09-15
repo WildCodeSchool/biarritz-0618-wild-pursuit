@@ -1,0 +1,17 @@
+#containQuestion {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#countDownToQuestion {
+  margin-left: 90%;
+}
+
+#pQuest {
+  font-size: 2em;
+  margin-top: 2%;
+}

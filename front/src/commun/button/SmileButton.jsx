@@ -7,10 +7,11 @@ const SmileButton = ({ name, variant, onClick }) => (
   <BaseButton
     style={{
       backgroundColor: "rgba(255, 255, 128, 0)",
-      fontSize: "3em"
+      fontSize: "2em",
+      padding: "0"
     }}
     name={name}
-    variant={variant}
+    variant="fab"
     onClick={onClick}
   />
 );

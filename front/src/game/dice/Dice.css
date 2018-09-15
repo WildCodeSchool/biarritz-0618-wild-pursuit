@@ -3,9 +3,7 @@
     height: 60px;
     border: 3px black solid;
     background-color: #D3D3D3;
-    position: relative;
-    margin: auto;
-    margin-top: 390px;
+
     font-size: 30px;
     transition: -webkit-transform 0.2s ease;
     transition: transform 0.2s ease;

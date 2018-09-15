@@ -1,12 +1,17 @@
 #container {
   width: 100%;
-  margin-top: 80%;
+}
+
+#word {
+  position: absolute;
+  width: 20%;
+  bottom: 12%;
 }
 
 #icon {
+  position: absolute;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  bottom: 5%;
 }
 
 #word button {

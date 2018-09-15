@@ -3,24 +3,24 @@ import PropTypes from "prop-types";
 
 import BaseButton from "./Button";
 
-const CreateButton = ({ name, onClick, bottom }) => (
+const StopButton = ({ name, onClick, color, right }) => (
   <BaseButton
     style={{
-      backgroundColor: "#76FF6B",
+      backgroundColor: color,
       width: "25%",
       position: "absolute",
-      right: "5%",
-      bottom: bottom
+      right: right,
+      bottom: "0"
     }}
     name={name}
     onClick={onClick}
   />
 );
 
-CreateButton.propTypes = {
+StopButton.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-CreateButton.defaultProps = {};
+StopButton.defaultProps = {};
 
-export default CreateButton;
+export default StopButton;

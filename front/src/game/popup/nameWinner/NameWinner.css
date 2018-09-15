@@ -1,0 +1,15 @@
+#containWin {
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  text-align: center;
+  margin-top: 4%;
+}
+
+p {
+  margin-top: 15%;
+}
+
+#button {
+  margin-bottom: 5%;
+}

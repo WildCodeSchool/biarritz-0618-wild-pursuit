@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import Button from "./../../../commun/button/Button.jsx";
+import CreateButton from "./../../../commun/button/CreateButton.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
+import "./Stats.css";
 
 class Stats extends Component {
   constructor() {
@@ -13,14 +15,16 @@ class Stats extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="contain">
         <h1>
           Voici quelques statistiques de la partie que vous venez de jouer
         </h1>
         <p>Durée totale : "DUREE DE LA PARTIE"</p>
         <div>
           <Link to="/">
-            <Button
+            <CreateButton
+              color="#76FF6B"
+              bottom="5%"
               onClick={() => {
                 this.handleClosePopup();
               }}

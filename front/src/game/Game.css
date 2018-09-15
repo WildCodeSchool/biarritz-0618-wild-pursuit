@@ -38,9 +38,9 @@
 }
 
 #dicePosition {
-  padding: 0;
-  margin-bottom: 1px;
-  bottom: 4%;
+  position: absolute;
+  bottom: 5%;
+  margin-left: 4%;
 }
 
 #gridSize {
