@@ -48,15 +48,15 @@ module.exports = {
         });
     })
       .then((question) => {
-        let theQuestion = {
+        let laQuestion = {
           id: question.dataValues.id,
           theme: question.dataValues.theme,
           question: question.dataValues.question,
           response: question.dataValues.response,
           responses: question.dataValues.responses,
         };
-        console.log(theQuestion);
-        return h.response(theQuestion).code(200);
+        console.log(laQuestion);
+        return h.response(laQuestion).code(200);
       })
       .catch();
   },
@@ -71,20 +71,20 @@ module.exports = {
         });
     })
       .then((questions) => {
-        let listQuestions = {};
+        let lesQuestions = {};
         let i = 0;
-        questions.forEach((theQuestion) => {
-          listQuestions[i] = {
-            id: theQuestion.dataValues.id,
-            theme: theQuestion.dataValues.theme,
-            question: theQuestion.dataValues.question,
-            response: theQuestion.dataValues.response,
-            responses: theQuestion.dataValues.responses,
+        questions.forEach((question) => {
+          lesQuestions[i] = {
+            id: question.dataValues.id,
+            theme: question.dataValues.theme,
+            question: question.dataValues.question,
+            response: question.dataValues.response,
+            responses: question.dataValues.responses,
           };
           i++;
         });
 
-        return h.response(listQuestions).code(200);
+        return h.response(lesQuestions).code(200);
       })
       .catch((err) => {
         return h.response(err).code(418);

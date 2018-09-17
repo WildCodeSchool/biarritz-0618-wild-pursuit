@@ -1,0 +1,12 @@
+#containerRank {
+  margin: auto;
+  width: 70%;
+  /* border: 1px solid blue; */
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+thead td {
+  /* border: 1px solid red; */
+  padding-bottom: 10%;
+}

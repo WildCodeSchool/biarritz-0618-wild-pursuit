@@ -27,4 +27,3 @@
 
 - DELETE /questions/{id} -> **200** null
 - 400 : Si il manque un champ ou erreur de formulaire
-

@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+}
+
+#playersConnected {
+  position: absolute;
+  bottom: 40%;
+  left: 40%;
+  font-size: 3em;
+}

@@ -6,6 +6,8 @@ const sequelize = require('./../db.js');
 const uuidv4 = require('uuid/v4');
 const questionsCtrl = require('./question.controller');
 
+
+
 describe('CRUD /questions', () => {
   beforeEach((done) => {
     console.info('deleting questions ...');
@@ -56,13 +58,13 @@ describe('CRUD /questions', () => {
   describe('Read', () => {
     // read one
     it('Should get a question and respond 200', (done) => {
-      const theQuestion = {
+      const question = {
         theme: 'geographie',
         question: 'Quelle est la capitale de la France',
         response: 'Paris',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
       };
-      Question.create(theQuestion)
+      Question.create(question)
         .then((createdQuestion) => {
           const request = {
             method: 'GET',
@@ -70,7 +72,7 @@ describe('CRUD /questions', () => {
           };
           const expectedResponseBody = {
             id: createdQuestion.id,
-            ...theQuestion,
+            ...question,
           };
           return server.inject(request).then((response) => {
             expect(response.statusCode).to.be.equal(200);
@@ -178,13 +180,13 @@ describe('CRUD /questions', () => {
 
   describe('Destroy', () => {
     it('Should destroy a question and respond 200', (done) => {
-      const theQuestion = {
+      const question = {
         theme: 'geographie',
         question: 'Quelle est la capitale de la France',
         responses: ['Bayonne', 'Toulouse', 'Bordeaux', 'Londres'],
         response: 'Paris',
       };
-      Question.create(theQuestion)
+      Question.create(question)
         .then((createdQuestion) => {
           const request = {
             method: 'DELETE',

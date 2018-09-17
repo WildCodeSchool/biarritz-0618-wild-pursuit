@@ -1,0 +1,10 @@
+#contain {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  margin-top: 5%;
+}
+
+#containTwo {
+  text-align: center;
+}

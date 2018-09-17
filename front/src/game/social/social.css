@@ -1,0 +1,20 @@
+#container {
+  width: 100%;
+}
+
+#word {
+  position: absolute;
+  width: 20%;
+  bottom: 12%;
+}
+
+#icon {
+  position: absolute;
+  display: flex;
+  bottom: 5%;
+}
+
+#word button {
+  margin-bottom: 5%;
+  align-items: center;
+}

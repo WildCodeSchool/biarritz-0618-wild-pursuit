@@ -1,0 +1,7 @@
+#countDownToGame {
+  /* border: 1px solid blue; */
+  position: absolute;
+  bottom: 40%;
+  left: 40%;
+  font-size: 3em;
+}
