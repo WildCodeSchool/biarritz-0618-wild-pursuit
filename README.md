@@ -5,6 +5,6 @@ Project of a custom trivial pursuit
 
 ./back/src/app.js :
 Uncomment `require('./syncModels.js');`
-~> ./back~: npm start
+=> ./back~: npm start
 
 ./front~: npm i
