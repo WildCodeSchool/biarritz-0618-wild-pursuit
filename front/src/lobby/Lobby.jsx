@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "./../commun/button/Button.jsx";
 import FlatButton from "./../commun/button/FlatButton";
 import List from "./../commun/list/List.jsx";
 import { Link } from "react-router-dom";
@@ -58,13 +57,9 @@ class Lobby extends Component {
     this.createGame = this.createGame.bind(this);
   }
 
-  joinGame(id) {
-    //alert("Rejoindre la partie #" + id);
-  }
+  joinGame(id) {}
 
-  createGame() {
-    //alert("Créer une partie");
-  }
+  createGame() {}
 
   render() {
     return (

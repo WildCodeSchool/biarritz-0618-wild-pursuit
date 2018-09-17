@@ -106,8 +106,4 @@ Game.defaultProps = {
   id: 1
 };
 
-// function mapStateToProps({ Game }) {
-//   return Game;
-// }
-
 export default connect(() => ({}))(Game);

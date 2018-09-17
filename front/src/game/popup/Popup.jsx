@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import XButton from "./../../commun/button/XButton.jsx";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -16,7 +15,6 @@ class Popup extends Component {
   }
 
   handleClose() {
-    // this.setState({ open: false });
     this.props.dispatch({
       type: "@popup/CLOSE"
     });
@@ -54,9 +52,7 @@ class Popup extends Component {
             />
           </Link>
 
-          {/* <div style={{ padding: "0 50px 50px 50px" }}> */}
           {this.props.content}
-          {/* </div> */}
         </Paper>
       </Modal>
     );

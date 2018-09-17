@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "./../../commun/button/Button.jsx";
 import GameButton from "./../../commun/button/GameButton.jsx";
 import SmileButton from "./../../commun/button/SmileButton.jsx";
 import List from "./../../commun/list/List.jsx";
