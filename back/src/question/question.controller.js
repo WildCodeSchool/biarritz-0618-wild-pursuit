@@ -1,11 +1,12 @@
 const Question = require('./question.model');
+const Theme = require('./theme/theme.model');
 
 module.exports = {
   createQuestion(request, h) {
     return new Promise((resolve, reject) => {
       const values = {
         id: request.payload.id,
-        theme: request.payload.theme,
+        themeName: request.payload.themeName,
         question: request.payload.question,
         response: request.payload.response,
         responses: request.payload.responses,
@@ -22,7 +23,7 @@ module.exports = {
         return h
           .response({
             id: createdQuestion.id,
-            theme: createdQuestion.theme,
+            themeName: createdQuestion.themeName,
             response: createdQuestion.response,
             responses: createdQuestion.responses,
             question: createdQuestion.question,
@@ -50,12 +51,11 @@ module.exports = {
       .then((question) => {
         let laQuestion = {
           id: question.dataValues.id,
-          theme: question.dataValues.theme,
+          themeName: question.dataValues.themeName,
           question: question.dataValues.question,
           response: question.dataValues.response,
           responses: question.dataValues.responses,
         };
-        console.log(laQuestion);
         return h.response(laQuestion).code(200);
       })
       .catch();
@@ -76,7 +76,7 @@ module.exports = {
         questions.forEach((question) => {
           lesQuestions[i] = {
             id: question.dataValues.id,
-            theme: question.dataValues.theme,
+            themeName: question.dataValues.themeName,
             question: question.dataValues.question,
             response: question.dataValues.response,
             responses: question.dataValues.responses,
