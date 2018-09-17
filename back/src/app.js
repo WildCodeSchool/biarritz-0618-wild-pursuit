@@ -12,6 +12,7 @@ if (!module.parent) {
 }
 
 // require('./syncModels.js'); //Pour synchroniser les models avec la BDD
+
 launchGame(6, 4);
 server.route(require('./question/question.routes'));
 
