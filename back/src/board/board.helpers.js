@@ -4,6 +4,8 @@ const {
   ReplayBox,
   NormalBox,
 } = require('./box.class.js');
+const { getAllThemes } = require('./../question/theme/theme.controller.js');
+const { pickANumberOfThings } = require('./../common/common.helpers.js');
 
 function createBox(id, posX, posY, type) {
   let aBox;
@@ -24,17 +26,29 @@ function createBox(id, posX, posY, type) {
   return aBox;
 }
 
-function createBoxes(nbCat) {
+function createBoxes(themes) {
   let theBoxes = [];
-  if (nbCat >= 4) {
-    for (let i = 0; i <= 2 * nbCat * nbCat; i++) {
+  if (themes.length >= 4) {
+    for (let i = 0; i <= 2 * themes.length * themes.length; i++) {
       let type = 'default';
-
+      //choisir la catégorie
+      //si on est dans les chemins intérieurs
+      //si on est dans les chemins extérieurs
+      // CAT1: 1 = 36 = 17 // = 48 = 49 = 40 = 57 //
+      // CAT2: 13 = 12 = 29 // = 60 = 61 = 52 = 69 //
+      // CAT3: 19 = 18 = 35 // = 66 = 67 = 58 = 39 //
+      // CAT4: 31 = 30 = 11 // = 42 = 43 = 51 = 70 //
+      // CAT5: 25 = 24 = 5 // = 37 = 72 = 45 = 64 //
+      // CAT6: 7 = 6 = 23 // = 54 = 55 = 46 = 63 //
       if (i === 0) {
         type = 'center';
-      } else if (!(i % nbCat) && i <= nbCat * nbCat) {
+      } else if (!(i % themes.length) && i <= themes.length * themes.length) {
         type = 'cheese';
-      } else if (i > nbCat * nbCat && (i % nbCat === 2 || i % nbCat === 5)) {
+        //choisir la catégorie
+      } else if (
+        i > themes.length * themes.length &&
+        (i % themes.length === 2 || i % themes.length === 5)
+      ) {
         //ne marche que pour la génération à 6 catégories pour le moment
         //to fix : prévoir les scénarios de génération des cases replay pour nbCat [4,inf]
         type = 'replay';
@@ -92,5 +106,20 @@ function areSameArrays(tab1, tab2) {
   }
   return false;
 }
-
-module.exports = { createBox, createBoxes, createPaths, areSameArrays };
+function pickThemes(nbThemes) {
+  return getAllThemes()
+    .then((allThemes) => {
+      return pickANumberOfThings(allThemes, nbThemes);
+    })
+    .catch((error) => {
+      console.log(error);
+      return 'blop';
+    });
+}
+module.exports = {
+  createBox,
+  createBoxes,
+  createPaths,
+  areSameArrays,
+  pickThemes,
+};

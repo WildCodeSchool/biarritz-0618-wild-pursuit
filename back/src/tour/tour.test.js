@@ -14,7 +14,7 @@ const {
 
 //let readline = require('readline');
 
-describe('Lancer le timer', () => {
+describe('Start the timer', () => {
   it('Should decrement a number each seconds', (done) => {
     let timer = { countDown: 2 };
     startTimer(timer);
@@ -28,7 +28,7 @@ describe('Lancer le timer', () => {
   });
 });
 
-describe('Afficher et répondre à une question', () => {
+describe('Display and Answer a question', () => {
   beforeEach((done) => {
     console.info('Deleting questions...');
     Question.destroy({
@@ -91,7 +91,7 @@ describe('Afficher et répondre à une question', () => {
             }
             if (i != listQuestions.length - 1) {
               expect(listQuestions[i].isAlreadyUsed).to.be.false();
-              expect(listQuestions[i].theme).to.be.equal('MON THEME');
+              expect(listQuestions[i].themeName).to.be.equal('Géographie');
               done();
             }
           })
@@ -104,7 +104,7 @@ describe('Afficher et répondre à une question', () => {
       .then((theQuestion) => {
         expect(theQuestion).to.only.include([
           'id',
-          'theme',
+          'themeName',
           'question',
           'correctAnswer',
           'answers',
