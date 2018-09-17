@@ -6,7 +6,7 @@ class CheeseWin extends Component {
   render() {
     return (
       <div>
-        <h1>Féliciations !!</h1>
+        <h1>Félicitations !!</h1>
         <p>
           Vous venez de Gagner une Part de Camembert {this.props.color} pour la
           catégorie {this.props.theme}

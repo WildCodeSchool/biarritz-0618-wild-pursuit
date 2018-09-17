@@ -82,7 +82,7 @@ class CreateGame extends Component {
             </div>
           </div>
           <div id="switch">
-            <h2>Compte à rebour avant partie :</h2>
+            <h2>Compte à rebours avant partie :</h2>
             <div id="switchTwo">
               <div class="timer">
                 <div class="timertext">10 Secondes</div>

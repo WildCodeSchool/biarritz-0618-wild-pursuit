@@ -11,7 +11,7 @@ class StopGame extends Component {
       <div id="contain">
         <h1>Confirmation</h1>
         <div id="containTwo">
-          Vous avez cliquez sur "Arrêter la Partie", est-ce bien ce que vous
+          Vous avez cliqué sur "Arrêter la Partie", est-ce bien ce que vous
           voulez faire ?<br />
           Attention, cette action est irréversible !
           <StopButton
