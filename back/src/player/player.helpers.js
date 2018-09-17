@@ -1,34 +1,14 @@
 const { names, colors } = require('./player.data.js');
-
-function getUniqueIndexes(nbIndex, indexMax) {
-  let indexes = [];
-  let i = 0;
-  while (i < nbIndex) {
-    let index = Math.floor(Math.random() * indexMax);
-    if (!indexes.includes(index)) {
-      indexes.push(index);
-      i++;
-    }
-  }
-  return indexes;
-}
+const { pickANumberOfThings } = require('./../common/common.helpers.js');
 
 function getColors(nbPlayers) {
-  let colorsPlayers = [];
-  indexes = getUniqueIndexes(nbPlayers, colors.length);
-  indexes.forEach((index) => {
-    colorsPlayers.push(colors[index]);
-  });
-  return colorsPlayers;
+  return pickANumberOfThings(colors, nbPlayers);
 }
+
 function getNames(nbPlayers) {
-  let namesPlayers = [];
-  indexes = getUniqueIndexes(nbPlayers, names.length);
-  indexes.forEach((index) => {
-    namesPlayers.push(names[index]);
-  });
-  return namesPlayers;
+  return pickANumberOfThings(names, nbPlayers);
 }
+
 function getNamesAndColors(nbPlayers) {
   let players = [];
   let namesPlayers = getNames(nbPlayers);
