@@ -25,5 +25,6 @@ function fillDBThemes() {
   themes.forEach((theme) => {
     Theme.create(theme);
   });
+  console.log('Database filled with themes');
 }
 module.exports = fillDBThemes;
