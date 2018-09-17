@@ -1,8 +1,8 @@
 class Player {
-  constructor(name, color) {
-    this._name = name;
+  constructor(settings) {
+    this._name = settings.name;
     this._cheeses = [];
-    this._color = color;
+    this._color = settings.color;
     this._position = 0;
   }
   get name() {
@@ -19,6 +19,9 @@ class Player {
   }
   get position() {
     return this._position;
+  }
+  set position(pos) {
+    return (this._position = pos);
   }
 }
 
