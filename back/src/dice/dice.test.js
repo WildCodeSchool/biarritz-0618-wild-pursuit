@@ -4,8 +4,8 @@ const launchDice = require('./dice.controller.js');
 //const server = require('../app.js');
 //const expect = require('expect.js');
 
-describe('lancé de dé', () => {
-  it('should generate a integer', (done) => {
+describe('Launch the Dice', () => {
+  it('Should generate a integer', (done) => {
     const nbr = 28;
     for (let i = 0; i < 1000; i++) {
       const rpse = launchDice(nbr);

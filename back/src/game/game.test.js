@@ -1,7 +1,7 @@
 const Code = require('code');
 const expect = Code.expect;
 const { pickAPlayer, getNextPlayer } = require('./game.controller.js');
-describe('Choisir les joueurs', () => {
+describe('Pick the players', () => {
   it('Should Randomly pick a player in an Array', (done) => {
     const players = ['Sandra', 'Karo', 'Yann', 'Maxime', 'Sami', "Anne-So'"];
     let pickedPlayers = [];
