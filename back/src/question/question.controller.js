@@ -56,7 +56,6 @@ module.exports = {
           response: question.dataValues.response,
           responses: question.dataValues.responses,
         };
-        console.log(laQuestion);
         return h.response(laQuestion).code(200);
       })
       .catch();
