@@ -1,11 +1,6 @@
 const Code = require('code');
 const expect = Code.expect;
 const lancerDe = require('./de.controller.js');
-//const server = require('../app.js');
-//const expect = require('expect.js');
-
-
-
 
 describe('lancé de dé', () => {
     it('should generate a integer', (done) => {
@@ -19,4 +14,5 @@ describe('lancé de dé', () => {
 
         done();
     });
+
 });

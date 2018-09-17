@@ -4,7 +4,9 @@
   "description": "Wild pursuit",
   "main": "index.js",
   "scripts": {
+
     "start": "node ./src/app.js",
+
     "test": "NODE_ENV=test mocha \"./src/**/*.test.js\"",
     "test:watch": "NODE_ENV=test mocha -w \"./src/**/*.test.js\""
   },
@@ -30,6 +32,7 @@
     "postgresql": "0.0.1",
     "readline": "^1.3.0",
     "readline-sync": "^1.4.9",
+
     "sequelize": "^4.38.0",
     "uuid": "^3.3.2",
     "win-node-env": "^0.1.0"
