@@ -36,6 +36,7 @@ class Game {
   }
 
   get playersConnected() {
+    console.log(value);
     return this._players.length;
   }
 

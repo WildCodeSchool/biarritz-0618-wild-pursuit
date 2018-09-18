@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
 import { connect } from "react-redux";
+import { io } from "socket.io";
 
 import CreateButton from "./../../../commun/button/CreateButton.jsx";
 import WaitingForPlayers from "./../waitingForPlayers/WaitingForPlayers.jsx";
@@ -21,7 +22,9 @@ class CreateGame extends Component {
   }
 
   handleSlider = (event, value) => {
-    this.setState({ value });
+    this.setState({
+      value
+    });
   };
 
   handleSwitch = name => event => {
@@ -57,9 +60,16 @@ class CreateGame extends Component {
         "Compte à rebours avant la partie : " +
         countDown
     );
+    io.emit("createGame", { nbPLayers, countDown });
+    /* .addEventListener("slider", function(event) {
+      event.preventDefault();
+      socket.emit("chooseNbrPlayer", handleSlider(value));
+    }); */
     this.props.dispatch({
       type: "@popup/CHANGE",
-      payload: { content: <WaitingForPlayers /> }
+      payload: {
+        content: <WaitingForPlayers />
+      }
     });
   };
   render() {

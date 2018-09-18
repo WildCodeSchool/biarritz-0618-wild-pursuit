@@ -31,6 +31,7 @@
     "readline": "^1.3.0",
     "readline-sync": "^1.4.9",
     "sequelize": "^4.38.0",
+    "socket.io": "^2.1.1",
     "uuid": "^3.3.2",
     "win-node-env": "^0.1.0"
   },
