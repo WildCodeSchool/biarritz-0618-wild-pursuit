@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Slider from "@material-ui/lab/Slider";
 import Switch from "@material-ui/core/Switch";
 import { connect } from "react-redux";
-import { io } from "socket.io";
+import socketIOClient from "socket.io-client";
 
 import CreateButton from "./../../../commun/button/CreateButton.jsx";
 import WaitingForPlayers from "./../waitingForPlayers/WaitingForPlayers.jsx";
@@ -17,10 +17,15 @@ class CreateGame extends Component {
       checkedA: true,
       checkedB: false,
       checkedC: false,
-      countDown: 10
+      countDown: 10,
+      socket: undefined
     };
   }
-
+  componentDidMount() {
+    const socket = socketIOClient("http://localhost:5000");
+    //this.setState({ socket: socketIOClient("http://localhost:5000") });
+    socket.emit("createGame", "bite");
+  }
   handleSlider = (event, value) => {
     this.setState({
       value
@@ -53,6 +58,8 @@ class CreateGame extends Component {
   };
 
   handleCreateGame = (nbPLayers, countDown) => {
+    console.log(this.state.socket);
+    this.state.socket.emit("createGame", "bite");
     alert(
       "Nombre de joueurs de la partie : " +
         nbPLayers +
@@ -60,7 +67,6 @@ class CreateGame extends Component {
         "Compte à rebours avant la partie : " +
         countDown
     );
-    io.emit("createGame", { nbPLayers, countDown });
     /* .addEventListener("slider", function(event) {
       event.preventDefault();
       socket.emit("chooseNbrPlayer", handleSlider(value));

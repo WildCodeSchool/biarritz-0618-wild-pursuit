@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "hapi": "^17.5.2",
+    "inert": "^5.1.0",
     "node-fetch": "^2.2.0",
     "pg": "^7.4.3",
     "postgresql": "0.0.1",
