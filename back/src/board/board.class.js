@@ -30,6 +30,7 @@ class NormalBoard extends IBoard {
       boardHelpers.pickThemes(this._nbCat).then((themes) => {
         this._themes = themes;
         this._theBoxes = boardHelpers.createBoxes(this._themes);
+        console.log(this._theBoxes);
         this._thePaths = boardHelpers.createPaths(this._nbCat, this._theBoxes);
         this._ready = true;
         resolve();

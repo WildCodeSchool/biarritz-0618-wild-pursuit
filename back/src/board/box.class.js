@@ -27,23 +27,35 @@ class IBox extends Noeud {
 }
 
 class NormalBox extends IBox {
-  constructor(id, x, y) {
+  constructor(id, x, y, theme) {
     super(id, x, y);
+    this._theme = theme;
   }
+
+  get theme() {
+    return this._theme;
+  }
+
   play() {
     return true;
   }
 }
 
 class CheeseBox extends IBox {
-  constructor(id, x, y) {
+  constructor(id, x, y, theme) {
     super(id, x, y);
+    this._theme = theme;
   }
+
+  get theme() {
+    return this._theme;
+  }
+
   play() {}
 }
 
 class CenterBox extends IBox {
-  constructor(id, x, y) {
+  constructor(id, x, y, theme) {
     super(id, x, y);
   }
   play() {}
