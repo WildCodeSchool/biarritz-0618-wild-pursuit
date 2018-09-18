@@ -59,7 +59,7 @@ export default class Board extends Component {
       let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
         mSize *
         (j + 1)}px) `;
-      boxes.push(createNormalBox(m, mCoord, mSize, mTransform)); // TODO
+      boxes.push(createNormalBox(m, mCoord, mSize, mTransform)); // TODO cheeseBox
       rot += ANGLE;
     }
     for (let i = 1; i < N + 1; i++) {
