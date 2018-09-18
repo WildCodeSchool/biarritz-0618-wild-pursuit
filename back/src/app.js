@@ -1,6 +1,6 @@
 require('./db'); // init the db connection
 const Hapi = require('hapi');
-const server = Hapi.server({ port: 3000 });
+const server = Hapi.server({ port: 5000 });
 const { launchGame } = require('./game/game.controller.js');
 
 // -------------------------------
