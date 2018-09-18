@@ -27,8 +27,9 @@ function launchGame(nbCat, nbMaxPlayers) {
 
     player.position = 5; //CHOIX UTILISATEUR
     console.log(player.name + ' se déplace sur la case n°' + player.position);
+
     console.log(aGame.board.boxes[player.position]);
   });
 }
 
-module.exports = { launchGame };
+module.exports = { launchGame, pickAPlayer, getNextPlayer };
