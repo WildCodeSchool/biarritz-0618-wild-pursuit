@@ -23,14 +23,18 @@ async function start() {
     process.exit(1);
   }
   console.log('Server running at : ', server.info.uri);
-  io.emit('tchoin', 'tchoin');
 }
-start();
-// io.on('createGame', function(infos) {
-//   console.log('TCHOIN');
-//   console.log(infos);
-//   //launchGame(infos.nbPlayers, infos.countDown);
-// });
+start().then(() => {
+  //io.emit('tchoin', 'tchoin');
+  io.on('connection', function(socket) {
+    socket.on('createGame', function(infos) {
+      console.log('TCHOIN');
+      console.log(infos);
+      //launchGame(infos.nbPlayers, infos.countDown);
+    });
+    console.log('a user connected');
+  });
+});
 
 //server.route(require('./question/question.routes'));
 
