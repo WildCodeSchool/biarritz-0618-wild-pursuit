@@ -16,7 +16,8 @@ export default class CheeseBox extends Component {
           left: coord[0],
           width: size,
           height: size,
-          border: "1px solid red",
+          backgroundColor: "#ffa64d",
+          border: "1px solid #ffa64d",
           transform
         }}
       >

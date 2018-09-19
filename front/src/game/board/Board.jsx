@@ -8,8 +8,8 @@ import Pawn from "./pawn/Pawn.jsx";
 import "./board.css";
 const N = 6; // récupérer le nombre de catégories du back // WEBSOCKETS
 const U = 10; // Constate d'unité (en pixel)
-const WIDTH = 600; // constante de la longueur de zone de jeu en pixels
-const HEIGHT = 600; // constante de la hauteur de zone de jeu en pixels
+const WIDTH = 800; // constante de la longueur de zone de jeu en pixels
+const HEIGHT = 800; // constante de la hauteur de zone de jeu en pixels
 
 function createBox(component, id, coord, size) {
   return { component, id, coord, size };

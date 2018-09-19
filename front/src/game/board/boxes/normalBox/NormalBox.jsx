@@ -16,7 +16,8 @@ export default class NormalBox extends Component {
           left: coord[0],
           width: size,
           height: size,
-          border: "1px solid black",
+          backgroundColor: "#C0C0C0",
+          border: "1px solid #C0C0C0",
           transform
         }}
       >
