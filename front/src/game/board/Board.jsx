@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
+import Slider from "@material-ui/lab/Slider";
+
 import NormalBox from "./boxes/normalBox/NormalBox.jsx";
 import CheeseBox from "./boxes/cheeseBox/CheeseBox.jsx";
 import ReplayBox from "./boxes/replayBox/ReplayBox.jsx";
 import CenterBox from "./boxes/centerBox/CenterBox.jsx";
 import Pawn from "./pawn/Pawn.jsx";
 import "./board.css";
-const N = 6; // récupérer le nombre de catégories du back // WEBSOCKETS
+// récupérer le nombre de catégories du back // WEBSOCKETS
 const U = 12; // Constate d'unité (en pixel)
 const WIDTH = 800; // constante de la longueur de zone de jeu en pixels
 const HEIGHT = 800; // constante de la hauteur de zone de jeu en pixels
@@ -20,9 +22,21 @@ function createInteriorBox(component, id, coord, size, transform) {
 }
 
 export default class Board extends Component {
-  state = { boxes: [] };
+  constructor() {
+    super();
+    this.state = {
+      boxes: [],
+      value: 6
+    };
+    this.generateBoard = this.generateBoard.bind(this);
+  }
 
   componentDidMount() {
+    this.setState({ boxes: this.generateBoard(6) });
+  }
+
+  generateBoard(N) {
+    //const N = this.state.value;
     let lastJ = 0;
     let boxes = [];
     const ANGLE = 360 / N;
@@ -80,8 +94,14 @@ export default class Board extends Component {
       }
       rot += a;
     }
-    this.setState({ boxes });
+    return boxes;
   }
+
+  handleSlider = (event, value) => {
+    this.setState({ value });
+    this.setState({ boxes: this.generateBoard(value) });
+  };
+
   render() {
     return (
       <div
@@ -93,6 +113,15 @@ export default class Board extends Component {
           overflow: "auto"
         }}
       >
+        <div style={{ width: "300px" }}>
+          <Slider
+            value={this.state.value}
+            min={4}
+            max={10}
+            step={1}
+            onChange={this.handleSlider}
+          />
+        </div>
         {this.state.boxes.map(box => {
           let { component: B, ...rest } = box;
           return <B {...rest} />;
