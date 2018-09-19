@@ -24,6 +24,9 @@ class CreateGame extends Component {
   componentDidMount() {
     const socket = socketIOClient("http://localhost:5000");
     //this.setState({ socket: socketIOClient("http://localhost:5000") });
+    socket.on("tchoin", message => {
+      alert(message);
+    });
     socket.emit("createGame", "bite");
   }
   handleSlider = (event, value) => {

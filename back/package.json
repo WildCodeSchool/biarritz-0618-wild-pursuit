@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Wild pursuit",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "node ./src/app.js",
     "test": "NODE_ENV=test mocha --no-timeouts \"./src/**/*.test.js\"",

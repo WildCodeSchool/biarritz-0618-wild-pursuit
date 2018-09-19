@@ -15,7 +15,7 @@ const { launchGame } = require('./game/game.controller.js');
 // }
 
 async function start() {
-  await server.register(require('inert'));
+  //await server.register(require('inert'));
   try {
     await server.start();
   } catch (err) {
@@ -23,14 +23,14 @@ async function start() {
     process.exit(1);
   }
   console.log('Server running at : ', server.info.uri);
+  io.emit('tchoin', 'tchoin');
 }
 start();
-
-io.on('createGame', function(infos) {
-  console.log('TCHOIN');
-  console.log(infos);
-  //launchGame(infos.nbPlayers, infos.countDown);
-});
+// io.on('createGame', function(infos) {
+//   console.log('TCHOIN');
+//   console.log(infos);
+//   //launchGame(infos.nbPlayers, infos.countDown);
+// });
 
 //server.route(require('./question/question.routes'));
 
