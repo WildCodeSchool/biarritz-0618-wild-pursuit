@@ -7,15 +7,15 @@ import CenterBox from "./boxes/centerBox/CenterBox.jsx";
 import Pawn from "./pawn/Pawn.jsx";
 import "./board.css";
 const N = 6; // récupérer le nombre de catégories du back // WEBSOCKETS
-const U = 10; // Constate d'unité (en pixel)
-const WIDTH = 600; // constante de la longueur de zone de jeu en pixels
+const U = 15; // Constate d'unité (en pixel)
+const WIDTH = 800; // constante de la longueur de zone de jeu en pixels
 const HEIGHT = 600; // constante de la hauteur de zone de jeu en pixels
 
 function createBox(component, id, coord, size) {
   return { component, id, coord, size };
 }
 
-function createNormalBox(component, id, coord, size, transform) {
+function createInteriorBox(component, id, coord, size, transform) {
   return { component, id, coord, size, transform };
 }
 
@@ -23,6 +23,7 @@ export default class Board extends Component {
   state = { boxes: [] };
 
   componentDidMount() {
+    let lastJ = 0;
     let boxes = [];
     const ANGLE = 360 / N;
     const CENTERBOX_SIZE = U * N; // C'est un carré
@@ -38,7 +39,7 @@ export default class Board extends Component {
       let nSize = (Math.PI * CENTERBOX_SIZE) / N;
       let nCoord = [CENTERBOX_LEFT - nSize / 2, CENTERBOX_TOP - nSize / 2];
       let nTransform = `rotate(${rot}deg) translate(${(N / 4) * nSize + 4}px) `;
-      boxes.push(createNormalBox(NormalBox, n, nCoord, nSize, nTransform));
+      boxes.push(createInteriorBox(NormalBox, n, nCoord, nSize, nTransform));
 
       m = n + 1;
       let j = 1;
@@ -49,7 +50,7 @@ export default class Board extends Component {
         let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
           mSize *
           j}px) `;
-        boxes.push(createNormalBox(NormalBox, m, mCoord, mSize, mTransform));
+        boxes.push(createInteriorBox(NormalBox, m, mCoord, mSize, mTransform));
         m++;
       }
 
@@ -59,15 +60,25 @@ export default class Board extends Component {
       let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
         mSize *
         (j + 1)}px) `;
-      boxes.push(createNormalBox(CheeseBox, m, mCoord, mSize, mTransform)); // TODO cheeseBox
+      boxes.push(createInteriorBox(CheeseBox, m, mCoord, mSize, mTransform)); // TODO cheeseBox
       rot += ANGLE;
+      lastJ = j;
     }
+    rot = 0;
+    let a = 360 / (N * N + N);
     for (let i = 1; i < N + 1; i++) {
       let n = i * N;
       for (var j = 1; j < N + 1; j++) {
         m++;
-        boxes.push(createBox(NormalBox, m, [WIDTH / 2, HEIGHT / 2])); // TODO
+        let mSize = (Math.PI * CENTERBOX_SIZE) / N;
+        let mCoord = [CENTERBOX_LEFT - mSize / 2, CENTERBOX_TOP - mSize / 2];
+        let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
+          mSize *
+          (lastJ + 1)}px,${mSize + 8}px) `;
+        boxes.push(createInteriorBox(NormalBox, m, mCoord, mSize, mTransform));
+        rot += a;
       }
+      rot += a;
     }
     this.setState({ boxes });
   }
