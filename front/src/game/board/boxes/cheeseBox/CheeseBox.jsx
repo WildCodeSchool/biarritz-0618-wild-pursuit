@@ -7,14 +7,17 @@ export default class CheeseBox extends Component {
   }
 
   render() {
-    const { coord, id } = this.props;
+    const { coord, id, size, transform } = this.props;
     return (
       <div
         style={{
-          //position: "absolute",
-          //top: coord[1],
-          //left: coord[0],
-          border: "1px solid red"
+          position: "absolute",
+          top: coord[1],
+          left: coord[0],
+          width: size,
+          height: size,
+          border: "1px solid red",
+          transform
         }}
       >
         {id}

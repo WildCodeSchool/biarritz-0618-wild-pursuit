@@ -15,8 +15,8 @@ function createBox(component, id, coord, size) {
   return { component, id, coord, size };
 }
 
-function createNormalBox(id, coord, size, transform) {
-  return { component: NormalBox, id, coord, size, transform };
+function createNormalBox(component, id, coord, size, transform) {
+  return { component, id, coord, size, transform };
 }
 
 export default class Board extends Component {
@@ -38,7 +38,7 @@ export default class Board extends Component {
       let nSize = (Math.PI * CENTERBOX_SIZE) / N;
       let nCoord = [CENTERBOX_LEFT - nSize / 2, CENTERBOX_TOP - nSize / 2];
       let nTransform = `rotate(${rot}deg) translate(${(N / 4) * nSize + 4}px) `;
-      boxes.push(createNormalBox(n, nCoord, nSize, nTransform));
+      boxes.push(createNormalBox(NormalBox, n, nCoord, nSize, nTransform));
 
       m = n + 1;
       let j = 1;
@@ -49,7 +49,7 @@ export default class Board extends Component {
         let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
           mSize *
           j}px) `;
-        boxes.push(createNormalBox(m, mCoord, mSize, mTransform));
+        boxes.push(createNormalBox(NormalBox, m, mCoord, mSize, mTransform));
         m++;
       }
 
@@ -59,7 +59,7 @@ export default class Board extends Component {
       let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
         mSize *
         (j + 1)}px) `;
-      boxes.push(createNormalBox(m, mCoord, mSize, mTransform)); // TODO cheeseBox
+      boxes.push(createNormalBox(CheeseBox, m, mCoord, mSize, mTransform)); // TODO cheeseBox
       rot += ANGLE;
     }
     for (let i = 1; i < N + 1; i++) {
