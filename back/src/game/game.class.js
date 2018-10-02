@@ -3,8 +3,8 @@ const Player = require('./../player/player.class.js');
 const getNamesAndColors = require('./../player/player.helpers.js');
 
 class Game {
-  constructor(nbCat, nbPlayers) {
-    this._id = Math.ceil(Math.random() * 10000);
+  constructor(id, nbCat, nbPlayers) {
+    this._id = id;
     this._nbCat = nbCat;
     this._players = [];
     this._playersNamesAndColor = getNamesAndColors(nbPlayers);
@@ -36,7 +36,6 @@ class Game {
   }
 
   get playersConnected() {
-    console.log(value);
     return this._players.length;
   }
 

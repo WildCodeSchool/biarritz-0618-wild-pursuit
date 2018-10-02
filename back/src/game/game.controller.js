@@ -10,20 +10,27 @@ function getNextPlayer(player, players) {
   return players[nextPlayerIndex];
 }
 
-function launchGame(nbCat, nbMaxPlayers) {
-  let aGame = new Game(nbCat, nbMaxPlayers);
+function launchGame(id, nbCat, nbMaxPlayers, countDownBeforeGame, socket) {
+  let aGame = new Game(id, nbCat, nbMaxPlayers);
   aGame.init().then(() => {
-    aGame.newPlayer();
-    aGame.newPlayer();
-    aGame.newPlayer();
-    aGame.newPlayer();
-    let player = pickAPlayer(aGame.players);
-    console.log('Le joueur qui joue : ' + player.name);
-    let result = launchDice();
-    console.log('Le résultat du dé : ' + result);
-    console.log(
-      aGame.board.getNeighbors(aGame.board.boxes[player.position], result)
-    );
+    socket.brodcast
+      .to(id)
+      .emit('tchoin', 'tchoin')
+      // .on('connection', function(socket) {
+      //   aGame.newPlayer();
+      // })
+      .then(() => {
+        let player = pickAPlayer(aGame.players);
+        console.log('Le joueur qui joue : ' + player.name);
+        let result = launchDice();
+        console.log('Le résultat du dé : ' + result);
+        console.log(
+          aGame.board.getNeighbors(aGame.board.boxes[player.position], result)
+        );
+      });
+    //aGame.newPlayer();
+    //aGame.newPlayer();
+    //aGame.newPlayer();
 
     player.position = 5; //CHOIX UTILISATEUR
     console.log(player.name + ' se déplace sur la case n°' + player.position);
