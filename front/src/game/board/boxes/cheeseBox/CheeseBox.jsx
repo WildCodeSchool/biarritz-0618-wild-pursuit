@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class CheeseBox extends Component {
+class CheeseBox extends Component {
   constructor(props) {
     super();
     this.state = { ...props.cheeseObjet };
   }
 
   render() {
-    const { coord, id, size, transform } = this.props;
+    const { coord, id, size, transform, onClick } = this.props;
     return (
       <div
         style={{
@@ -20,9 +21,11 @@ export default class CheeseBox extends Component {
           border: "1px solid #ffa64d",
           transform
         }}
-      >
-        {id}
-      </div>
+        onClick={() => {
+          onClick();
+        }}
+      />
     );
   }
 }
+export default connect(() => ({}))(CheeseBox);

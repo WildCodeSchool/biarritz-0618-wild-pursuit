@@ -50,13 +50,6 @@ class CreateGame extends Component {
   };
 
   handleCreateGame = (nbPLayers, countDown) => {
-    alert(
-      "Nombre de joueurs de la partie : " +
-        nbPLayers +
-        "\n" +
-        "Compte à rebours avant la partie : " +
-        countDown
-    );
     this.props.dispatch({
       type: "@popup/CHANGE",
       payload: { content: <WaitingForPlayers /> }

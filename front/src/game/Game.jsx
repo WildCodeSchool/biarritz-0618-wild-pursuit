@@ -55,7 +55,7 @@ class Game extends Component {
           <Popup />
           <Grid id="left" item xs>
             <Logo />
-            <h3>Partie #{this.props.id}</h3>
+            <h3>Partie #2456</h3>
 
             <GameButton
               id="endGame"
@@ -65,12 +65,7 @@ class Game extends Component {
               name="Arrêter la partie"
             />
 
-            <GameButton
-              onClick={() => {
-                this.createGame();
-              }}
-              name="Créer une partie"
-            />
+            <GameButton onClick={this.createGame()} name="Créer une partie" />
 
             <GameButton
               onClick={() => {

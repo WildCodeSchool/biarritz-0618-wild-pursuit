@@ -21,9 +21,7 @@ export default class CenterBox extends Component {
             height: size
           } //backgroundColor: "black",
         }
-      >
-        {id}
-      </div>
+      />
     );
   }
 }

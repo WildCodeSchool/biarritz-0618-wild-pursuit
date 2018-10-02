@@ -19,7 +19,7 @@ class Stats extends Component {
         <h1>
           Voici quelques statistiques de la partie que vous venez de jouer
         </h1>
-        <p>Durée totale : "DUREE DE LA PARTIE"</p>
+        <p>Durée totale : 1m37s</p>
         <div>
           <Link to="/">
             <CreateButton

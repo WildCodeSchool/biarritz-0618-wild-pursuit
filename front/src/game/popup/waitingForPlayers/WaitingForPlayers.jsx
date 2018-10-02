@@ -33,26 +33,22 @@ class WaitingForPlayers extends Component {
     return (
       <div>
         <h1>En attente de la connexion des joueurs</h1>
-        <div id="playersConnected">
-          🐾 {this.state.playersConnected} sur {this.props.maxPLayers}
-        </div>
+        <div id="playersConnected">🐾 {this.state.playersConnected} sur 4</div>
 
         <button onClick={this.playerJoined}>(Un joueur se connecte)</button>
         <button onClick={this.playerLeft}>(Un joueur se deconnecte)</button>
         <br />
-        <Link to="/game/wait">
-          <CreateButton
-            bottom="5%"
-            onClick={() => {
-              this.props.dispatch({
-                type: "@popup/CHANGE",
-                payload: { content: <CountDownToGame countDown={10} /> }
-              });
-            }}
-            name="Commencer la partie quand même"
-            disabled={this.state.playersConnected < 2}
-          />
-        </Link>
+        <CreateButton
+          bottom="5%"
+          onClick={() => {
+            this.props.dispatch({
+              type: "@popup/CHANGE",
+              payload: { content: <CountDownToGame countDown={10} /> }
+            });
+          }}
+          name="Commencer la partie quand même"
+          disabled={this.state.playersConnected < 2}
+        />
       </div>
     );
   }

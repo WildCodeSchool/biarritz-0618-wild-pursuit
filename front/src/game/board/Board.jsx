@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
 import Slider from "@material-ui/lab/Slider";
 
 import NormalBox from "./boxes/normalBox/NormalBox.jsx";
 import CheeseBox from "./boxes/cheeseBox/CheeseBox.jsx";
 import ReplayBox from "./boxes/replayBox/ReplayBox.jsx";
 import CenterBox from "./boxes/centerBox/CenterBox.jsx";
+import Question from "./../popup/question/Question.jsx";
+import Question2 from "./../popup/question/Question2.jsx";
 import Pawn from "./pawn/Pawn.jsx";
 import "./board.css";
 // récupérer le nombre de catégories du back // WEBSOCKETS
@@ -17,11 +20,10 @@ function createBox(component, id, coord, size) {
   return { component, id, coord, size };
 }
 
-function createInteriorBox(component, id, coord, size, transform) {
-  return { component, id, coord, size, transform };
+function createInteriorBox(component, id, coord, size, transform, onClick) {
+  return { component, id, coord, size, transform, onClick };
 }
-
-export default class Board extends Component {
+class Board extends Component {
   constructor() {
     super();
     this.state = {
@@ -74,7 +76,26 @@ export default class Board extends Component {
       let mTransform = `rotate(${rot}deg) translate(${(N / 4) *
         mSize *
         (j + 1)}px) `;
-      boxes.push(createInteriorBox(CheeseBox, m, mCoord, mSize, mTransform)); // TODO cheeseBox
+      let onC;
+      if (m < 24) {
+        onC = () => {
+          this.props.dispatch({
+            type: "@popup/OPEN",
+            payload: { content: <Question /> }
+          });
+        };
+      } else {
+        onC = () => {
+          this.props.dispatch({
+            type: "@popup/OPEN",
+            payload: { content: <Question2 /> }
+          });
+        };
+      }
+
+      boxes.push(
+        createInteriorBox(CheeseBox, m, mCoord, mSize, mTransform, onC)
+      ); // TODO cheeseBox
       rot += ANGLE;
       lastJ = j;
     }
@@ -130,3 +151,4 @@ export default class Board extends Component {
     );
   }
 }
+export default connect(() => ({}))(Board);

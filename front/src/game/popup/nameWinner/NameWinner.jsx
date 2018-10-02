@@ -18,7 +18,7 @@ class NameWinner extends Component {
     return (
       <div id="containWin">
         <h1>La partie est terminée</h1>
-        <p>Le vainqueur de la partie est "NOM DU GAGNANT"</p>
+        <p>Le vainqueur de la partie est "Chacal"</p>
         <div id="button">
           <Link to="/">
             <StopButton
